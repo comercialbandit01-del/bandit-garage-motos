@@ -3,8 +3,8 @@
     en: {
       dir: "ltr",
       meta: {
-        title: "Bandit Garage | Custom motorcycles, handcrafted in Portugal",
-        description: "For 12 years, Bandit Garage has designed and built custom motorcycles in Portugal for riders around the world. An international reference in custom motorcycles."
+        title: "Bandit Garage | Bespoke Custom Motorcycles & Engineering",
+        description: "Bandit Garage is an internationally acclaimed custom motorcycle atelier. For 12 years, redefining classic BMW boxer platforms through bespoke engineering for collectors worldwide."
       },
       ui: {
         skipLink: "Skip to content",
@@ -13,157 +13,157 @@
         languageLabel: "Language"
       },
       brand: {
-        headerTagline: "Custom motorcycles · Portugal",
-        footerTagline: "Custom motorcycles. Handcrafted in Portugal.",
-        footerLead: "Twelve years of custom motorcycles, handcrafted in Portugal and delivered to owners all over the world."
+        headerTagline: "Bespoke Custom Motorcycles · Portugal",
+        footerTagline: "Bespoke Motorcycles & Performance Kits. Handcrafted in Portugal.",
+        footerLead: "Twelve years of bespoke motorcycle engineering and radical custom design, delivered to collectors across the globe."
       },
       nav: {
         configurator: "Configurator",
         store: "Bandit Store",
         links: ["Atelier", "Builds", "Process", "Instagram", "Contact"],
         instagram: "Instagram",
-        cta: "Configure a Moto"
+        cta: "Commission a Build"
       },
       hero: {
-        eyebrow: "Portugal · 12 years · Shipped worldwide",
-        title: "One-off motorcycles, made by hand.",
-        lead: "For 12 years, Bandit Garage has designed and built custom motorcycles in Portugal. Our work travels to riders and collectors around the world and is regarded as some of the finest in the field.",
+        eyebrow: "Portugal · 12-Year Heritage · Global Delivery",
+        title: "Radical silhouettes. Bespoke engineering.",
+        lead: "Bandit Garage is an internationally acclaimed custom motorcycle atelier. For 12 years, we have reimagined classic BMW boxer platforms through obsessive precision, architectural proportions, and uncompromising craftsmanship delivered to collectors worldwide.",
         buttons: ["Tell us your idea", "See our builds", "View all projects"],
         buttonsObj: {
           configurator: "Configure a Moto",
           store: "Bandit Store (Kits)"
         },
-        proofLabels: ["Experience", "Clients", "Reputation"],
-        proofValues: ["12 years", "worldwide", "internationally acclaimed"],
+        proofLabels: ["Heritage", "Presence", "Reputation"],
+        proofValues: ["12 Years", "Worldwide", "World-Class"],
         signalLabel: "Our atelier",
-        signalTitle: "Every build begins with your idea. We bring it to life.",
-        signalLink: "Start the conversation"
+        signalTitle: "From your vision to an iconic bespoke machine.",
+        signalLink: "Commission your project"
       },
-      marquee: ["Custom motorcycles", "12 years of craftsmanship", "Handcrafted in Portugal", "Shipped worldwide", "An international reference"],
+      marquee: ["Bespoke Motorcycles", "12 Years of Heritage", "Precision Engineering", "Global Reach", "World-Class Icon"],
       atelier: {
-        label: "Our atelier",
-        title: "Mechanical integrity, clean lines and an uncompromising finish.",
+        label: "The Atelier",
+        title: "Mechanical purity, architectural stance, and uncompromising finish.",
         paragraphs: [
-          "Bandit Garage is a custom motorcycle atelier based in Portugal. For 12 years, we have turned classic motorcycles into one-off machines, crafted with care in their lines, proportions and every last detail.",
-          "From our workshop, each motorcycle makes its way to its owner, wherever they may be. It is the trust earned build after build that has made Bandit Garage an international reference in custom motorcycles."
+          "Bandit Garage is an independent design and engineering atelier. We do not build mass-market bikes; we craft one-off mechanical statements defined by aggressive stance, perfect weight distribution, and razor-sharp lines.",
+          "Every motorcycle leaving our workshop is built to collector standards, engineered to perform seamlessly on the road and command attention anywhere in the world."
         ],
         items: [
-          { title: "Custom motorcycles", body: "Every build is designed around its lines, stance and weight, and around how the finished machine should feel on the road." },
-          { title: "Handmade parts", body: "Bespoke components and finishing details that give each motorcycle its own signature." },
-          { title: "Recognised worldwide", body: "Twelve years of work, admired by riders and collectors around the world." },
-          { title: "Delivery worldwide", body: "Built in Portugal and delivered to owners on every continent." }
+          { title: "Bespoke Builds", body: "Complete architectural transformations shaped around stance, power delivery, and pure mechanical presence." },
+          { title: "Precision Components", body: "Proprietary CNC billet parts, custom-tuned exhaust lines, and aerospace-grade hardware." },
+          { title: "International Acclaim", body: "Over a decade of landmark builds celebrated by connoisseurs, riders, and collectors globally." },
+          { title: "Worldwide Logistics", body: "Built in Portugal with secure white-glove international shipping to any destination." }
         ]
       },
       builds: {
-        label: "Selected builds",
-        title: "The motorcycles speak for themselves.",
-        lead: "Our reputation was built on BMW boxer motorcycles, shaped by the spirit of the cafe racer and the scrambler. These are some of the machines that define our style.",
+        label: "Landmark Builds",
+        title: "Machines built to make a statement.",
+        lead: "Our reputation was forged on classic BMW boxer platforms, stripped down to their pure mechanical essence and rebuilt with unapologetic attitude.",
         featured: {
-          tag: "Featured build",
-          title: "BMW R100",
-          body: "Low, compact and purposeful. A motorcycle that is understood at a glance, from the line of the tank to the tail.",
-          link: "See all projects"
+          tag: "Iconic Build",
+          title: "BMW R100 Blackline",
+          body: "Low-slung, tight, and ruthless. A silhouette understood in a fraction of a second, from the sculpted tank line to the razor tail.",
+          link: "Explore all builds"
         },
         cards: [
-          { tag: "Cafe racer", title: "Compact and purposeful", body: "Whatever adds no character is removed. Whatever remains is refined." },
-          { tag: "Scrambler", title: "Raw and refined", body: "Honest mechanical surfaces meet cleaner detailing, so every build feels precise and complete." }
+          { tag: "Café Racer", title: "Compact & Relentless", body: "Every superfluous gram is eliminated. What remains is sculpted for speed and pure posture." },
+          { tag: "Scrambler", title: "Raw Mechanical Attitude", body: "Brutalist textures meet aviation-grade finish. Rugged capability with refined bespoke detailing." }
         ],
         note: {
-          tag: "Our signature",
-          title: "What defines a Bandit",
+          tag: "The Bandit DNA",
+          title: "What defines a Bandit build",
           items: [
-            "Classic BMW boxer platforms",
-            "Handcrafted in our workshop in Portugal",
-            "Every build is one of a kind"
+            "Classic BMW Boxer platforms re-engineered from zero",
+            "Obsessive precision in stance and silhouette",
+            "Strictly one-of-one collector commissions"
           ]
         }
       },
       process: {
-        label: "Process",
-        title: "From idea to finished motorcycle.",
-        lead: "Every Bandit Garage motorcycle follows the same path, refined over 12 years of building for clients around the world.",
+        label: "The Methodology",
+        title: "From initial concept to an iconic machine.",
+        lead: "Every bespoke commission follows a proven five-stage process honed over twelve years of international builds.",
         steps: [
-          { title: "Idea", body: "Share the base motorcycle, your references, how you intend to ride it and the character you have in mind." },
-          { title: "Design", body: "We turn your brief into lines, proportions and component choices, and define the overall character of the build." },
-          { title: "Build", body: "Fabrication, finishing and detailing come together in a cohesive, uncompromising result." },
-          { title: "Delivery", body: "The finished motorcycle leaves our workshop in Portugal and is shipped to you, wherever you are." }
+          { title: "Vision & Brief", body: "Define your donor motorcycle, riding philosophy, target ergonomics, and stylistic direction." },
+          { title: "Engineering Concept", body: "We translate your brief into lines, CAD proportions, bespoke component selections, and finish palettes." },
+          { title: "Fabrication & Assembly", body: "TIG-welded chassis work, engine blueprinting, custom upholstery, and surface finishing." },
+          { title: "Testing & Handover", body: "Full dyno testing, rigorous road validation, and crated delivery straight to your doorstep." }
         ],
         brief: {
-          tag: "A clear brief makes a better build",
-          title: "What to send us first",
+          tag: "The Foundation",
+          title: "What to prepare first",
           items: [
-            "The motorcycle you own or would like to start from",
-            "The style you have in mind",
-            "Any essential details or performance requirements",
-            "Your preferred timeline and delivery destination"
+            "Your base motorcycle or desired donor platform",
+            "Your aesthetic direction and intended usage",
+            "Key non-negotiable specifications or upgrades",
+            "Target timeline and destination country"
           ]
         }
       },
       journal: {
-        label: "Instagram",
-        title: "Follow our work, one motorcycle at a time.",
-        lead: "Our Instagram and YouTube channels take you inside the workshop: close-ups, builds in progress and finished motorcycles on their way to their owners.",
-        buttons: ["Open Instagram", "Open YouTube"],
+        label: "The Feed",
+        title: "Live from the workshop.",
+        lead: "Follow our daily build logs, close-up metalwork, and finished machines rolling out to collectors across Europe, the Americas, and the Middle East.",
+        buttons: ["Follow on Instagram", "Watch on YouTube"],
         handle: "@banditgarageportugal",
-        body: "Motorcycles and garage culture, with the workshop at the centre.",
-        link: "Follow us"
+        body: "Authentic workshop culture, technical insights, and finished builds.",
+        link: "Join the community"
       },
       contact: {
-        label: "Contact",
-        title: "Let's talk about your idea.",
-        lead: "Planning a full custom build, or dreaming of one particular motorcycle? Send us your brief and we will reply as soon as possible.",
+        label: "Private Commission",
+        title: "Let's build your machine.",
+        lead: "Whether you want to commission a complete ground-up build or discuss technical kits for your classic BMW, our workshop is ready.",
         points: [
           { label: "Website" },
           { label: "Instagram" },
           { label: "YouTube" },
-          { label: "Shipping", value: "Worldwide shipping from Portugal" }
+          { label: "Delivery", value: "Worldwide white-glove shipping from Portugal" }
         ],
         form: {
-          labels: ["Name", "Motorcycle (optional)", "Email", "Phone", "Project details"],
+          labels: ["Full Name", "Motorcycle Platform (optional)", "Email Address", "Phone / WhatsApp", "Project Details"],
           placeholders: [
             "Your name",
-            "e.g. BMW R100",
-            "name@example.co.uk",
+            "e.g. BMW R100RT 1982",
+            "name@collector.com",
             "+44 7XXX XXXXXX",
-            "Tell us what you would like to build, the motorcycle you are starting from and the style you are after."
+            "Describe the vision for your build, the donor platform, and your timeline."
           ],
-          submit: "Send enquiry",
-          helper: "Tell us about your idea, the base motorcycle and the direction you have in mind. We will take care of the rest.",
+          submit: "Submit Private Enquiry",
+          helper: "Tell us about your project and baseline requirements. Our team will review and respond directly.",
           messages: {
-            required: "Please complete all required fields.",
+            required: "Please complete all mandatory fields.",
             email: "Please enter a valid email address.",
-            sending: "Sending...",
-            success: "Thank you. Your enquiry has been sent and we will be in touch shortly.",
-            error: "Sorry, something went wrong while sending your enquiry. Please try again."
+            sending: "Transmitting enquiry...",
+            success: "Thank you. Your project brief has been received. Our team will contact you shortly.",
+            error: "An error occurred while submitting your brief. Please try again."
           }
         }
       },
       footer: {
-        navTitle: "Navigate",
+        navTitle: "Navigation",
         navLinks: ["Atelier", "Builds", "Process", "Contact"],
-        channelsTitle: "Follow us",
+        channelsTitle: "Channels",
         channels: ["Instagram", "YouTube", "Facebook", "Projects"],
-        copyright: "© {year} Bandit Garage. All rights reserved.",
+        copyright: "© {year} Bandit Garage. Bespoke Motorcycle Atelier. All rights reserved.",
         backTop: "Back to top"
       },
       alts: {
         logo: "Bandit Garage logo",
-        heroPrimary: "BMW R100 by Bandit Garage",
-        heroSecondary: "BMW R80 by Bandit Garage",
-        buildFeatured: "BMW R100 custom motorcycle by Bandit Garage",
-        buildCardOne: "BMW R100 cafe racer by Bandit Garage",
+        heroPrimary: "Bespoke BMW R100 by Bandit Garage",
+        heroSecondary: "Custom BMW R80 by Bandit Garage",
+        buildFeatured: "Iconic BMW R100 bespoke motorcycle by Bandit Garage",
+        buildCardOne: "BMW R100 café racer by Bandit Garage",
         buildCardTwo: "BMW R100 scrambler detail by Bandit Garage",
-        journalOne: "Custom motorcycle by Bandit Garage",
-        journalTwo: "BMW custom motorcycle by Bandit Garage",
-        journalThree: "Custom motorcycle detail by Bandit Garage"
+        journalOne: "Bespoke motorcycle engineering by Bandit Garage",
+        journalTwo: "BMW boxer custom build by Bandit Garage",
+        journalThree: "CNC machined detail by Bandit Garage"
       }
     },
 
     pt: {
       dir: "ltr",
       meta: {
-        title: "Bandit Garage | Motos custom feitas à mão em Portugal",
-        description: "Há 12 anos que a Bandit Garage desenha e constrói motos custom em Portugal para clientes de todo o mundo. Uma referência internacional no universo das motos custom."
+        title: "Bandit Garage | Motos Custom Bespoke & Engenharia de Autor",
+        description: "A Bandit Garage é um atelier internacional de motos custom. Há 12 anos a redefinir plataformas clássicas BMW boxer através de engenharia bespoke para colecionadores em todo o mundo."
       },
       ui: {
         skipLink: "Saltar para o conteúdo",
@@ -172,9 +172,9 @@
         languageLabel: "Idioma"
       },
       brand: {
-        headerTagline: "Motos custom · Portugal",
-        footerTagline: "Motos custom. Feitas à mão em Portugal.",
-        footerLead: "Doze anos a construir motos custom à mão, em Portugal, para clientes de todo o mundo."
+        headerTagline: "Motos Custom Bespoke · Portugal",
+        footerTagline: "Motos Custom Bespoke & Kits de Performance. Portugal.",
+        footerLead: "Doze anos de engenharia de autor e design radical em motos custom, entregues a colecionadores nos quatro cantos do mundo."
       },
       nav: {
         configurator: "Configurador",
@@ -184,145 +184,145 @@
         cta: "Personalizar Moto"
       },
       hero: {
-        eyebrow: "Portugal · 12 anos · Envios para todo o mundo",
-        title: "Motos únicas, feitas à mão.",
-        lead: "Há 12 anos que a Bandit Garage desenha e constrói motos custom em Portugal. As nossas criações seguem para motociclistas e colecionadores de todo o mundo e são reconhecidas entre as melhores da especialidade.",
+        eyebrow: "Portugal · 12 Anos de Legado · Exportação Global",
+        title: "Silhuetas radicais. Engenharia bespoke.",
+        lead: "A Bandit Garage é um atelier de alta costura mecânica e transformação de motos custom. Há 12 anos que redefinimos plataformas clássicas BMW boxer através de precisão cirúrgica, proporções arquitetónicas e engenharia por medida para colecionadores e entusiastas em todo o mundo.",
         buttons: ["Partilhe a sua ideia", "Ver os nossos projetos", "Ver todos os projetos"],
         buttonsObj: {
           configurator: "Personalizar Moto",
           store: "Bandit Store (Kits)"
         },
-        proofLabels: ["Experiência", "Clientes", "Reconhecimento"],
-        proofValues: ["12 anos", "em todo o mundo", "internacional"],
+        proofLabels: ["Legado", "Presença", "Reconhecimento"],
+        proofValues: ["12 Anos", "Global", "Internacional"],
         signalLabel: "O nosso atelier",
-        signalTitle: "Cada projeto nasce de uma ideia sua. Nós damos-lhe forma.",
-        signalLink: "Iniciar conversa"
+        signalTitle: "Da sua visão à criação de uma máquina icónica.",
+        signalLink: "Comissionar projeto"
       },
-      marquee: ["Motos custom", "12 anos de ofício", "Feitas à mão em Portugal", "Envios para todo o mundo", "Uma referência internacional"],
+      marquee: ["Motos Bespoke", "12 Anos de Legado", "Engenharia de Autor", "Alcance Global", "Referência Internacional"],
       atelier: {
-        label: "O nosso atelier",
-        title: "Rigor mecânico, linhas depuradas e um acabamento irrepreensível.",
+        label: "O Atelier",
+        title: "Pureza mecânica, postura arquitetónica e acabamento sem concessões.",
         paragraphs: [
-          "A Bandit Garage é um atelier de motos custom sediado em Portugal. Há 12 anos que transformamos motos clássicas em peças únicas, trabalhadas com rigor nas linhas, nas proporções e em cada pormenor.",
-          "Da nossa oficina, cada moto segue para o seu proprietário, esteja onde estiver. É esta confiança, conquistada projeto após projeto, que faz da Bandit Garage uma referência internacional nas motos custom."
+          "A Bandit Garage posiciona-se como um estúdio independente de engenharia e design de motos. Não fazemos transformações em série; concebemos peças mecânicas de autor com uma presença inconfundível, equilíbrio perfeito de massas e linhas depuradas.",
+          "Cada moto que sai da nossa oficina é construída segundo os padrões mais exigentes do restomod internacional, concebida para impressionar tanto em andamento como na coleção mais seleta."
         ],
         items: [
-          { title: "Motos custom", body: "Cada projeto é pensado a partir das suas linhas, da sua postura e do seu peso, e da forma como a moto deve responder na estrada." },
-          { title: "Peças feitas à mão", body: "Componentes à medida e acabamentos que conferem a cada moto uma assinatura própria." },
-          { title: "Reconhecimento internacional", body: "Doze anos de trabalho, admirado por motociclistas e colecionadores de todo o mundo." },
-          { title: "Entregas em todo o mundo", body: "Construídas em Portugal e entregues a proprietários em todos os continentes." }
+          { title: "Construções Bespoke", body: "Transformações integrais estruturadas em torno de proporções audazes, alívio de peso e presença mecânica ímpar." },
+          { title: "Componentes CNC & Performance", body: "Peças exclusivas maquinadas em centro CNC, coletores afinados e materiais nobres de especificação aeroespacial." },
+          { title: "Prestígio Internacional", body: "Mais de uma década de projetos icónicos aclamados por publicações, colecionadores e pilotos de topo." },
+          { title: "Logística Mundial", body: "Construído em Portugal com transporte especializado porta-a-porta e seguro total para qualquer destino do globo." }
         ]
       },
       builds: {
-        label: "Projetos selecionados",
-        title: "As motos falam por si.",
-        lead: "A nossa reputação assenta em motos BMW boxer, trabalhadas com o espírito cafe racer e scrambler. Estas são algumas das máquinas que definem o nosso estilo.",
+        label: "Projetos de Autor",
+        title: "Máquinas de exceção. A prova sobre o asfalto.",
+        lead: "A nossa reputação foi forjada no domínio absoluto das BMW boxer clássicas, despidas de qualquer excesso e reconstruídas com atitude irrepreensível.",
         featured: {
-          tag: "Projeto em destaque",
-          title: "BMW R100",
-          body: "Baixa, compacta e determinada. Uma moto que se percebe de imediato, da linha do depósito ao final da traseira.",
-          link: "Ver todos os projetos"
+          tag: "Projeto Ícone",
+          title: "BMW R100 Blackline",
+          body: "Baixa, compacta e fulminante. Uma silhueta que se impõe num relance, da linha contínua do depósito ao corte minimalista da traseira.",
+          link: "Ver arquivo completo de projetos"
         },
         cards: [
-          { tag: "Cafe racer", title: "Compacta e determinada", body: "Elimina-se tudo o que não acrescenta carácter. O que fica é apurado até ao último detalhe." },
-          { tag: "Scrambler", title: "Rude e refinada", body: "Superfícies mecânicas autênticas aliam-se a acabamentos mais limpos, para que cada projeto transmita precisão e coerência." }
+          { tag: "Café Racer", title: "Compacta & Implacável", body: "Elimina-se o supérfluo. O que permanece é esculpido para uma postura agressiva e resposta imediata." },
+          { tag: "Scrambler", title: "Atitude Mecânica Brutalista", body: "Superfícies em metal cru encontram acabamentos de alta relojoaria. Robustez todo-o-terreno com detalhe de luxo." }
         ],
         note: {
-          tag: "A nossa assinatura",
-          title: "O que define uma Bandit",
+          tag: "DNA Bandit",
+          title: "O que distingue uma criação Bandit",
           items: [
-            "Bases clássicas BMW boxer",
-            "Feitas à mão na nossa oficina, em Portugal",
-            "Cada projeto é uma peça única"
+            "Bases clássicas BMW Boxer re-engenheiradas a zero",
+            "Obsessão pelas proporções e pela silhueta de perfil",
+            "Exclusividade absoluta — cada projeto é comissionado como peça única"
           ]
         }
       },
       process: {
-        label: "Processo",
-        title: "Da ideia à moto concluída.",
-        lead: "Todas as motos da Bandit Garage seguem o mesmo percurso, aperfeiçoado ao longo de 12 anos de trabalho para clientes de todo o mundo.",
+        label: "Metodologia",
+        title: "Do conceito inicial à máquina definitiva.",
+        lead: "Cada criação por medida obedece a um método rigoroso aperfeiçoado ao longo de doze anos de projetos internacionais.",
         steps: [
-          { title: "Ideia", body: "Partilhe a moto de base, as suas referências, o uso que pretende dar-lhe e o carácter que imagina para ela." },
-          { title: "Conceção", body: "Traduzimos o seu pedido em linhas, proporções e escolha de componentes, definindo o carácter global do projeto." },
-          { title: "Construção", body: "Fabrico, acabamento e pormenor reúnem-se num resultado coeso e sem concessões." },
-          { title: "Entrega", body: "A moto concluída sai da nossa oficina, em Portugal, e é enviada para si, onde quer que se encontre." }
+          { title: "Visão & Briefing", body: "Definição da moto de base, filosofia de condução pretendida, ergonomia e referências estéticas." },
+          { title: "Conceção & Engenharia", body: "Modelação das linhas mestras, compatibilização técnica de componentes, geometrias e acabamentos." },
+          { title: "Fabrico & Montagem", body: "Trabalho de chassi soldado a TIG, preparação de motor, estofo personalizado e acabamentos superficiais de luxo." },
+          { title: "Validação & Entrega", body: "Ensaios rigorosos de estrada e banco de potência, seguidos de expedição cuidada em caixa de segurança." }
         ],
         brief: {
-          tag: "Um bom pedido dá origem a um melhor projeto",
-          title: "O que deve enviar-nos em primeiro lugar",
+          tag: "Ponto de Partida",
+          title: "O que partilhar connosco",
           items: [
-            "A moto que possui ou aquela de que gostaria de partir",
-            "O estilo que tem em mente",
-            "Detalhes essenciais ou requisitos de desempenho",
-            "O prazo pretendido e o destino de entrega"
+            "A moto que já possui ou a base que gostaria que encontrássemos",
+            "A direção estilística e intenção de condução",
+            "Upgrades mecânicos ou requisitos específicos prioritários",
+            "O calendário estimado e o país de entrega"
           ]
         }
       },
       journal: {
-        label: "Instagram",
-        title: "Acompanhe o nosso trabalho, moto a moto.",
-        lead: "Os nossos canais de Instagram e YouTube levam-no ao interior da oficina: pormenores, projetos em curso e motos concluídas a caminho dos seus proprietários.",
-        buttons: ["Abrir Instagram", "Abrir YouTube"],
+        label: "Oficina em Ação",
+        title: "Acompanhe os bastidores de cada máquina.",
+        lead: "Os nossos canais oficiais levam-no aos bastidores: maquinagem de componentes, montagem de motores e motas concluídas a caminho de clientes em todo o mundo.",
+        buttons: ["Seguir no Instagram", "Subscrever YouTube"],
         handle: "@banditgarageportugal",
-        body: "Motos e cultura de garagem, com a oficina no centro.",
-        link: "Seguir"
+        body: "Cultura autêntica de oficina, engenharia de detalhe e máquinas terminadas.",
+        link: "Acompanhar feed"
       },
       contact: {
-        label: "Contacto",
-        title: "Fale-nos da sua ideia.",
-        lead: "Quer um projeto custom completo ou sonha com uma moto em particular? Envie-nos o seu pedido e responderemos o mais brevemente possível.",
+        label: "Comissão Privada",
+        title: "Dê vida ao seu projeto.",
+        lead: "Quer pretenda comissionar uma transformação integral de autor ou adquirir kits específicos de performance para a sua BMW clássica, fale diretamente connosco.",
         points: [
           { label: "Website" },
           { label: "Instagram" },
           { label: "YouTube" },
-          { label: "Envios", value: "Envios para todo o mundo a partir de Portugal" }
+          { label: "Envios", value: "Logística especializada internacional a partir de Portugal" }
         ],
         form: {
-          labels: ["Nome", "Moto (opcional)", "E-mail", "Telefone", "Descrição do projeto"],
+          labels: ["Nome Completo", "Moto / Plataforma de Partida", "E-mail", "Telefone / WhatsApp", "Descrição do Projeto"],
           placeholders: [
             "O seu nome",
-            "Ex.: BMW R100",
+            "Ex.: BMW R100RT 1982",
             "nome@exemplo.pt",
             "+351 9XX XXX XXX",
-            "Descreva o que gostaria de construir, a moto de partida e o estilo que procura."
+            "Descreva a sua visão, o modelo de partida e os requisitos pretendidos."
           ],
-          submit: "Enviar pedido",
-          helper: "Conte-nos a sua ideia, a moto de base e a direção que tem em mente. Nós tratamos do resto.",
+          submit: "Submeter Proposta de Projeto",
+          helper: "Partilhe connosco a sua ideia e requisitos. A nossa equipa analisará o projeto pessoalmente.",
           messages: {
             required: "Por favor, preencha todos os campos obrigatórios.",
             email: "Por favor, introduza um endereço de e-mail válido.",
-            sending: "A enviar...",
-            success: "Obrigado. O seu pedido foi enviado e entraremos em contacto brevemente.",
-            error: "Lamentamos, mas ocorreu um erro ao enviar o pedido. Por favor, tente novamente."
+            sending: "A submeter projeto...",
+            success: "Obrigado. A sua proposta foi registada com sucesso. Entraremos em contacto brevemente.",
+            error: "Ocorreu um erro ao submeter a proposta. Por favor, tente novamente."
           }
         }
       },
       footer: {
         navTitle: "Navegação",
         navLinks: ["Atelier", "Projetos", "Processo", "Contacto"],
-        channelsTitle: "Siga-nos",
+        channelsTitle: "Canais Oficiais",
         channels: ["Instagram", "YouTube", "Facebook", "Projetos"],
-        copyright: "© {year} Bandit Garage. Todos os direitos reservados.",
+        copyright: "© {year} Bandit Garage. Atelier de Motos Bespoke. Todos os direitos reservados.",
         backTop: "Voltar ao topo"
       },
       alts: {
-        logo: "Logótipo da Bandit Garage",
-        heroPrimary: "BMW R100 da Bandit Garage",
-        heroSecondary: "BMW R80 da Bandit Garage",
-        buildFeatured: "Moto custom BMW R100 da Bandit Garage",
-        buildCardOne: "BMW R100 cafe racer da Bandit Garage",
-        buildCardTwo: "Pormenor de uma BMW R100 scrambler da Bandit Garage",
-        journalOne: "Moto custom da Bandit Garage",
-        journalTwo: "Moto custom BMW da Bandit Garage",
-        journalThree: "Pormenor de uma moto custom da Bandit Garage"
+        logo: "Logótipo oficial Bandit Garage",
+        heroPrimary: "BMW R100 bespoke por Bandit Garage",
+        heroSecondary: "BMW R80 custom por Bandit Garage",
+        buildFeatured: "Mota custom de autor BMW R100 por Bandit Garage",
+        buildCardOne: "BMW R100 café racer por Bandit Garage",
+        buildCardTwo: "Pormenor scrambler BMW R100 por Bandit Garage",
+        journalOne: "Engenharia de autor por Bandit Garage",
+        journalTwo: "Construção BMW boxer por Bandit Garage",
+        journalThree: "Pormenor mecânico maquinado CNC por Bandit Garage"
       }
     },
 
     es: {
       dir: "ltr",
       meta: {
-        title: "Bandit Garage | Motos custom hechas a mano en Portugal",
-        description: "Desde hace 12 años, Bandit Garage diseña y construye motos custom en Portugal para clientes de todo el mundo. Una referencia internacional en motos custom."
+        title: "Bandit Garage | Motos Custom Bespoke & Ingeniería de Autor",
+        description: "Bandit Garage es un atelier internacional de motos custom. 12 años redefiniendo plataformas clásicas BMW boxer con ingeniería bespoke para coleccionistas de todo el mundo."
       },
       ui: {
         skipLink: "Saltar al contenido",
@@ -331,9 +331,9 @@
         languageLabel: "Idioma"
       },
       brand: {
-        headerTagline: "Motos custom · Portugal",
-        footerTagline: "Motos custom. Hechas a mano en Portugal.",
-        footerLead: "Doce años construyendo motos custom a mano, en Portugal, para clientes de todo el mundo."
+        headerTagline: "Motos Custom Bespoke · Portugal",
+        footerTagline: "Motos Custom Bespoke & Kits de Rendimiento. Portugal.",
+        footerLead: "Doce años de ingeniería de autor y diseño radical en motos custom, entregadas a coleccionistas de todo el mundo."
       },
       nav: {
         configurator: "Configurador",
@@ -343,145 +343,145 @@
         cta: "Personalizar Moto"
       },
       hero: {
-        eyebrow: "Portugal · 12 años · Envíos a todo el mundo",
-        title: "Motos únicas, hechas a mano.",
-        lead: "Desde hace 12 años, Bandit Garage diseña y construye motos custom en Portugal. Nuestras creaciones llegan a moteros y coleccionistas de todo el mundo y están reconocidas entre las mejores de la especialidad.",
-        buttons: ["Cuéntanos tu idea", "Ver nuestros proyectos", "Ver todos os projetos"],
+        eyebrow: "Portugal · 12 Años de Legado · Envíos a Todo el Mundo",
+        title: "Siluetas radicales. Ingeniería bespoke.",
+        lead: "Bandit Garage es un atelier internacional de motocicletas custom y restomod. Desde hace 12 años transformamos icónicas plataformas BMW boxer con precisión obsesiva, proporciones rotundas y acabados de alta gama para coleccionistas de todo el mundo.",
+        buttons: ["Cuéntanos tu idea", "Ver nuestros proyectos", "Ver todos los proyectos"],
         buttonsObj: {
           configurator: "Personalizar Moto",
           store: "Bandit Store (Kits)"
         },
-        proofLabels: ["Experiencia", "Clientes", "Reconocimiento"],
-        proofValues: ["12 años", "en todo el mundo", "internacional"],
+        proofLabels: ["Legado", "Presencia", "Reconocimiento"],
+        proofValues: ["12 Años", "Global", "Internacional"],
         signalLabel: "Nuestro atelier",
-        signalTitle: "Cada proyecto nace de una idea tuya. Nosotros le damos forma.",
-        signalLink: "Iniciar conversación"
+        signalTitle: "De tu visión a una máquina icónica irrepetible.",
+        signalLink: "Comisionar proyecto"
       },
-      marquee: ["Motos custom", "12 años de oficio", "Hechas a mano en Portugal", "Envíos a todo el mundo", "Una referencia internacional"],
+      marquee: ["Motos Bespoke", "12 Años de Legado", "Ingeniería de Autor", "Alcance Global", "Referencia Internacional"],
       atelier: {
-        label: "Nuestro atelier",
-        title: "Rigor mecánico, líneas depuradas y un acabado impecable.",
+        label: "El Atelier",
+        title: "Pureza mecánica, postura arquitectónica y acabado sin concesiones.",
         paragraphs: [
-          "Bandit Garage es un atelier de motos custom con sede en Portugal. Desde hace 12 años transformamos motos clásicas en piezas únicas, trabajadas con rigor en sus líneas, sus proporciones y cada detalle.",
-          "Desde nuestro taller, cada moto viaja hasta su propietario, esté donde esté. Esa confianza, ganada proyecto tras proyecto, es lo que hace de Bandit Garage una referencia internacional en motos custom."
+          "Bandit Garage es un estudio independiente de ingeniería y diseño de motocicletas. No fabricamos en serie; creamos piezas mecánicas de autor con una postura inconfundible, balance de masas perfecto y líneas depuradas.",
+          "Cada moto que sale de nuestro taller está construida bajo los estándares más exigentes del restomod internacional, pensada para impresionar en carretera y destacar en la colección más selecta."
         ],
         items: [
-          { title: "Motos custom", body: "Cada proyecto se concibe a partir de sus líneas, su postura y su peso, y de cómo debe comportarse la moto en carretera." },
-          { title: "Piezas hechas a mano", body: "Componentes a medida y acabados que dan a cada moto una firma propia." },
-          { title: "Reconocimiento internacional", body: "Doce años de trabajo, admirado por moteros y coleccionistas de todo el mundo." },
-          { title: "Entregas en todo el mundo", body: "Construidas en Portugal y entregadas a propietarios de todos los continentes." }
+          { title: "Construcciones Bespoke", body: "Transformaciones integrales guiadas por proporciones rotundas, reducción de peso y presencia mecánica única." },
+          { title: "Componentes CNC & Rendimiento", body: "Piezas exclusivas mecanizadas en CNC, escapes afinados y materiales de especificación aeroespacial." },
+          { title: "Prestigio Internacional", body: "Más de una década de creaciones icónicas reconocidas por coleccionistas y especialistas globales." },
+          { title: "Logística Mundial", body: "Fabricado en Portugal con transporte especializado puerta a puerta y cobertura total asegurada." }
         ]
       },
       builds: {
-        label: "Proyectos seleccionados",
-        title: "Las motos hablan por sí solas.",
-        lead: "Nuestra reputación se asienta en las motos BMW bóxer, trabajadas con el espíritu del café racer y del scrambler. Estas son algunas de las máquinas que definen nuestro estilo.",
+        label: "Proyectos de Autor",
+        title: "Máquinas excepcionales. La prueba sobre el asfalto.",
+        lead: "Nuestra reputación se forjó en el dominio de las BMW boxer clásicas, reducidas a su pura esencia mecánica y reconstruidas con actitud radical.",
         featured: {
-          tag: "Proyecto destacado",
-          title: "BMW R100",
-          body: "Baja, compacta y decidida. Una moto que se entiende al primer vistazo, desde la línea del depósito hasta el final del colín.",
+          tag: "Proyecto Icono",
+          title: "BMW R100 Blackline",
+          body: "Baja, compacta y rotunda. Una silueta que se impone en un instante, desde la línea del depósito hasta el colín minimalista.",
           link: "Ver todos los proyectos"
         },
         cards: [
-          { tag: "Café racer", title: "Compacta y decidida", body: "Se elimina todo lo que no aporta carácter. Lo que queda se perfecciona hasta el último detalle." },
-          { tag: "Scrambler", title: "Cruda y refinada", body: "Superficies mecánicas auténticas se combinan con acabados más limpios, para que cada proyecto transmita precisión y coherencia." }
+          { tag: "Café Racer", title: "Compacta & Implacable", body: "Se elimina lo superfluo. Lo que permanece está esculpido para velocidad y una postura deportiva pura." },
+          { tag: "Scrambler", title: "Carácter Mecánico Brutalista", body: "Metales cepillados combinados con precisión de alta relojería. Capacidad todoterreno con detalle de lujo." }
         ],
         note: {
-          tag: "Nuestra firma",
-          title: "Lo que define a una Bandit",
+          tag: "ADN Bandit",
+          title: "Qué define una creación Bandit",
           items: [
-            "Bases clásicas BMW bóxer",
-            "Hechas a mano en nuestro taller, en Portugal",
-            "Cada proyecto es una pieza única"
+            "Bases clásicas BMW Boxer rehechas desde cero",
+            "Obsesión por las proporciones y la silueta en carretera",
+            "Exclusividad absoluta — cada proyecto es una comisión única"
           ]
         }
       },
       process: {
-        label: "Proceso",
-        title: "De la idea a la moto terminada.",
-        lead: "Todas las motos de Bandit Garage siguen el mismo recorrido, perfeccionado a lo largo de 12 años de trabajo para clientes de todo el mundo.",
+        label: "Metodología",
+        title: "Del concepto inicial a la máquina definitiva.",
+        lead: "Cada comisión por encargo sigue una metodología contrastada a lo largo de doce años de proyectos internacionales.",
         steps: [
-          { title: "Idea", body: "Comparte la moto base, tus referencias, el uso que quieres darle y el carácter que imaginas para ella." },
-          { title: "Diseño", body: "Traducimos tu propuesta en líneas, proporciones y elección de componentes, y definimos el carácter global del proyecto." },
-          { title: "Construcción", body: "Fabricación, acabado y detalle se unen en un resultado coherente y sin concesiones." },
-          { title: "Entrega", body: "La moto terminada sale de nuestro taller, en Portugal, y te la enviamos estés donde estés." }
+          { title: "Visión & Briefing", body: "Definición de la moto base, filosofía de uso, ergonomía y referencias visuales clave." },
+          { title: "Diseño & Ingeniería", body: "Modelado de líneas maestras, compatibilidad técnica de componentes y selección de acabados." },
+          { title: "Fabricación & Ensamblaje", body: "Chasis soldado al TIG, motor rectificado a cero, tapicería artesanal y acabados superficiales de lujo." },
+          { title: "Validación & Entrega", body: "Ensayos en carretera y banco de potencia con entrega directa en caja de transporte a medida." }
         ],
         brief: {
-          tag: "Una buena propuesta da lugar a un mejor proyecto",
-          title: "Qué debes enviarnos en primer lugar",
+          tag: "Punto de Partida",
+          title: "Qué enviarnos primero",
           items: [
-            "La moto que tienes o aquella de la que te gustaría partir",
-            "El estilo que tienes en mente",
-            "Detalles esenciales o requisitos de rendimiento",
-            "El plazo deseado y el destino de entrega"
+            "La moto que ya posees o la base que deseas que encontremos",
+            "La dirección de estilo y el tipo de conducción",
+            "Mejoras de rendimiento o especificaciones esenciales",
+            "El plazo deseado y el país de destino"
           ]
         }
       },
       journal: {
-        label: "Instagram",
-        title: "Sigue nuestro trabajo, moto a moto.",
-        lead: "Nuestros canales de Instagram y YouTube te llevan al interior del taller: detalles, proyectos en curso y motos terminadas de camino a sus propietarios.",
+        label: "En el Taller",
+        title: "Sigue el proceso de cada máquina.",
+        lead: "Descubre el día a día en el taller: mecanizado de componentes, motores en banco y motos terminadas camino a sus propietarios.",
         buttons: ["Abrir Instagram", "Abrir YouTube"],
         handle: "@banditgarageportugal",
-        body: "Motos y cultura de garaje, con el taller en el centro.",
-        link: "Seguir"
+        body: "Cultura de garaje auténtica, ingeniería de detalle y máquinas terminadas.",
+        link: "Seguir en redes"
       },
       contact: {
-        label: "Contacto",
-        title: "Cuéntanos tu idea.",
-        lead: "¿Quieres un proyecto custom completo o sueñas con una moto en concreto? Envíanos tu solicitud y te responderemos lo antes posible.",
+        label: "Comisión Privada",
+        title: "Hablemos de tu proyecto.",
+        lead: "Tanto si deseas comisionar una transformación completa de autor como adquirir kits específicos para tu BMW clásica, habla directamente con nosotros.",
         points: [
           { label: "Sitio web" },
           { label: "Instagram" },
           { label: "YouTube" },
-          { label: "Envíos", value: "Envíos a todo el mundo desde Portugal" }
+          { label: "Envíos", value: "Logística internacional especializada desde Portugal" }
         ],
         form: {
-          labels: ["Nombre", "Moto (opcional)", "Correo electrónico", "Teléfono", "Descripción del proyecto"],
+          labels: ["Nombre Completo", "Moto / Plataforma de Partida", "Correo Electrónico", "Teléfono / WhatsApp", "Descripción del Proyecto"],
           placeholders: [
             "Tu nombre",
-            "Ej.: BMW R100",
+            "Ej.: BMW R100RT 1982",
             "nombre@ejemplo.es",
             "+34 6XX XXX XXX",
-            "Describe lo que te gustaría construir, la moto de partida y el estilo que buscas."
+            "Describe tu idea, la moto base y las características que buscas."
           ],
-          submit: "Enviar solicitud",
-          helper: "Cuéntanos tu idea, la moto base y la dirección que tienes en mente. Nosotros nos ocupamos del resto.",
+          submit: "Enviar Propuesta de Proyecto",
+          helper: "Comparte tu idea y necesidades principales. Nuestro equipo revisará el proyecto personalmente.",
           messages: {
-            required: "Por favor, rellena todos los campos obligatorios.",
-            email: "Por favor, introduce una dirección de correo electrónico válida.",
-            sending: "Enviando...",
-            success: "Gracias. Hemos recibido tu solicitud y nos pondremos en contacto contigo en breve.",
-            error: "Lo sentimos, se ha producido un error al enviar la solicitud. Por favor, inténtalo de nuevo."
+            required: "Por favor, completa todos los campos obligatorios.",
+            email: "Por favor, introduce un correo electrónico válido.",
+            sending: "Enviando propuesta...",
+            success: "Gracias. Tu propuesta ha sido recibida. Nos pondremos en contacto contigo en breve.",
+            error: "Ha ocurrido un error al enviar la propuesta. Por favor, inténtalo de nuevo."
           }
         }
       },
       footer: {
         navTitle: "Navegación",
         navLinks: ["Atelier", "Proyectos", "Proceso", "Contacto"],
-        channelsTitle: "Síguenos",
+        channelsTitle: "Canales Oficiales",
         channels: ["Instagram", "YouTube", "Facebook", "Proyectos"],
-        copyright: "© {year} Bandit Garage. Todos los derechos reservados.",
+        copyright: "© {year} Bandit Garage. Atelier de Motos Bespoke. Todos los derechos reservados.",
         backTop: "Volver arriba"
       },
       alts: {
-        logo: "Logotipo de Bandit Garage",
-        heroPrimary: "BMW R100 de Bandit Garage",
-        heroSecondary: "BMW R80 de Bandit Garage",
-        buildFeatured: "Moto custom BMW R100 de Bandit Garage",
+        logo: "Logotipo oficial de Bandit Garage",
+        heroPrimary: "BMW R100 bespoke de Bandit Garage",
+        heroSecondary: "BMW R80 custom de Bandit Garage",
+        buildFeatured: "Moto custom de autor BMW R100 de Bandit Garage",
         buildCardOne: "BMW R100 café racer de Bandit Garage",
-        buildCardTwo: "Detalle de una BMW R100 scrambler de Bandit Garage",
-        journalOne: "Moto custom de Bandit Garage",
-        journalTwo: "Moto custom BMW de Bandit Garage",
-        journalThree: "Detalle de una moto custom de Bandit Garage"
+        buildCardTwo: "Detalle scrambler BMW R100 de Bandit Garage",
+        journalOne: "Ingeniería de autor de Bandit Garage",
+        journalTwo: "Construcción BMW boxer de Bandit Garage",
+        journalThree: "Detalle mecánico mecanizado CNC de Bandit Garage"
       }
     },
 
     fr: {
       dir: "ltr",
       meta: {
-        title: "Bandit Garage | Motos custom artisanales, conçues au Portugal",
-        description: "Depuis 12 ans, Bandit Garage conçoit et construit des motos custom au Portugal pour une clientèle du monde entier. Une référence internationale de la moto custom."
+        title: "Bandit Garage | Motos Custom Bespoke & Haute Facture Mécanique",
+        description: "Bandit Garage est un atelier international de création motocycliste sur mesure. 12 ans à réinventer les flat-twins BMW classiques avec une ingénierie d'exception pour collectionneurs du monde entier."
       },
       ui: {
         skipLink: "Aller au contenu",
@@ -490,9 +490,9 @@
         languageLabel: "Langue"
       },
       brand: {
-        headerTagline: "Motos custom · Portugal",
-        footerTagline: "Motos custom. Façonnées à la main au Portugal.",
-        footerLead: "Douze ans de motos custom construites à la main, au Portugal, pour une clientèle du monde entier."
+        headerTagline: "Motos Custom Bespoke · Portugal",
+        footerTagline: "Motos Custom Bespoke & Kits Performance. Portugal.",
+        footerLead: "Douze ans d'ingénierie d'exception et de design radical sur mesure, livrés aux collectionneurs du monde entier."
       },
       nav: {
         configurator: "Configurateur",
@@ -502,138 +502,138 @@
         cta: "Personnaliser une Moto"
       },
       hero: {
-        eyebrow: "Portugal · 12 ans · Expédition dans le monde entier",
-        title: "Des motos uniques, façonnées à la main.",
-        lead: "Depuis 12 ans, Bandit Garage conçoit et construit des motos custom au Portugal. Nos créations rejoignent des motards et des collectionneurs du monde entier et comptent parmi les plus reconnues du secteur.",
+        eyebrow: "Portugal · 12 Ans d'Héritage · Livraison Internationale",
+        title: "Silhouettes radicales. Haute facture mécanique.",
+        lead: "Bandit Garage est un atelier de création motocycliste sur mesure et de haute facture. Depuis 12 ans, nous réinventons les légendaires flat-twins BMW avec une précision chirurgicale, des lignes architecturales et une ingénierie d'exception pour des passionnés et collectionneurs du monde entier.",
         buttons: ["Parlez-nous de votre idée", "Découvrir nos réalisations", "Voir tous les projets"],
         buttonsObj: {
           configurator: "Personnaliser une Moto",
           store: "Bandit Store (Kits)"
         },
-        proofLabels: ["Expérience", "Clientèle", "Reconnaissance"],
-        proofValues: ["12 ans", "dans le monde entier", "internationale"],
+        proofLabels: ["Héritage", "Rayonnement", "Réputation"],
+        proofValues: ["12 Ans", "International", "Excellence"],
         signalLabel: "Notre atelier",
-        signalTitle: "Chaque projet naît d'une idée. La vôtre. Nous lui donnons forme.",
-        signalLink: "Engager la conversation"
+        signalTitle: "De votre vision à la naissance d'une machine iconique.",
+        signalLink: "Commander un projet"
       },
-      marquee: ["Motos custom", "12 ans de savoir-faire", "Façonnées à la main au Portugal", "Expédition dans le monde entier", "Une référence internationale"],
+      marquee: ["Motos Bespoke", "12 Ans d'Héritage", "Haute Facture", "Rayonnement Mondial", "Référence Internationale"],
       atelier: {
-        label: "Notre atelier",
-        title: "Rigueur mécanique, lignes épurées et finition irréprochable.",
+        label: "L'Atelier",
+        title: "Pureté mécanique, posture architecturale et finition sans compromis.",
         paragraphs: [
-          "Bandit Garage est un atelier de motos custom basé au Portugal. Depuis 12 ans, nous transformons des motos classiques en pièces uniques, travaillées avec exigence dans leurs lignes, leurs proportions et chaque détail.",
-          "Depuis notre atelier, chaque moto rejoint son propriétaire, où qu'il se trouve. C'est cette confiance, gagnée réalisation après réalisation, qui fait de Bandit Garage une référence internationale de la moto custom."
+          "Bandit Garage est un studio indépendant de design et d'ingénierie motocycliste. Nous ne produisons pas en série ; nous créons des pièces de collection au caractère tranché, dotées d'un équilibre parfait des masses et de lignes pures.",
+          "Chaque moto sortant de notre atelier répond aux standards les plus pointus du restomod d'exception, conçue pour séduire sur l'asphalte et sublimer les plus grandes collections privées."
         ],
         items: [
-          { title: "Motos custom", body: "Chaque projet est pensé à partir de ses lignes, de son allure et de son poids, et de la façon dont la moto doit se comporter sur la route." },
-          { title: "Pièces faites main", body: "Des composants sur mesure et des finitions qui donnent à chaque moto sa propre signature." },
-          { title: "Reconnaissance internationale", body: "Douze ans de travail, apprécié par des motards et des collectionneurs du monde entier." },
-          { title: "Livraison dans le monde entier", body: "Construites au Portugal et livrées à leurs propriétaires sur tous les continents." }
+          { title: "Créations Bespoke", body: "Métamorphoses complètes articulées autour d'une posture agressive, d'un allègement drastique et d'une présence scénique unique." },
+          { title: "Composants Taillés Masse", body: "Pièces exclusives usinées CNC, lignes d'échappement accordées et alliages nobles de qualité aérospatiale." },
+          { title: "Renommée Internationale", body: "Plus d'une décennie de créations saluées par la presse spécialisée et les collectionneurs les plus exigeants." },
+          { title: "Logistique Dédiée", body: "Conception au Portugal et acheminement sécurisé porte-à-porte avec caisse sur mesure et assurance intégrale." }
         ]
       },
       builds: {
-        label: "Réalisations choisies",
-        title: "Nos motos parlent d'elles-mêmes.",
-        lead: "Notre réputation repose sur des BMW boxer, travaillées dans l'esprit café racer et scrambler. Voici quelques-unes des machines qui incarnent notre style.",
+        label: "Réalisations d'Exception",
+        title: "Des machines taillées pour marquer les esprits.",
+        lead: "Notre réputation s'est forgée sur la maîtrise totale des BMW boxer classiques, épurées de tout superflu et rebâties avec une audace sans compromis.",
         featured: {
-          tag: "Réalisation à la une",
-          title: "BMW R100",
-          body: "Basse, compacte et résolue. Une moto que l'on comprend au premier regard, de la ligne du réservoir jusqu'à la queue.",
-          link: "Voir tous les projets"
+          tag: "Projet Signature",
+          title: "BMW R100 Blackline",
+          body: "Basse, trapue et incisive. Une silhouette qui s'impose en une fraction de seconde, du galbe du réservoir jusqu'à la découpe minimale de la boucle.",
+          link: "Voir la collection complète"
         },
         cards: [
-          { tag: "Café racer", title: "Compacte et résolue", body: "Tout ce qui n'apporte pas de caractère disparaît. Ce qui reste est affiné jusqu'au moindre détail." },
-          { tag: "Scrambler", title: "Brute et raffinée", body: "Des surfaces mécaniques authentiques s'allient à des finitions plus épurées, pour que chaque réalisation respire la précision et la cohérence." }
+          { tag: "Café Racer", title: "Compacte & Redoutable", body: "Tout ce qui n'apporte pas de caractère est supprimé. Ce qui reste est ciselé pour la vitesse et la posture." },
+          { tag: "Scrambler", title: "Présence Mécanique Pure", body: "Le métal brut rencontre la haute précision. Une robustesse tout-terrain rehaussée de finitions luxueuses." }
         ],
         note: {
-          tag: "Notre signature",
-          title: "Ce qui fait une Bandit",
+          tag: "L'ADN Bandit",
+          title: "Ce qui caractérise une création Bandit",
           items: [
-            "Des bases classiques BMW boxer",
-            "Façonnées à la main dans notre atelier, au Portugal",
-            "Chaque projet est une pièce unique"
+            "Plates-formes BMW Boxer réingéniérées de fond en comble",
+            "Obsession des proportions et de la ligne de fuite",
+            "Exclusivité totale — chaque machine est une pièce unique sur commande"
           ]
         }
       },
       process: {
-        label: "Savoir-faire",
-        title: "De l'idée à la moto terminée.",
-        lead: "Chaque moto Bandit Garage suit le même parcours, affiné au fil de 12 ans de travail pour des clients du monde entier.",
+        label: "Méthodologie",
+        title: "Du concept d'origine à la machine accomplie.",
+        lead: "Chaque projet sur mesure répond à un protocole éprouvé au fil de douze années de réalisations internationales.",
         steps: [
-          { title: "Idée", body: "Présentez-nous la moto de base, vos références, l'usage que vous en ferez et le caractère que vous imaginez pour elle." },
-          { title: "Conception", body: "Nous traduisons votre demande en lignes, proportions et choix de composants, et définissons le caractère d'ensemble du projet." },
-          { title: "Construction", body: "Fabrication, finitions et détails se réunissent dans un résultat cohérent et sans compromis." },
-          { title: "Livraison", body: "La moto terminée quitte notre atelier, au Portugal, et vous est expédiée où que vous soyez." }
+          { title: "Vision & Échange", body: "Définition de la moto de base, de la philosophie d'utilisation, de l'ergonomie et des inspirations stylistiques." },
+          { title: "Étude & Ingénierie", body: "Esquisse des lignes maîtresses, validation technique des composants, choix des cinématiques et des teintes." },
+          { title: "Façonnage & Montage", body: "Cadre soudé au TIG, reconstruction moteur, sellerie sellier et finitions de surface haut de gamme." },
+          { title: "Essais & Livraison", body: "Validation routière rigoureuse, banc de puissance et expédition protégée en caisse renforcée." }
         ],
         brief: {
-          tag: "Une demande précise donne un meilleur projet",
-          title: "Ce qu'il faut nous transmettre en premier",
+          tag: "Point de Départ",
+          title: "Les éléments à nous transmettre",
           items: [
-            "La moto que vous possédez ou celle dont vous aimeriez partir",
-            "Le style que vous avez en tête",
-            "Les détails essentiels ou exigences de performance",
-            "Le délai souhaité et le pays de livraison"
+            "La moto en votre possession ou la base que vous souhaitez acquérir",
+            "Votre orientation esthétique et l'usage envisagé",
+            "Les éléments techniques ou de performance prioritaires",
+            "Votre calendrier souhaité et le pays de livraison"
           ]
         }
       },
       journal: {
-        label: "Instagram",
-        title: "Suivez notre travail, moto après moto.",
-        lead: "Nos chaînes Instagram et YouTube vous ouvrent les portes de l'atelier : gros plans, projets en cours et motos terminées en route vers leurs propriétaires.",
-        buttons: ["Ouvrir Instagram", "Ouvrir YouTube"],
+        label: "Dans l'Atelier",
+        title: "Suivez la gestation de chaque machine.",
+        lead: "Pénétrez dans les coulisses de l'atelier : usinage des pièces, métrologie moteur et motos terminées en partance pour l'international.",
+        buttons: ["Suivre sur Instagram", "Voir sur YouTube"],
         handle: "@banditgarageportugal",
-        body: "Motos et culture garage, avec l'atelier au centre.",
-        link: "Nous suivre"
+        body: "Culture d'atelier authentique, ingénierie de pointe et machines d'exception.",
+        link: "Rejoindre le flux"
       },
       contact: {
-        label: "Contact",
-        title: "Parlez-nous de votre idée.",
-        lead: "Vous souhaitez une moto custom sur mesure ou rêvez d'un modèle précis ? Envoyez-nous votre demande et nous vous répondrons dans les meilleurs délais.",
+        label: "Projet Sur Mesure",
+        title: "Donnez vie à votre machine.",
+        lead: "Que vous envisagiez de commander une réalisation sur mesure complète ou d'acquérir des kits de performance pour votre BMW classique, contactez-nous directement.",
         points: [
           { label: "Site web" },
           { label: "Instagram" },
           { label: "YouTube" },
-          { label: "Expédition", value: "Expédition dans le monde entier depuis le Portugal" }
+          { label: "Livraison", value: "Acheminement international dédié depuis le Portugal" }
         ],
         form: {
-          labels: ["Nom", "Moto (facultatif)", "Adresse e-mail", "Téléphone", "Description du projet"],
+          labels: ["Nom et Prénom", "Moto / Base de Départ (facultatif)", "Adresse E-mail", "Téléphone / WhatsApp", "Description du Projet"],
           placeholders: [
             "Votre nom",
-            "Ex. : BMW R100",
-            "nom@exemple.fr",
+            "Ex. : BMW R100RT 1982",
+            "nom@domaine.fr",
             "+33 6 XX XX XX XX",
-            "Décrivez ce que vous souhaitez construire, la moto de départ et le style recherché."
+            "Décrivez votre vision, la base choisie et les spécificités attendues."
           ],
-          submit: "Envoyer la demande",
-          helper: "Parlez-nous de votre idée, de la moto de base et de la direction que vous avez en tête. Nous nous chargeons du reste.",
+          submit: "Transmettre Votre Projet",
+          helper: "Partagez votre idée et vos attentes. Notre équipe technique examinera votre demande avec la plus grande attention.",
           messages: {
             required: "Veuillez renseigner tous les champs obligatoires.",
             email: "Veuillez saisir une adresse e-mail valide.",
-            sending: "Envoi en cours...",
-            success: "Merci. Votre demande a bien été envoyée et nous reviendrons vers vous très prochainement.",
-            error: "Désolé, une erreur est survenue lors de l'envoi de votre demande. Veuillez réessayer."
+            sending: "Transmission du dossier...",
+            success: "Merci. Votre projet a été transmis avec succès. Notre équipe vous recontactera très rapidement.",
+            error: "Une erreur est survenue lors de l'envoi de votre dossier. Veuillez réessayer."
           }
         }
       },
       footer: {
         navTitle: "Navigation",
         navLinks: ["Atelier", "Réalisations", "Savoir-faire", "Contact"],
-        channelsTitle: "Nous suivre",
+        channelsTitle: "Réseaux Officiels",
         channels: ["Instagram", "YouTube", "Facebook", "Projets"],
-        copyright: "© {year} Bandit Garage. Tous droits réservés.",
+        copyright: "© {year} Bandit Garage. Atelier de Motos Bespoke. Tous droits réservés.",
         backTop: "Retour en haut"
       },
       alts: {
-        logo: "Logo Bandit Garage",
-        heroPrimary: "BMW R100 par Bandit Garage",
-        heroSecondary: "BMW R80 par Bandit Garage",
-        buildFeatured: "Moto custom BMW R100 par Bandit Garage",
+        logo: "Logo officiel Bandit Garage",
+        heroPrimary: "BMW R100 bespoke par Bandit Garage",
+        heroSecondary: "BMW R80 custom par Bandit Garage",
+        buildFeatured: "Moto custom d'exception BMW R100 par Bandit Garage",
         buildCardOne: "BMW R100 café racer par Bandit Garage",
-        buildCardTwo: "Détail d'une BMW R100 scrambler par Bandit Garage",
-        journalOne: "Moto custom par Bandit Garage",
-        journalTwo: "Moto custom BMW par Bandit Garage",
-        journalThree: "Détail d'une moto custom par Bandit Garage"
+        buildCardTwo: "Détail scrambler BMW R100 par Bandit Garage",
+        journalOne: "Haute facture mécanique par Bandit Garage",
+        journalTwo: "Conception BMW boxer par Bandit Garage",
+        journalThree: "Détail taillé masse CNC par Bandit Garage"
       }
     }
-  }
-})()
+  };
+})();
