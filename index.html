@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-GB" dir="ltr">
 <head>
 <meta charset="UTF-8">
@@ -22,7 +22,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="marketing.css?v=20261106.2">
+<link rel="stylesheet" href="marketing.css?v=20261106.3">
+<link rel="stylesheet" href="store-configurator.css?v=20261106.3">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -77,15 +78,20 @@
       </button>
 
       <nav class="site-nav" id="site-menu" aria-label="Main navigation" data-i18n-attr="aria-label:ui.mainNav">
+        <a href="#configurator" data-i18n="nav.configurator">Configurador</a>
+        <a href="#store" data-i18n="nav.store">Bandit Store</a>
         <a href="#atelier" data-i18n="nav.links.0">Atelier</a>
         <a href="#builds" data-i18n="nav.links.1">Builds</a>
-        <a href="#process" data-i18n="nav.links.2">Process</a>
-        <a href="#journal" data-i18n="nav.links.3">Instagram</a>
-        <a href="#contact" data-i18n="nav.links.4">Contact</a>
+        <a href="#process" data-i18n="nav.links.2">Processo</a>
+        <a href="#contact" data-i18n="nav.links.4">Contacto</a>
         <div class="nav-actions">
+          <button type="button" class="cart-nav-btn" id="navStoreCartBtn" aria-label="Carrinho Bandit Store">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <span>Store</span>
+            <span class="cart-count-badge" style="display:none">0</span>
+          </button>
           <select id="langSelectMarketing" class="marketing-language" aria-label="Language" data-i18n-attr="aria-label:ui.languageLabel"></select>
-          <a class="btn btn-outline btn-small" href="https://www.instagram.com/banditgarageportugal/" target="_blank" rel="noreferrer" data-i18n="nav.instagram">Instagram</a>
-          <a class="btn btn-primary btn-small" href="#contact" data-i18n="nav.cta">Start a build</a>
+          <a class="btn btn-primary btn-small" href="#configurator" data-i18n="nav.cta">Personalizar Moto</a>
         </div>
       </nav>
     </div>
@@ -106,9 +112,9 @@
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact" data-i18n="hero.buttons.0">Talk about your idea</a>
-            <a class="btn btn-secondary" href="#builds" data-i18n="hero.buttons.1">See the builds</a>
-            <a class="btn btn-ghost" href="https://www.bandit-garage.com/projects" target="_blank" rel="noreferrer" data-i18n="hero.buttons.2">Open projects</a>
+            <a class="btn btn-primary" href="#configurator" data-i18n="hero.buttons.configurator">Personalizar Moto</a>
+            <a class="btn btn-secondary" href="#store" data-i18n="hero.buttons.store">Bandit Store (Kits)</a>
+            <a class="btn btn-ghost" href="#builds" data-i18n="hero.buttons.1">Ver Projetos</a>
           </div>
 
           <div class="hero-proof">
@@ -154,6 +160,78 @@
         <span data-i18n="marquee.2">Apparel</span>
         <span data-i18n="marquee.3">Built in Portugal</span>
         <span data-i18n="marquee.4">Worldwide shipping</span>
+      </div>
+    </section>
+
+    
+    <!-- ================================================================= -->
+    <!-- 1. MOTORCYCLE CONFIGURATOR (Captação de Projetos e Cotações)      -->
+    <!-- SEM CARRINHO / SEM CHECKOUT / SEM PREÇO COMERCIAL AUTOMÁTICO      -->
+    <!-- ================================================================= -->
+    <section class="section configurator-section" id="configurator">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <span class="cfg-header-badge">Captação de Projetos por Medida</span>
+          <h2>Motorcycle Configurator</h2>
+          <p class="lead">
+            Configure a transformação da sua motocicleta clássica. Escolha a base de partida, o modelo Bandit e personalize as 12 categorias técnicas para análise e cotação da nossa equipa.
+          </p>
+        </div>
+
+        <div class="cfg-stepper-bar">
+          <div class="cfg-step-indicator is-active" data-step="1">
+            <span class="cfg-step-num">1</span>
+            <span>Moto Base</span>
+          </div>
+          <div class="cfg-step-indicator" data-step="2">
+            <span class="cfg-step-num">2</span>
+            <span>Modelo Bandit</span>
+          </div>
+          <div class="cfg-step-indicator" data-step="3">
+            <span class="cfg-step-num">3</span>
+            <span>12 Componentes</span>
+          </div>
+          <div class="cfg-step-indicator" data-step="4">
+            <span class="cfg-step-num">4</span>
+            <span>Inspirações & Notas</span>
+          </div>
+          <div class="cfg-step-indicator" data-step="5">
+            <span class="cfg-step-num">5</span>
+            <span>Revisão & Cotação</span>
+          </div>
+        </div>
+
+        <div id="configuratorWizardContainer">
+          <!-- Renderizado dinamicamente pelo configurator-system.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 2. BANDIT STORE (Comercialização Exclusiva de Kits Oficiais)      -->
+    <!-- LOJA ONLINE COM CARRINHO, CHECKOUT E PREÇOS COM IVA               -->
+    <!-- ================================================================= -->
+    <section class="section store-section" id="store">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <span class="store-intro-badge">Loja Oficial Bandit Garage</span>
+          <h2>Bandit Store — Kits Completos</h2>
+          <p class="lead">
+            Kits completos de transformação desenhados, afinados e fabricados pela Bandit Garage. Compatibilidade comprovada em banco de ensaio para motos BMW Série R clássicas.
+          </p>
+        </div>
+
+        <div class="store-filters-bar">
+          <button type="button" class="store-filter-btn active" data-filter="all">Todos os Kits</button>
+          <button type="button" class="store-filter-btn" data-filter="chassis">Subquadros & Bancos</button>
+          <button type="button" class="store-filter-btn" data-filter="exhaust">Performance & Escape</button>
+          <button type="button" class="store-filter-btn" data-filter="cockpit">Cockpit & Iluminação</button>
+          <button type="button" class="store-filter-btn" data-filter="suspension_brakes">Suspensão & Travagem</button>
+        </div>
+
+        <div class="kits-grid" id="banditStoreCatalog">
+          <!-- Renderizado dinamicamente pelo store-system.js -->
+        </div>
       </div>
     </section>
 
@@ -466,11 +544,137 @@
       <p id="footerCopyright"></p>
       <a href="#top" data-i18n="footer.backTop">Back to top</a>
     </div>
+  
+  <!-- MODAL: FICHA TÉCNICA INDIVIDUAL DO KIT (BANDIT STORE) -->
+  <div class="custom-modal-overlay" id="kitDetailModal" role="dialog" aria-modal="true">
+    <div class="custom-modal-dialog">
+      <button type="button" class="custom-modal-close" id="closeKitModalBtn" aria-label="Fechar">×</button>
+      <div id="kitDetailModalContent">
+        <!-- Renderizado dinamicamente -->
+      </div>
+    </div>
+  </div>
+
+  <!-- GAVETA DE CARRINHO LATERAL (EXCLUSIVO DA BANDIT STORE) -->
+  <div class="cart-overlay" id="storeCartOverlay"></div>
+  <aside class="cart-drawer" id="storeCartDrawer" aria-label="Carrinho de Compras da Bandit Store">
+    <div class="cart-drawer-header">
+      <h3>Carrinho Bandit Store</h3>
+      <button type="button" class="cart-drawer-close" id="closeCartDrawerBtn" aria-label="Fechar carrinho">×</button>
+    </div>
+    <div class="cart-items-scroll" id="storeCartItemsList">
+      <!-- Itens do carrinho renderizados dinamicamente -->
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-totals-breakdown">
+        <div class="cart-total-line">
+          <span>Subtotal s/ IVA:</span>
+          <span id="storeCartSubtotal">0,00 €</span>
+        </div>
+        <div class="cart-total-line">
+          <span>IVA (23%):</span>
+          <span id="storeCartVat">0,00 €</span>
+        </div>
+        <div class="cart-total-line final-total">
+          <span>Total c/ IVA:</span>
+          <strong id="storeCartTotal">0,00 €</strong>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary btn-block" id="storeCheckoutBtn">
+        Finalizar Compra da Store →
+      </button>
+    </div>
+  </aside>
+
+  <!-- MODAL: CHECKOUT DA BANDIT STORE -->
+  <div class="custom-modal-overlay" id="storeCheckoutModal" role="dialog" aria-modal="true">
+    <div class="custom-modal-dialog">
+      <button type="button" class="custom-modal-close" id="closeCheckoutModalBtn" aria-label="Fechar">×</button>
+      <div id="checkoutModalBody">
+        <div class="kit-modal-header">
+          <span class="store-intro-badge">Bandit Store Checkout</span>
+          <h2>Finalização de Encomenda</h2>
+          <p class="kit-modal-lead">Introduza os dados de envio e faturação para receção dos seus Kits Bandit.</p>
+        </div>
+
+        <form id="storeCheckoutForm">
+          <div class="cfg-form-grid">
+            <div class="cfg-field-group">
+              <label>Nome Completo:</label>
+              <input type="text" name="customer_name" class="cfg-input" placeholder="O seu nome" required />
+            </div>
+            <div class="cfg-field-group">
+              <label>E-mail:</label>
+              <input type="email" name="customer_email" class="cfg-input" placeholder="nome@exemplo.pt" required />
+            </div>
+            <div class="cfg-field-group">
+              <label>Telefone:</label>
+              <input type="tel" name="customer_phone" class="cfg-input" placeholder="+351 9XX XXX XXX" required />
+            </div>
+            <div class="cfg-field-group">
+              <label>NIF / Tax ID (para fatura):</label>
+              <input type="text" name="customer_tax_id" class="cfg-input" placeholder="Opcional" />
+            </div>
+          </div>
+
+          <div class="cfg-field-group" style="margin-bottom: 20px;">
+            <label>Morada de Entrega:</label>
+            <input type="text" name="customer_address" class="cfg-input" placeholder="Rua, Número, Andar" required />
+          </div>
+
+          <div class="cfg-form-grid">
+            <div class="cfg-field-group">
+              <label>Cidade:</label>
+              <input type="text" name="customer_city" class="cfg-input" required />
+            </div>
+            <div class="cfg-field-group">
+              <label>Código Postal:</label>
+              <input type="text" name="customer_postal" class="cfg-input" placeholder="XXXX-XXX" required />
+            </div>
+            <div class="cfg-field-group">
+              <label>País de Destino:</label>
+              <input type="text" name="customer_country" class="cfg-input" placeholder="Ex.: Portugal, Espanha, França" required />
+            </div>
+          </div>
+
+          <div class="cfg-field-group" style="margin: 20px 0;">
+            <label>Método de Pagamento:</label>
+            <select name="payment_method" class="cfg-select">
+              <option value="CREDIT_CARD">Cartão de Crédito / Débito (Visa, Mastercard, Amex)</option>
+              <option value="MBWAY_TRANSFER">MB WAY / Transferência Bancária SEPA Instantânea</option>
+              <option value="MULTIBANCO_REF">Referência Multibanco (Apenas Portugal)</option>
+            </select>
+          </div>
+
+          <div class="order-summary-box" style="margin: 24px 0;">
+            <div class="cart-total-line final-total">
+              <span>Total da Encomenda (com IVA incluído):</span>
+              <strong id="checkoutTotalDisplay">0,00 €</strong>
+            </div>
+            <small style="display:block; margin-top:8px; color:var(--muted)">Expedição direta com seguro contra danos e perda.</small>
+          </div>
+
+          <div class="cfg-step-nav">
+            <div></div>
+            <button type="submit" class="btn btn-primary" id="confirmOrderSubmitBtn">
+              Confirmar e Efetuar Pagamento →
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   </footer>
 </div>
 
 <script src="idiomas/marketing-translations.js?v=20261106.2" defer></script>
 <script src="marketing.js?v=20261106.2" defer></script>
+<script src="store-kits.js?v=20261106.3"></script>
+<script src="configurator-data.js?v=20261106.3"></script>
+<script src="store-system.js?v=20261106.3"></script>
+<script src="configurator-system.js?v=20261106.3"></script>
+
 </body>
 </html>
 

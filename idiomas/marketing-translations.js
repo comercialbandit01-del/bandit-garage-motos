@@ -18,15 +18,21 @@
         footerLead: "Twelve years of custom motorcycles, handcrafted in Portugal and delivered to owners all over the world."
       },
       nav: {
+        configurator: "Configurator",
+        store: "Bandit Store",
         links: ["Atelier", "Builds", "Process", "Instagram", "Contact"],
         instagram: "Instagram",
-        cta: "Start a build"
+        cta: "Configure a Moto"
       },
       hero: {
         eyebrow: "Portugal · 12 years · Shipped worldwide",
         title: "One-off motorcycles, made by hand.",
         lead: "For 12 years, Bandit Garage has designed and built custom motorcycles in Portugal. Our work travels to riders and collectors around the world and is regarded as some of the finest in the field.",
         buttons: ["Tell us your idea", "See our builds", "View all projects"],
+        buttonsObj: {
+          configurator: "Configure a Moto",
+          store: "Bandit Store (Kits)"
+        },
         proofLabels: ["Experience", "Clients", "Reputation"],
         proofValues: ["12 years", "worldwide", "internationally acclaimed"],
         signalLabel: "Our atelier",
@@ -171,15 +177,21 @@
         footerLead: "Doze anos a construir motos custom à mão, em Portugal, para clientes de todo o mundo."
       },
       nav: {
+        configurator: "Configurador",
+        store: "Bandit Store",
         links: ["Atelier", "Projetos", "Processo", "Instagram", "Contacto"],
         instagram: "Instagram",
-        cta: "Iniciar um projeto"
+        cta: "Personalizar Moto"
       },
       hero: {
         eyebrow: "Portugal · 12 anos · Envios para todo o mundo",
         title: "Motos únicas, feitas à mão.",
         lead: "Há 12 anos que a Bandit Garage desenha e constrói motos custom em Portugal. As nossas criações seguem para motociclistas e colecionadores de todo o mundo e são reconhecidas entre as melhores da especialidade.",
         buttons: ["Partilhe a sua ideia", "Ver os nossos projetos", "Ver todos os projetos"],
+        buttonsObj: {
+          configurator: "Personalizar Moto",
+          store: "Bandit Store (Kits)"
+        },
         proofLabels: ["Experiência", "Clientes", "Reconhecimento"],
         proofValues: ["12 anos", "em todo o mundo", "internacional"],
         signalLabel: "O nosso atelier",
@@ -324,15 +336,21 @@
         footerLead: "Doce años construyendo motos custom a mano, en Portugal, para clientes de todo el mundo."
       },
       nav: {
+        configurator: "Configurador",
+        store: "Bandit Store",
         links: ["Atelier", "Proyectos", "Proceso", "Instagram", "Contacto"],
         instagram: "Instagram",
-        cta: "Iniciar un proyecto"
+        cta: "Personalizar Moto"
       },
       hero: {
         eyebrow: "Portugal · 12 años · Envíos a todo el mundo",
         title: "Motos únicas, hechas a mano.",
         lead: "Desde hace 12 años, Bandit Garage diseña y construye motos custom en Portugal. Nuestras creaciones llegan a moteros y coleccionistas de todo el mundo y están reconocidas entre las mejores de la especialidad.",
-        buttons: ["Cuéntanos tu idea", "Ver nuestros proyectos", "Ver todos los proyectos"],
+        buttons: ["Cuéntanos tu idea", "Ver nuestros proyectos", "Ver todos os projetos"],
+        buttonsObj: {
+          configurator: "Personalizar Moto",
+          store: "Bandit Store (Kits)"
+        },
         proofLabels: ["Experiencia", "Clientes", "Reconocimiento"],
         proofValues: ["12 años", "en todo el mundo", "internacional"],
         signalLabel: "Nuestro atelier",
@@ -477,15 +495,21 @@
         footerLead: "Douze ans de motos custom construites à la main, au Portugal, pour une clientèle du monde entier."
       },
       nav: {
+        configurator: "Configurateur",
+        store: "Bandit Store",
         links: ["Atelier", "Réalisations", "Savoir-faire", "Instagram", "Contact"],
         instagram: "Instagram",
-        cta: "Lancer un projet"
+        cta: "Personnaliser une Moto"
       },
       hero: {
         eyebrow: "Portugal · 12 ans · Expédition dans le monde entier",
         title: "Des motos uniques, façonnées à la main.",
         lead: "Depuis 12 ans, Bandit Garage conçoit et construit des motos custom au Portugal. Nos créations rejoignent des motards et des collectionneurs du monde entier et comptent parmi les plus reconnues du secteur.",
         buttons: ["Parlez-nous de votre idée", "Découvrir nos réalisations", "Voir tous les projets"],
+        buttonsObj: {
+          configurator: "Personnaliser une Moto",
+          store: "Bandit Store (Kits)"
+        },
         proofLabels: ["Expérience", "Clientèle", "Reconnaissance"],
         proofValues: ["12 ans", "dans le monde entier", "internationale"],
         signalLabel: "Notre atelier",

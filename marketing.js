@@ -157,6 +157,13 @@ function applyTranslations(lang){
   if(langSelect){
     langSelect.value = normalized
   }
+
+  if(window.BanditStore && typeof window.BanditStore.render === "function"){
+    window.BanditStore.render();
+  }
+  if(window.MotorcycleConfigurator && typeof window.MotorcycleConfigurator.render === "function"){
+    window.MotorcycleConfigurator.render();
+  }
 }
 
 function setHeaderState(){
