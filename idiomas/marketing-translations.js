@@ -22,7 +22,7 @@
         store: "Bandit Store",
         links: ["Atelier", "Builds", "Process", "Instagram", "Contact"],
         instagram: "Instagram",
-        cta: "Commission a Build"
+        cta: "Start a Build"
       },
       hero: {
         eyebrow: "Portugal · 12-Year Heritage · Global Delivery",
@@ -37,7 +37,7 @@
         proofValues: ["12 Years", "Worldwide", "World-Class"],
         signalLabel: "Our atelier",
         signalTitle: "From your vision to an iconic bespoke machine.",
-        signalLink: "Commission your project"
+        signalLink: "Start a Build"
       },
       marquee: ["Bespoke Motorcycles", "12 Years of Heritage", "Precision Engineering", "Global Reach", "World-Class Icon"],
       atelier: {
@@ -109,7 +109,7 @@
         link: "Join the community"
       },
       contact: {
-        label: "Private Commission",
+        label: "Custom Projects",
         title: "Let's build your machine.",
         lead: "Whether you want to commission a complete ground-up build or discuss technical kits for your classic BMW, our workshop is ready.",
         points: [
@@ -181,7 +181,7 @@
         store: "Bandit Store",
         links: ["Atelier", "Projetos", "Processo", "Instagram", "Contacto"],
         instagram: "Instagram",
-        cta: "Personalizar Moto"
+        cta: "Inicia o teu projecto"
       },
       hero: {
         eyebrow: "Portugal · 12 Anos de Legado · Exportação Global",
@@ -196,7 +196,7 @@
         proofValues: ["12 Anos", "Global", "Internacional"],
         signalLabel: "O nosso atelier",
         signalTitle: "Da sua visão à criação de uma máquina icónica.",
-        signalLink: "Comissionar projeto"
+        signalLink: "Inicia o teu projecto"
       },
       marquee: ["Motos Bespoke", "12 Anos de Legado", "Engenharia de Autor", "Alcance Global", "Referência Internacional"],
       atelier: {
@@ -233,7 +233,7 @@
           items: [
             "Bases clássicas BMW Boxer re-engenheiradas a zero",
             "Obsessão pelas proporções e pela silhueta de perfil",
-            "Exclusividade absoluta — cada projeto é comissionado como peça única"
+            "Exclusividade absoluta — cada projeto nasce como peça única irrepetível"
           ]
         }
       },
@@ -268,9 +268,9 @@
         link: "Acompanhar feed"
       },
       contact: {
-        label: "Comissão Privada",
+        label: "Projetos de Autor",
         title: "Dê vida ao seu projeto.",
-        lead: "Quer pretenda comissionar uma transformação integral de autor ou adquirir kits específicos de performance para a sua BMW clássica, fale diretamente connosco.",
+        lead: "Quer pretenda avançar com uma transformação integral de autor ou adquirir kits específicos de performance para a sua BMW clássica, fale diretamente connosco.",
         points: [
           { label: "Website" },
           { label: "Instagram" },
@@ -355,7 +355,7 @@
         proofValues: ["12 Años", "Global", "Internacional"],
         signalLabel: "Nuestro atelier",
         signalTitle: "De tu visión a una máquina icónica irrepetible.",
-        signalLink: "Comisionar proyecto"
+        signalLink: "Inicia tu proyecto"
       },
       marquee: ["Motos Bespoke", "12 Años de Legado", "Ingeniería de Autor", "Alcance Global", "Referencia Internacional"],
       atelier: {
@@ -427,9 +427,9 @@
         link: "Seguir en redes"
       },
       contact: {
-        label: "Comisión Privada",
+        label: "Proyectos a Medida",
         title: "Hablemos de tu proyecto.",
-        lead: "Tanto si deseas comisionar una transformación completa de autor como adquirir kits específicos para tu BMW clásica, habla directamente con nosotros.",
+        lead: "Tanto si deseas iniciar una transformación integral de autor como adquirir kits específicos para tu BMW clásica, habla directamente con nosotros.",
         points: [
           { label: "Sitio web" },
           { label: "Instagram" },
@@ -514,7 +514,7 @@
         proofValues: ["12 Ans", "International", "Excellence"],
         signalLabel: "Notre atelier",
         signalTitle: "De votre vision à la naissance d'une machine iconique.",
-        signalLink: "Commander un projet"
+        signalLink: "Lancer un projet"
       },
       marquee: ["Motos Bespoke", "12 Ans d'Héritage", "Haute Facture", "Rayonnement Mondial", "Référence Internationale"],
       atelier: {
@@ -586,9 +586,9 @@
         link: "Rejoindre le flux"
       },
       contact: {
-        label: "Projet Sur Mesure",
+        label: "Créations Sur Mesure",
         title: "Donnez vie à votre machine.",
-        lead: "Que vous envisagiez de commander une réalisation sur mesure complète ou d'acquérir des kits de performance pour votre BMW classique, contactez-nous directement.",
+        lead: "Que vous envisagiez de lancer une réalisation sur mesure complète ou d'acquérir des kits de performance pour votre BMW classique, contactez-nous directement.",
         points: [
           { label: "Site web" },
           { label: "Instagram" },
