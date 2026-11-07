@@ -261,7 +261,7 @@
       journal: {
         label: "Oficina em Ação",
         title: "Acompanhe os bastidores de cada máquina.",
-        lead: "Os nossos canais oficiais levam-no aos bastidores: maquinagem de componentes, montagem de motores e motas concluídas a caminho de clientes em todo o mundo.",
+        lead: "Os nossos canais oficiais levam-no aos bastidores: maquinagem de componentes, montagem de motores e motos concluídas a caminho de clientes em todo o mundo.",
         buttons: ["Seguir no Instagram", "Subscrever YouTube"],
         handle: "@banditgarageportugal",
         body: "Cultura autêntica de oficina, engenharia de detalhe e máquinas terminadas.",
@@ -309,7 +309,7 @@
         logo: "Logótipo oficial Bandit Garage",
         heroPrimary: "BMW R100 bespoke por Bandit Garage",
         heroSecondary: "BMW R80 custom por Bandit Garage",
-        buildFeatured: "Mota custom de autor BMW R100 por Bandit Garage",
+        buildFeatured: "Moto custom de autor BMW R100 por Bandit Garage",
         buildCardOne: "BMW R100 café racer por Bandit Garage",
         buildCardTwo: "Pormenor scrambler BMW R100 por Bandit Garage",
         journalOne: "Engenharia de autor por Bandit Garage",

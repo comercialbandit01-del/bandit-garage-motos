@@ -8,7 +8,7 @@
 (function () {
   // Estado da Configuração Atual
   const configState = {
-    step: 1, // 1: Mota Base, 2: Modelo Bandit, 3: 12 Componentes, 4: Referências/Notas, 5: Revisão e Envio
+    step: 1, // 1: Moto de Partida, 2: Modelo Bandit, 3: 12 Componentes, 4: Referências/Notas, 5: Revisão e Envio
     inputBike: {
       make: "BMW",
       model: "BMW R100RT",
@@ -26,8 +26,103 @@
       phone: "",
       country: "",
       city: ""
-    }
+    },
+    projectCode: `MOTO-${new Date().getFullYear()}-${String(Math.floor(100 + Math.random() * 900))}`,
+    lastRenderDataUrl: null
   };
+
+  function drawRoundedRect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+  }
+
+  function drawCoverImage(ctx, img, x, y, w, h) {
+    const imgRatio = img.width / img.height;
+    const targetRatio = w / h;
+    let sx = 0, sy = 0, sw = img.width, sh = img.height;
+    if (imgRatio > targetRatio) {
+      sw = img.height * targetRatio;
+      sx = (img.width - sw) / 2;
+    } else {
+      sh = img.width / targetRatio;
+      sy = (img.height - sh) / 2;
+    }
+    ctx.drawImage(img, sx, sy, sw, sh, x, y, w, h);
+  }
+
+  function loadImageSafe(url) {
+    return new Promise((resolve) => {
+      if (!url) return resolve(null);
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = () => resolve(null);
+      img.src = url;
+    });
+  }
+
+  async function generateStudioRenderCanvas(canvas) {
+    if (!canvas) return "";
+    canvas.width = 1920;
+    canvas.height = 1080;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return "";
+
+    const targetModel = (window.CONFIGURATOR_MODELS || []).find((m) => m.id === configState.targetModelId);
+    let studioImg = await loadImageSafe(targetModel?.image);
+    if (!studioImg) {
+      studioImg = await loadImageSafe("renders/bespoke-scrambler-render-v2.jpg");
+    }
+
+    ctx.fillStyle = "#070a10";
+    ctx.fillRect(0, 0, 1920, 1080);
+
+    if (studioImg) {
+      drawCoverImage(ctx, studioImg, 0, 0, 1920, 1080);
+    }
+
+    const footerGrad = ctx.createLinearGradient(0, 910, 0, 1080);
+    footerGrad.addColorStop(0, "rgba(0, 0, 0, 0)");
+    footerGrad.addColorStop(1, "rgba(4, 7, 12, 0.92)");
+    ctx.fillStyle = footerGrad;
+    ctx.fillRect(0, 910, 1920, 170);
+
+    ctx.fillStyle = "#c5a059";
+    drawRoundedRect(ctx, 48, 996, 48, 48, 10);
+    ctx.fill();
+    ctx.fillStyle = "#06080d";
+    ctx.font = "900 26px sans-serif";
+    ctx.fillText("B", 63, 1029);
+
+    ctx.fillStyle = "#c5a059";
+    ctx.font = "bold 13px monospace";
+    ctx.fillText(
+      `BANDIT BESPOKE STUDIO 8K RENDER • ${configState.projectCode} • ATELIER PORTUGAL`,
+      112,
+      1012
+    );
+
+    const targetName = targetModel ? getLocalizedText(targetModel.name).toUpperCase() : "BANDIT CUSTOM";
+    ctx.fillStyle = "#f8fafc";
+    ctx.font = "900 24px sans-serif";
+    ctx.fillText(
+      `${configState.inputBike.make} ${configState.inputBike.model} (${configState.inputBike.year}) → ${targetName}`,
+      112,
+      1042
+    );
+
+    const dataUrl = canvas.toDataURL("image/jpeg", 0.94);
+    configState.lastRenderDataUrl = dataUrl;
+    return dataUrl;
+  }
 
   // Inicializar componentes com valores padrão
   function initDefaultComponents() {
@@ -288,6 +383,24 @@
           </p>
         </div>
 
+        <div class="cfg-live-studio-wrap">
+          <div class="cfg-live-studio-header">
+            <div class="cfg-live-studio-status">
+              <span class="cfg-live-dot"></span>
+              <span class="cfg-live-studio-title">Estúdio de Render 8K em Tempo Real</span>
+              <span class="cfg-live-badge">Ativo</span>
+            </div>
+            <div class="cfg-live-actions">
+              <button type="button" class="cfg-btn-studio" id="cfgDownloadStudioRenderBtn">
+                ⬇ Descarregar Render 8K
+              </button>
+            </div>
+          </div>
+          <div class="cfg-canvas-stage">
+            <canvas id="cfgStudioLiveCanvas" width="1920" height="1080"></canvas>
+          </div>
+        </div>
+
         <div class="cfg-components-accordion">
           ${components
             .map((comp) => {
@@ -448,6 +561,27 @@
       });
     });
 
+    const liveCanvas = document.getElementById("cfgStudioLiveCanvas");
+    if (liveCanvas) {
+      generateStudioRenderCanvas(liveCanvas);
+    }
+
+    const dlBtn = document.getElementById("cfgDownloadStudioRenderBtn");
+    if (dlBtn) {
+      dlBtn.addEventListener("click", async () => {
+        const c = document.getElementById("cfgStudioLiveCanvas") || document.createElement("canvas");
+        const url = await generateStudioRenderCanvas(c);
+        if (url) {
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `${configState.projectCode}-Bandit-Render-8K.jpg`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }
+      });
+    }
+
     const backBtn = document.getElementById("cfgBackToStep2");
     if (backBtn) {
       backBtn.addEventListener("click", () => {
@@ -474,7 +608,7 @@
           <span class="cfg-step-badge">Passo 4 de 5</span>
           <h2>Fotografias de Referência & Observações</h2>
           <p class="cfg-step-lead">
-            Tem fotografias de motas que admira, pormenores de acabamento ou esboços? Carregue-os aqui para a análise da nossa equipa.
+            Tem fotografias de motos que admira, pormenores de acabamento ou esboços? Carregue-os aqui para a análise da nossa equipa.
           </p>
         </div>
 
@@ -618,11 +752,11 @@
 
         <div class="cfg-summary-dossier">
           <div class="cfg-dossier-hero">
-            <img src="${targetModel?.image}" alt="Modelo Bandit" class="cfg-dossier-img" />
+            <img src="${configState.lastRenderDataUrl || targetModel?.image}" alt="Modelo Bandit" class="cfg-dossier-img" id="cfgDossierHeroImg" />
             <div class="cfg-dossier-intro">
               <span class="cfg-tag">Modelo Escolhido</span>
               <h3>${getLocalizedText(targetModel?.name)}</h3>
-              <p><strong>Mota de Origem:</strong> ${configState.inputBike.make} ${configState.inputBike.model} (${configState.inputBike.year})</p>
+              <p><strong>Moto de Origem:</strong> ${configState.inputBike.make} ${configState.inputBike.model} (${configState.inputBike.year})</p>
               ${configState.inputBike.vin ? `<p><strong>Chassi/VIN:</strong> ${configState.inputBike.vin}</p>` : ""}
               ${configState.referencePhotos.length > 0 ? `<p><strong>Anexos:</strong> ${configState.referencePhotos.length} fotografia(s) de referência incluída(s)</p>` : ""}
             </div>

@@ -27,7 +27,7 @@ window.CONFIGURATOR_MODELS = [
       es: "Conversión con asiento monoplaza con colín artesanal aerodinámico, semimanillares bajos, silueta horizontal y escape cónico deportivo.",
       fr: "Transformation avec selle monoplace à capot profilé, guidons bracelets bas, silhouette horizontale tendue et échappements coniques sportifs."
     },
-    image: "https://images.squarespace-cdn.com/content/v1/62fe16b6eff6111989dfc130/1665409667649-OHGSHDLILPHNUCPTA1FU/image-asset.jpeg"
+    image: "bandit-models/bandit-cafe-racer.jpg"
   },
   {
     id: "TFM_SCRAMBLER",
@@ -50,7 +50,7 @@ window.CONFIGURATOR_MODELS = [
       es: "Suspensión de mayor recorrido, llantas de radios con neumáticos de tacos, manillar ancho de enduro, protector de cárter y escape elevado.",
       fr: "Suspension à débattement accru, jantes à rayons à pneus mixtes, guidon large de style enduro, sabot moteur en duralumin et échappement relevé."
     },
-    image: "https://images.squarespace-cdn.com/content/v1/62fe16b6eff6111989dfc130/1664886657522-S9OEE4VOOBJHO7YSAD2H/image-asset.jpeg"
+    image: "bandit-models/bandit-scrambler.jpg"
   },
   {
     id: "TFM_BRAT_STYLE",
@@ -73,7 +73,7 @@ window.CONFIGURATOR_MODELS = [
       es: "Chasis trasero recortado con loop soldado, asiento plano estriado, proporciones compactas y agilidad para el asfalto urbano.",
       fr: "Boucle arrière raccourcie avec boucle soudée, selle plate fine côtelée, proportions compactes et vivacité urbaine."
     },
-    image: "https://images.squarespace-cdn.com/content/v1/62fe16b6eff6111989dfc130/1666182326774-T1C6Y4XX19C47O1RZTNI/image-asset.jpeg"
+    image: "bandit-models/bandit-brat-style.jpg"
   },
   {
     id: "TFM_BOBBER",
@@ -96,7 +96,7 @@ window.CONFIGURATOR_MODELS = [
       es: "Asiento monoplaza flotante, guardabarros reducidos, neumáticos de perfil grueso y postura relajada de conducción.",
       fr: "Selle solo sur amortisseur cantilever, garde-boue minimalistes taillés sur mesure, pneus à profil large et allure racée."
     },
-    image: "https://images.squarespace-cdn.com/content/v1/62fe16b6eff6111989dfc130/1665922174984-J9J3APC6AARQF2GMJU90/image-asset.jpeg"
+    image: "bandit-models/bandit-bobber.jpg"
   },
   {
     id: "TFM_CLASSIC",
@@ -119,7 +119,7 @@ window.CONFIGURATOR_MODELS = [
       es: "Preservación de la geometría original con motor rehecho desde cero, radios pulidos y fiabilidad electrónica moderna.",
       fr: "Conservation des lignes d'origine avec moteur entièrement reconditionné, rayonnage inox et fiabilité électrique contemporaine."
     },
-    image: "https://images.squarespace-cdn.com/content/v1/62fe16b6eff6111989dfc130/1666269360371-YWL8L5KGK8NM5U600MYA/image-asset.jpeg"
+    image: "bandit-models/bandit-classic.jpg"
   }
 ];
 
