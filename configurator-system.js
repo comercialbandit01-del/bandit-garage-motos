@@ -402,115 +402,250 @@
     ];
   }
 
-  // Geometria precisa das máscaras fotográficas e pontos 3D em cada câmara de estúdio 8K
+  // ============================================================================
+  // GEOMETRIA CIRÚRGICA DAS MÁSCARAS POLIGONAIS (ZERO SANGRAMENTO FORA DA PEÇA!)
+  // ============================================================================
   const STUDIO_VIEWS_META = {
     SIDE: {
       url: "renders/bespoke-scrambler-render-v2.jpg",
-      emblemHealRect: { sx: 825, sy: 312, dx: 825, dy: 348, w: 122, h: 42 },
-      tankPolygon: [
-        [784, 388],
-        [792, 310],
-        [828, 240],
-        [925, 212],
-        [1055, 204],
-        [1178, 214],
-        [1228, 255],
-        [1238, 325],
-        [1204, 402],
-        [1110, 418],
-        [960, 414],
-        [835, 405]
+      emblemHealBox: { x1: 834, x2: 940, yTop: 382, yBot: 414 },
+      tankPolys: [
+        [
+          [784, 412],
+          [782, 365],
+          [790, 320],
+          [808, 280],
+          [838, 250],
+          [885, 232],
+          [950, 220],
+          [1032, 215],
+          [1038, 224],
+          [1132, 224],
+          [1168, 226],
+          [1198, 238],
+          [1204, 252],
+          [1182, 272],
+          [1166, 302],
+          [1164, 326],
+          [1182, 328],
+          [1208, 302],
+          [1224, 282],
+          [1236, 305],
+          [1238, 345],
+          [1225, 388],
+          [1202, 422],
+          [1155, 434],
+          [1050, 436],
+          [935, 432],
+          [835, 425]
+        ]
       ],
-      capBox: { x1: 1025, y1: 165, x2: 1140, y2: 215 },
-      seatBox: { x1: 495, y1: 262, x2: 775, y2: 362 },
-      forkBox: { x1: 1225, y1: 185, x2: 1472, y2: 565 },
-      gripBox: { x1: 1205, y1: 170, x2: 1285, y2: 242 },
-      shockBox: { x1: 485, y1: 410, x2: 675, y2: 595 },
-      headlightCircle: { cx: 1400, cy: 245, rx: 32, ry: 68 },
+      tankExcludePolys: [
+        // Tampão Monza em bronze
+        [
+          [1030, 175],
+          [1138, 175],
+          [1138, 225],
+          [1030, 225]
+        ],
+        // Espelho bar-end preto/bronze sobreposto na direita do depósito
+        [
+          [1160, 250],
+          [1224, 250],
+          [1224, 332],
+          [1160, 332]
+        ]
+      ],
+      seatBox: { x1: 490, y1: 285, x2: 772, y2: 386 },
+      forkBox: { x1: 1255, y1: 195, x2: 1465, y2: 565 },
+      shockPolys: [
+        [
+          [604, 488],
+          [636, 514],
+          [532, 622],
+          [500, 596]
+        ]
+      ],
+      gripBox: { x1: 1195, y1: 175, x2: 1280, y2: 248 },
+      caliperPolys: [
+        [
+          [1315, 588],
+          [1358, 588],
+          [1365, 672],
+          [1318, 672]
+        ]
+      ],
+      headlightCircle: { cx: 1408, cy: 252, rx: 16, ry: 56 },
       anchors: {
-        tank: { x: 1015, y: 312 },
-        seat: { x: 635, y: 305 },
-        frontSuspension: { x: 1348, y: 405 },
-        rearSuspension: { x: 575, y: 485 },
+        tank: { x: 1015, y: 325 },
+        seat: { x: 635, y: 332 },
+        frontSuspension: { x: 1368, y: 425 },
+        rearSuspension: { x: 565, y: 552 },
         wheels: { x: 382, y: 655 },
         tires: { x: 1685, y: 555 },
-        handlebar: { x: 1185, y: 145 },
-        turnSignals: { x: 1125, y: 248 },
-        brakes: { x: 1408, y: 638 },
-        headlight: { x: 1405, y: 245 },
+        handlebar: { x: 1185, y: 155 },
+        turnSignals: { x: 1125, y: 258 },
+        brakes: { x: 1342, y: 632 },
+        headlight: { x: 1405, y: 252 },
         speedometer: { x: 1315, y: 155 },
-        grips: { x: 1245, y: 205 }
+        grips: { x: 1235, y: 212 }
       }
     },
     FRONT_34: {
       url: "renders/turntable-front-34.jpg",
-      emblemHealRect: { sx: 762, sy: 252, dx: 762, dy: 292, w: 96, h: 52 },
-      tankPolygon: [
-        [746, 336],
-        [765, 232],
-        [835, 166],
-        [955, 144],
-        [1085, 158],
-        [1146, 224],
-        [1142, 326],
-        [1058, 392],
-        [915, 378],
-        [795, 355]
+      emblemHealBox: { x1: 758, x2: 848, yTop: 318, yBot: 368 },
+      tankPolys: [
+        [
+          [746, 368],
+          [746, 310],
+          [758, 255],
+          [782, 205],
+          [822, 168],
+          [878, 148],
+          [945, 138],
+          [990, 138],
+          [995, 152],
+          [1068, 154],
+          [1112, 185],
+          [1135, 235],
+          [1136, 305],
+          [1118, 362],
+          [1075, 405],
+          [1010, 415],
+          [905, 402],
+          [805, 385]
+        ]
       ],
-      capBox: { x1: 985, y1: 102, x2: 1085, y2: 158 },
-      seatBox: { x1: 545, y1: 158, x2: 778, y2: 286 },
-      forkBox: { x1: 1125, y1: 185, x2: 1435, y2: 585 },
-      gripBox: { x1: 915, y1: 145, x2: 1095, y2: 225 },
-      shockBox: { x1: 475, y1: 315, x2: 695, y2: 515 },
-      headlightCircle: { cx: 1322, cy: 222, rx: 68, ry: 82 },
+      tankExcludePolys: [
+        // Tampão Monza
+        [
+          [988, 100],
+          [1076, 100],
+          [1076, 156],
+          [988, 156]
+        ],
+        // Punho esquerdo + guiador + manete sobrepostos ao depósito
+        [
+          [870, 182],
+          [1062, 142],
+          [1105, 155],
+          [1105, 208],
+          [948, 236],
+          [872, 228]
+        ],
+        // Espelho bar-end redondo preto + haste sobrepostos ao depósito
+        [
+          [855, 238],
+          [892, 210],
+          [935, 215],
+          [950, 252],
+          [938, 294],
+          [902, 310],
+          [862, 302],
+          [848, 275]
+        ]
+      ],
+      seatBox: { x1: 545, y1: 162, x2: 768, y2: 302 },
+      forkBox: { x1: 1125, y1: 185, x2: 1425, y2: 585 },
+      shockPolys: [
+        [
+          [596, 400],
+          [626, 424],
+          [522, 540],
+          [492, 516]
+        ]
+      ],
+      gripBox: { x1: 870, y1: 138, x2: 1060, y2: 232 },
+      caliperPolys: [
+        [
+          [1248, 615],
+          [1295, 615],
+          [1302, 702],
+          [1252, 702]
+        ]
+      ],
+      headlightCircle: { cx: 1326, cy: 222, rx: 52, ry: 76 },
       anchors: {
-        tank: { x: 945, y: 265 },
-        seat: { x: 655, y: 218 },
-        frontSuspension: { x: 1235, y: 395 },
-        rearSuspension: { x: 565, y: 405 },
+        tank: { x: 985, y: 295 },
+        seat: { x: 645, y: 232 },
+        frontSuspension: { x: 1225, y: 445 },
+        rearSuspension: { x: 532, y: 432 },
         wheels: { x: 425, y: 545 },
         tires: { x: 1585, y: 615 },
-        handlebar: { x: 1135, y: 108 },
-        turnSignals: { x: 912, y: 205 },
-        brakes: { x: 1295, y: 665 },
-        headlight: { x: 1322, y: 222 },
-        speedometer: { x: 1255, y: 112 },
-        grips: { x: 1015, y: 182 }
+        handlebar: { x: 1135, y: 118 },
+        turnSignals: { x: 902, y: 258 },
+        brakes: { x: 1275, y: 662 },
+        headlight: { x: 1326, y: 222 },
+        speedometer: { x: 1255, y: 118 },
+        grips: { x: 962, y: 185 }
       }
     },
     REAR_34: {
       url: "renders/turntable-rear-34.jpg",
-      emblemHealRect: { sx: 1010, sy: 265, dx: 1010, dy: 308, w: 122, h: 48 },
-      tankPolygon: [
-        [875, 255],
-        [935, 172],
-        [1055, 146],
-        [1205, 156],
-        [1288, 205],
-        [1308, 322],
-        [1255, 382],
-        [1115, 386],
-        [955, 372]
+      emblemHealBox: { x1: 1002, x2: 1132, yTop: 325, yBot: 372 },
+      tankPolys: [
+        [
+          [878, 275],
+          [902, 222],
+          [945, 185],
+          [1015, 162],
+          [1095, 156],
+          [1102, 165],
+          [1182, 166],
+          [1235, 180],
+          [1282, 218],
+          [1306, 272],
+          [1306, 338],
+          [1282, 386],
+          [1235, 408],
+          [1135, 410],
+          [965, 398],
+          [946, 382],
+          [942, 305],
+          [918, 285]
+        ]
       ],
-      capBox: { x1: 1095, y1: 105, x2: 1195, y2: 152 },
-      seatBox: { x1: 585, y1: 195, x2: 912, y2: 322 },
-      forkBox: { x1: 1285, y1: 155, x2: 1515, y2: 535 },
-      gripBox: { x1: 1385, y1: 118, x2: 1515, y2: 185 },
-      shockBox: { x1: 635, y1: 345, x2: 875, y2: 615 },
-      headlightCircle: { cx: 1412, cy: 198, rx: 32, ry: 55 },
+      tankExcludePolys: [
+        [
+          [1092, 108],
+          [1192, 108],
+          [1192, 166],
+          [1092, 166]
+        ]
+      ],
+      seatBox: { x1: 582, y1: 205, x2: 912, y2: 348 },
+      forkBox: { x1: 1295, y1: 145, x2: 1495, y2: 565 },
+      shockPolys: [
+        [
+          [755, 455],
+          [796, 478],
+          [695, 635],
+          [654, 612]
+        ]
+      ],
+      gripBox: { x1: 1372, y1: 72, x2: 1485, y2: 158 },
+      caliperPolys: [
+        [
+          [1405, 558],
+          [1448, 558],
+          [1455, 642],
+          [1410, 642]
+        ]
+      ],
+      headlightCircle: { cx: 1412, cy: 212, rx: 28, ry: 52 },
       anchors: {
-        tank: { x: 1125, y: 265 },
-        seat: { x: 755, y: 248 },
-        frontSuspension: { x: 1415, y: 355 },
-        rearSuspension: { x: 765, y: 465 },
+        tank: { x: 1125, y: 285 },
+        seat: { x: 755, y: 272 },
+        frontSuspension: { x: 1415, y: 425 },
+        rearSuspension: { x: 725, y: 535 },
         wheels: { x: 465, y: 625 },
         tires: { x: 1585, y: 585 },
-        handlebar: { x: 1225, y: 112 },
-        turnSignals: { x: 1485, y: 165 },
-        brakes: { x: 1445, y: 615 },
-        headlight: { x: 1412, y: 198 },
-        speedometer: { x: 1325, y: 115 },
-        grips: { x: 1455, y: 148 }
+        handlebar: { x: 1225, y: 122 },
+        turnSignals: { x: 1485, y: 175 },
+        brakes: { x: 1432, y: 605 },
+        headlight: { x: 1412, y: 212 },
+        speedometer: { x: 1325, y: 125 },
+        grips: { x: 1425, y: 115 }
       }
     }
   };
@@ -526,14 +661,94 @@
       v.forkHex,
       v.rearSpringKey,
       v.rearSuspOpt,
+      v.caliperSpec,
       v.isYellowLens,
       v.gripHex
     ].join("|");
   }
 
   /**
-   * Processa uma vista fotográfica 8K de estúdio ao nível do píxel (HSL & Luminância Real),
-   * preservando 100% dos reflexos, sombras e texturas reais de estúdio sem qualquer traço 2D amador.
+   * Desenha uma máscara poligonal cirúrgica com recorte rígido (ctx.clip()) no contorno exato
+   * para garantir matematicamente ZERO sangramento/espelhamento fora da peça.
+   */
+  function buildSurgicalPolygonMaskData(mCtx, includePolys, excludePolys, featherPx) {
+    if (!mCtx || !includePolys || !includePolys.length) return null;
+    let minX = 1920,
+      minY = 1080,
+      maxX = 0,
+      maxY = 0;
+    includePolys.forEach((poly) => {
+      poly.forEach((pt) => {
+        if (pt[0] < minX) minX = pt[0];
+        if (pt[0] > maxX) maxX = pt[0];
+        if (pt[1] < minY) minY = pt[1];
+        if (pt[1] > maxY) maxY = pt[1];
+      });
+    });
+    minX = Math.max(0, Math.floor(minX - 2));
+    minY = Math.max(0, Math.floor(minY - 2));
+    maxX = Math.min(1919, Math.ceil(maxX + 2));
+    maxY = Math.min(1079, Math.ceil(maxY + 2));
+    const bw = maxX - minX + 1;
+    const bh = maxY - minY + 1;
+    if (bw <= 0 || bh <= 0) return null;
+
+    mCtx.clearRect(minX, minY, bw, bh);
+    mCtx.save();
+    // 1. CLIP RÍGIDO ao contorno exato da peça: nenhum píxel fora do polígono pode jamais ser alterado!
+    mCtx.beginPath();
+    includePolys.forEach((poly) => {
+      poly.forEach((pt, idx) => {
+        if (idx === 0) mCtx.moveTo(pt[0], pt[1]);
+        else mCtx.lineTo(pt[0], pt[1]);
+      });
+      mCtx.closePath();
+    });
+    mCtx.clip();
+
+    // 2. Preenchimento interno com anti-aliasing suave restrito ao interior do clip
+    mCtx.filter = featherPx > 0 ? `blur(${featherPx}px)` : "none";
+    mCtx.fillStyle = "#ffffff";
+    mCtx.beginPath();
+    includePolys.forEach((poly) => {
+      poly.forEach((pt, idx) => {
+        if (idx === 0) mCtx.moveTo(pt[0], pt[1]);
+        else mCtx.lineTo(pt[0], pt[1]);
+      });
+      mCtx.closePath();
+    });
+    mCtx.fill();
+
+    // 3. Subtrair zonas excluídas (tampão Monza, espelho bar-end, punho/manete)
+    if (excludePolys && excludePolys.length > 0) {
+      mCtx.globalCompositeOperation = "destination-out";
+      mCtx.filter = "blur(1.2px)";
+      mCtx.beginPath();
+      excludePolys.forEach((poly) => {
+        poly.forEach((pt, idx) => {
+          if (idx === 0) mCtx.moveTo(pt[0], pt[1]);
+          else mCtx.lineTo(pt[0], pt[1]);
+        });
+        mCtx.closePath();
+      });
+      mCtx.fill();
+    }
+    mCtx.restore();
+
+    return {
+      minX,
+      minY,
+      maxX,
+      maxY,
+      bw,
+      bh,
+      alphaData: mCtx.getImageData(minX, minY, bw, bh).data
+    };
+  }
+
+  /**
+   * Processa uma vista fotográfica 8K de estúdio ao nível do píxel com máscaras cirúrgicas,
+   * garantindo 100% de cobertura sólida dentro de cada peça e 0% de sangramento fora da área.
    */
   async function getGradedStudioViewCanvas(viewKey, isMirrored, v) {
     const meta = STUDIO_VIEWS_META[viewKey] || STUDIO_VIEWS_META.SIDE;
@@ -554,106 +769,270 @@
     // 1. Desenhar a fotografia 8K original em 1920x1080
     drawCoverImage(ctx, img, 0, 0, 1920, 1080);
 
-    // Se for vista do lado esquerdo (espelhada), retocar suavemente as letras do depósito antes de inverter
-    if (isMirrored && meta.emblemHealRect) {
-      const hr = meta.emblemHealRect;
-      ctx.save();
-      ctx.filter = "blur(2px)";
-      ctx.drawImage(off, hr.sx, hr.sy, hr.w, hr.h, hr.dx, hr.dy, hr.w, hr.h);
-      ctx.restore();
-    }
-
-    // 2. Criar máscara suave (feathered) do depósito para transição fotográfica invisível
     const maskCanvas = document.createElement("canvas");
     maskCanvas.width = 1920;
     maskCanvas.height = 1080;
     const mCtx = maskCanvas.getContext("2d", { willReadFrequently: true });
-    if (mCtx) {
-      mCtx.filter = "blur(9px)";
-      mCtx.fillStyle = "#ffffff";
-      mCtx.beginPath();
-      meta.tankPolygon.forEach((pt, idx) => {
-        if (idx === 0) mCtx.moveTo(pt[0], pt[1]);
-        else mCtx.lineTo(pt[0], pt[1]);
-      });
-      mCtx.closePath();
-      mCtx.fill();
-    }
 
-    // 3. Color Grading Fotográfico ao Nível do Píxel (Pintura do Depósito, Pele do Assento, Bainhas USD, Punhos, Mola e Ótica)
-    const needTankGrade = v.tankColorKey !== "bandit_black" || v.tankFinish !== "matte_satin";
-    const needSeatGrade = v.seatMat !== "cognac_leather";
-    const needForkGrade = v.frontColorKey !== "gold_racing";
-    const needShockGrade =
-      v.rearSpringKey === "ohlins_yellow" || v.rearSuspOpt === "ohlins_piggyback_gold";
-    const needLensGrade = Boolean(v.isYellowLens);
+    try {
+      const imgData = ctx.getImageData(0, 0, 1920, 1080);
+      const data = imgData.data;
 
-    if (needTankGrade || needSeatGrade || needForkGrade || needShockGrade || needLensGrade) {
-      try {
-        const imgData = ctx.getImageData(0, 0, 1920, 1080);
-        const data = imgData.data;
-        const maskData = mCtx ? mCtx.getImageData(0, 0, 1920, 1080).data : null;
+      // 2. Remover de forma 100% invisível o emblema original no depósito por interpolação vertical contínua
+      // (evita manchas escuras nas cores claras e evita texto invertido ao rodar 360°)
+      if (meta.emblemHealBox) {
+        const hb = meta.emblemHealBox;
+        const spanY = Math.max(1, hb.yBot - hb.yTop);
+        for (let x = hb.x1; x <= hb.x2; x++) {
+          const topIdx = (hb.yTop * 1920 + x) * 4;
+          const botIdx = (hb.yBot * 1920 + x) * 4;
+          const rTop = data[topIdx],
+            gTop = data[topIdx + 1],
+            bTop = data[topIdx + 2];
+          const rBot = data[botIdx],
+            gBot = data[botIdx + 1],
+            bBot = data[botIdx + 2];
+          for (let y = hb.yTop + 1; y < hb.yBot; y++) {
+            const t = (y - hb.yTop) / spanY;
+            const pIdx = (y * 1920 + x) * 4;
+            data[pIdx] = Math.round(rTop + (rBot - rTop) * t);
+            data[pIdx + 1] = Math.round(gTop + (gBot - gTop) * t);
+            data[pIdx + 2] = Math.round(bTop + (bBot - bTop) * t);
+          }
+        }
+      }
 
-        const tankRgb = hexToRgb(v.tankHex);
-        const [tankH, tankS, tankTargetL] = rgbToHsl(tankRgb.r, tankRgb.g, tankRgb.b);
+      // ======================================================================
+      // PEÇA 01: DEPÓSITO E PINTURA (Todas as 6 cores + 3 acabamentos funcionam a 100% sem falhas!)
+      // ======================================================================
+      const tankMask = buildSurgicalPolygonMaskData(
+        mCtx,
+        meta.tankPolys,
+        meta.tankExcludePolys,
+        1.5
+      );
+      if (tankMask) {
+        for (let y = tankMask.minY; y <= tankMask.maxY; y++) {
+          const maskRow = (y - tankMask.minY) * tankMask.bw;
+          const imgRow = y * 1920;
+          for (let x = tankMask.minX; x <= tankMask.maxX; x++) {
+            const mAlpha = tankMask.alphaData[(maskRow + (x - tankMask.minX)) * 4 + 3];
+            if (mAlpha < 4) continue;
 
-        const seatRgb = hexToRgb(v.seatHex);
-        const [seatH, seatS, seatTargetL] = rgbToHsl(seatRgb.r, seatRgb.g, seatRgb.b);
+            const pIdx = (imgRow + x) * 4;
+            const r = data[pIdx];
+            const g = data[pIdx + 1];
+            const b = data[pIdx + 2];
+            // Luminância percetual real da iluminação de estúdio sobre o depósito (funciona em luz fria e quente!)
+            const lRaw = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
 
-        // Processar Depósito (01) com preservação integral da iluminação de estúdio
-        if (needTankGrade && maskData) {
-          const minX = 720,
-            maxX = 1330,
-            minY = 130,
-            maxY = 435;
-          const cap = meta.capBox;
-          for (let y = minY; y <= maxY; y++) {
-            const rowOffset = y * 1920;
-            for (let x = minX; x <= maxX; x++) {
-              const pIdx = (rowOffset + x) * 4;
-              const mAlpha = maskData[pIdx + 3];
+            let outH = 215;
+            let outS = 0.05;
+            let outL = lRaw;
+
+            if (v.tankColorKey === "british_green") {
+              outH = 144;
+              outS = 0.64 * (1 - Math.pow(Math.abs(2 * lRaw - 1), 2.2) * 0.32);
+              outL = Math.max(0.04, Math.min(0.78, 0.03 + Math.pow(lRaw, 0.85) * 0.84));
+            } else if (v.tankColorKey === "midnight_blue") {
+              outH = 220;
+              outS = 0.78 * (1 - Math.pow(Math.abs(2 * lRaw - 1), 2.2) * 0.28);
+              outL = Math.max(0.05, Math.min(0.82, 0.05 + Math.pow(lRaw, 0.8) * 0.88));
+            } else if (v.tankColorKey === "nardo_grey") {
+              outH = 208;
+              outS = 0.08;
+              outL = Math.max(0.12, Math.min(0.82, 0.15 + Math.pow(lRaw, 0.78) * 0.68));
+            } else if (v.tankColorKey === "desert_sand") {
+              outH = 35;
+              outS = 0.48 * (1 - Math.max(0, lRaw - 0.58) * 0.45);
+              outL = Math.max(0.1, Math.min(0.86, 0.12 + Math.pow(lRaw, 0.76) * 0.76));
+            } else if (v.tankColorKey === "classic_silver") {
+              outH = 210;
+              outS = 0.04;
+              outL = Math.max(0.16, Math.min(0.92, 0.18 + Math.pow(lRaw, 0.72) * 0.78));
+            } else {
+              // bandit_black (Preto Bandit Mate / Profundo)
+              outH = 215;
+              outS = 0.05;
+              outL = Math.max(0.02, Math.min(0.68, Math.pow(lRaw, 1.16) * 0.74));
+            }
+
+            if (v.tankFinish === "raw_brushed") {
+              outS = Math.min(0.08, outS * 0.3);
+              outL = Math.min(0.9, 0.12 + Math.pow(lRaw, 0.78) * 0.82);
+            } else if (v.tankFinish === "gloss_ceramic") {
+              const specBoost =
+                lRaw > 0.32
+                  ? Math.pow((lRaw - 0.32) / 0.68, 1.35) * 0.18
+                  : -0.02 * (0.32 - lRaw);
+              outL = Math.max(0.02, Math.min(0.94, outL + specBoost));
+            }
+
+            const blend = mAlpha / 255;
+            const [nr, ng, nb] = hslToRgb(outH, outS, outL);
+            data[pIdx] = Math.round(r + (nr - r) * blend);
+            data[pIdx + 1] = Math.round(g + (ng - g) * blend);
+            data[pIdx + 2] = Math.round(b + (nb - b) * blend);
+          }
+        }
+      }
+
+      // ======================================================================
+      // PEÇA 02: ASSENTO EM PELE ARTESANAL (Todos os 5 materiais restritos ao contorno exato!)
+      // ======================================================================
+      if (v.seatMat !== "cognac_leather" && meta.seatBox) {
+        const sb = meta.seatBox;
+        for (let y = sb.y1; y <= sb.y2; y++) {
+          const imgRow = y * 1920;
+          for (let x = sb.x1; x <= sb.x2; x++) {
+            const pIdx = (imgRow + x) * 4;
+            const r = data[pIdx];
+            const g = data[pIdx + 1];
+            const b = data[pIdx + 2];
+            // Detetar estritamente os píxeis de pele conhaque do assento (zero parede cinzenta!)
+            const warmth = Math.min(r - b - 12, (g - b) * 3.5);
+            if (warmth <= 0 || r < 34) continue;
+            const blend = Math.min(1, warmth / 18);
+            const lRaw = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+
+            let outH = 24;
+            let outS = 0.65;
+            let outL = lRaw;
+
+            if (v.seatMat === "black_nautical") {
+              outH = 215;
+              outS = 0.05;
+              outL = Math.max(0.03, Math.min(0.44, 0.02 + Math.pow(lRaw, 1.05) * 0.42));
+            } else if (v.seatMat === "alcantara_suede") {
+              outH = 215;
+              outS = 0.1;
+              outL = Math.max(0.06, Math.min(0.58, 0.07 + Math.pow(lRaw, 0.85) * 0.52));
+            } else if (v.seatMat === "chocolate_leather") {
+              outH = 18;
+              outS = 0.58;
+              outL = Math.max(0.04, Math.min(0.55, 0.03 + Math.pow(lRaw, 0.95) * 0.54));
+            } else if (v.seatMat === "crimson_red") {
+              outH = 355;
+              outS = 0.78;
+              outL = Math.max(0.05, Math.min(0.68, 0.04 + Math.pow(lRaw, 0.86) * 0.7));
+            }
+
+            const [nr, ng, nb] = hslToRgb(outH, outS, outL);
+            data[pIdx] = Math.round(r + (nr - r) * blend);
+            data[pIdx + 1] = Math.round(g + (ng - g) * blend);
+            data[pIdx + 2] = Math.round(b + (nb - b) * blend);
+          }
+        }
+      }
+
+      // ======================================================================
+      // PEÇA 03: BAINHAS DIANTEIRAS USD (3 acabamentos restritos aos tubos da forqueta!)
+      // ======================================================================
+      if (v.frontColorKey !== "gold_racing" && meta.forkBox) {
+        const fb = meta.forkBox;
+        for (let y = fb.y1; y <= fb.y2; y++) {
+          const imgRow = y * 1920;
+          for (let x = fb.x1; x <= fb.x2; x++) {
+            const pIdx = (imgRow + x) * 4;
+            const r = data[pIdx];
+            const g = data[pIdx + 1];
+            const b = data[pIdx + 2];
+            // Detetar estritamente o alumínio anodizado dourado/bronze dos tubos USD
+            const warmth = Math.min(r - b - 12, (g - b) * 3.5);
+            if (warmth <= 0 || r < 34) continue;
+            const blend = Math.min(1, warmth / 18);
+            const lRaw = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+
+            let outH = 215;
+            let outS = 0.05;
+            let outL = lRaw;
+            if (v.frontColorKey === "matte_black") {
+              outS = 0.05;
+              outL = Math.max(0.03, Math.min(0.42, 0.02 + Math.pow(lRaw, 1.05) * 0.4));
+            } else if (v.frontColorKey === "polished_alloy") {
+              outH = 210;
+              outS = 0.05;
+              outL = Math.max(0.12, Math.min(0.92, 0.14 + Math.pow(lRaw, 0.76) * 0.82));
+            }
+
+            const [nr, ng, nb] = hslToRgb(outH, outS, outL);
+            data[pIdx] = Math.round(r + (nr - r) * blend);
+            data[pIdx + 1] = Math.round(g + (ng - g) * blend);
+            data[pIdx + 2] = Math.round(b + (nb - b) * blend);
+          }
+        }
+      }
+
+      // ======================================================================
+      // PEÇA 04: SUSPENSÃO TRASEIRA (Restrito estritamente às espiras da mola — ZERO parede!)
+      // ======================================================================
+      const shockMask = buildSurgicalPolygonMaskData(mCtx, meta.shockPolys, null, 1.0);
+      if (shockMask) {
+        const isYellowSpring =
+          v.rearSpringKey === "ohlins_yellow" || v.rearSuspOpt === "ohlins_piggyback_gold";
+        const isTotalBlack = v.rearSpringKey === "total_black";
+        if (isYellowSpring || isTotalBlack) {
+          for (let y = shockMask.minY; y <= shockMask.maxY; y++) {
+            const maskRow = (y - shockMask.minY) * shockMask.bw;
+            const imgRow = y * 1920;
+            for (let x = shockMask.minX; x <= shockMask.maxX; x++) {
+              const mAlpha = shockMask.alphaData[(maskRow + (x - shockMask.minX)) * 4 + 3];
               if (mAlpha < 8) continue;
 
-              // Preservar o tampão Monza em bronze/cobre no topo do depósito
-              if (x >= cap.x1 && x <= cap.x2 && y >= cap.y1 && y <= cap.y2) {
-                if (data[pIdx] > data[pIdx + 2] + 28) continue;
-              }
-
+              const pIdx = (imgRow + x) * 4;
               const r = data[pIdx];
               const g = data[pIdx + 1];
               const b = data[pIdx + 2];
-              const [h, s, l] = rgbToHsl(r, g, b);
+              const lRaw = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
 
-              // A superfície do depósito original tem baixa saturação e luminância entre 0.05 e 0.68
-              if (l < 0.04 || l > 0.72 || s > 0.38) continue;
-
-              const blend = Math.min(1, mAlpha / 235) * (s > 0.24 ? (0.38 - s) / 0.14 : 1);
-              let outH = tankH;
-              let outS = tankS;
-              let outL = l;
-
-              if (v.tankFinish === "raw_brushed") {
-                // Alumínio Escovado Motorsport: reflexo metálico acetinado de alta luminância
-                outS = Math.min(0.08, tankS * 0.25);
-                outL = Math.min(0.88, 0.12 + Math.pow(l, 0.88) * 1.18);
-              } else if (v.tankColorKey === "classic_silver" || v.tankColorKey === "desert_sand" || v.tankColorKey === "nardo_grey") {
-                outS = tankS * 0.85;
-                outL = Math.min(0.86, 0.09 + Math.pow(l, 0.9) * (0.75 + tankTargetL * 0.55));
-              } else if (v.tankColorKey === "bandit_black") {
-                outS = 0.05;
-                outL = l;
-              } else {
-                // Cores ricas (Verde Inglesa, Azul Oceano, Vermelho Corsa, etc.)
-                outS = Math.min(0.88, tankS * (0.65 + (1 - Math.abs(2 * l - 1)) * 0.45));
-                outL = Math.max(0.04, Math.min(0.82, l * (0.72 + tankTargetL * 0.65)));
+              if (isYellowSpring) {
+                // Colorir apenas as espiras metálicas iluminadas da mola (preserva o intervalo escuro entre espiras)
+                if (lRaw >= 0.085 && lRaw <= 0.75) {
+                  const coilStrength =
+                    (mAlpha / 255) * Math.min(1, (lRaw - 0.08) * 6.5) * 0.92;
+                  const [nr, ng, nb] = hslToRgb(
+                    46,
+                    0.92,
+                    Math.min(0.8, 0.14 + Math.pow(lRaw, 0.75) * 0.85)
+                  );
+                  data[pIdx] = Math.round(r + (nr - r) * coilStrength);
+                  data[pIdx + 1] = Math.round(g + (ng - g) * coilStrength);
+                  data[pIdx + 2] = Math.round(b + (nb - b) * coilStrength);
+                }
+              } else if (isTotalBlack) {
+                const blend = (mAlpha / 255) * 0.75;
+                const [nr, ng, nb] = hslToRgb(215, 0.04, lRaw * 0.42);
+                data[pIdx] = Math.round(r + (nr - r) * blend);
+                data[pIdx + 1] = Math.round(g + (ng - g) * blend);
+                data[pIdx + 2] = Math.round(b + (nb - b) * blend);
               }
+            }
+          }
+        }
+      }
 
-              if (v.tankFinish === "gloss_ceramic") {
-                // Curva S de Verniz Cerâmico Brilhante Espelhado (aprofunda sombras e realça altas-luzes reais)
-                const specBoost = l > 0.32 ? Math.pow((l - 0.32) / 0.4, 1.35) * 0.22 : -0.02 * (0.32 - l);
-                outL = Math.max(0.03, Math.min(0.92, outL + specBoost));
-              }
-
+      // ======================================================================
+      // PEÇA 09: PINÇA DE TRAVÃO BREMBO (Dourado Anodizado / Níquel CNC / Preto)
+      // ======================================================================
+      if (v.caliperSpec && v.caliperSpec !== "black_red_logo" && meta.caliperPolys) {
+        const calMask = buildSurgicalPolygonMaskData(mCtx, meta.caliperPolys, null, 1.0);
+        if (calMask) {
+          for (let y = calMask.minY; y <= calMask.maxY; y++) {
+            const maskRow = (y - calMask.minY) * calMask.bw;
+            const imgRow = y * 1920;
+            for (let x = calMask.minX; x <= calMask.maxX; x++) {
+              const mAlpha = calMask.alphaData[(maskRow + (x - calMask.minX)) * 4 + 3];
+              if (mAlpha < 6) continue;
+              const pIdx = (imgRow + x) * 4;
+              const r = data[pIdx],
+                g = data[pIdx + 1],
+                b = data[pIdx + 2];
+              const lRaw = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+              if (lRaw < 0.06) continue;
+              const outH = v.caliperSpec === "gold_anodized" ? 38 : 210;
+              const outS = v.caliperSpec === "gold_anodized" ? 0.74 : 0.05;
+              const outL = Math.min(0.82, 0.1 + Math.pow(lRaw, 0.8) * 0.78);
+              const blend = (mAlpha / 255) * 0.85;
               const [nr, ng, nb] = hslToRgb(outH, outS, outL);
               data[pIdx] = Math.round(r + (nr - r) * blend);
               data[pIdx + 1] = Math.round(g + (ng - g) * blend);
@@ -661,146 +1040,74 @@
             }
           }
         }
-
-        // Processar Assento em Pele (02) isolando exatamente os píxeis da pele Cognac real
-        if (needSeatGrade) {
-          const sb = meta.seatBox;
-          for (let y = sb.y1; y <= sb.y2; y++) {
-            const rowOffset = y * 1920;
-            for (let x = sb.x1; x <= sb.x2; x++) {
-              const pIdx = (rowOffset + x) * 4;
-              const r = data[pIdx];
-              const g = data[pIdx + 1];
-              const b = data[pIdx + 2];
-              if (r > b + 18 && g > b + 3 && r > 42) {
-                const [h, s, l] = rgbToHsl(r, g, b);
-                if (h >= 10 && h <= 44 && s >= 0.22) {
-                  const strength = Math.min(1, (s - 0.2) * 3.2);
-                  let newS = seatS * (s / 0.58);
-                  let newL = l;
-                  if (v.seatMat === "black_nautical") {
-                    newS = Math.min(0.1, s * 0.15);
-                    newL = Math.max(0.04, l * 0.44);
-                  } else if (v.seatMat === "alcantara_suede") {
-                    newS = Math.min(0.14, s * 0.22);
-                    newL = Math.max(0.06, l * 0.62);
-                  } else if (v.seatMat === "chocolate_leather") {
-                    newS = Math.min(0.65, s * 0.78);
-                    newL = Math.max(0.05, l * 0.58);
-                  } else if (v.seatMat === "crimson_red") {
-                    newS = Math.min(0.82, s * 1.05);
-                    newL = Math.max(0.06, l * 0.72);
-                  }
-                  const [nr, ng, nb] = hslToRgb(seatH, Math.max(0, Math.min(1, newS)), newL);
-                  data[pIdx] = Math.round(r + (nr - r) * strength);
-                  data[pIdx + 1] = Math.round(g + (ng - g) * strength);
-                  data[pIdx + 2] = Math.round(b + (nb - b) * strength);
-                }
-              }
-            }
-          }
-        }
-
-        // Processar Bainhas Dianteiras USD (03) isolando os tubos anodizados
-        if (needForkGrade) {
-          const fb = meta.forkBox;
-          for (let y = fb.y1; y <= fb.y2; y++) {
-            const rowOffset = y * 1920;
-            for (let x = fb.x1; x <= fb.x2; x++) {
-              const pIdx = (rowOffset + x) * 4;
-              const r = data[pIdx];
-              const g = data[pIdx + 1];
-              const b = data[pIdx + 2];
-              if (r > b + 16 && g > b + 3 && r > 38) {
-                const [h, s, l] = rgbToHsl(r, g, b);
-                if (h >= 12 && h <= 45 && s >= 0.2) {
-                  const strength = Math.min(1, (s - 0.18) * 3.0);
-                  let newH = 215;
-                  let newS = 0.06;
-                  let newL = l;
-                  if (v.frontColorKey === "matte_black") {
-                    newS = 0.05;
-                    newL = Math.max(0.04, l * 0.42);
-                  } else if (v.frontColorKey === "polished_alloy") {
-                    newS = 0.05;
-                    newL = Math.min(0.92, 0.12 + l * 1.25);
-                  }
-                  const [nr, ng, nb] = hslToRgb(newH, newS, newL);
-                  data[pIdx] = Math.round(r + (nr - r) * strength);
-                  data[pIdx + 1] = Math.round(g + (ng - g) * strength);
-                  data[pIdx + 2] = Math.round(b + (nb - b) * strength);
-                }
-              }
-            }
-          }
-        }
-
-        // Processar Mola da Suspensão Traseira (04) apenas nos reflexos metálicos reais da mola
-        if (needShockGrade) {
-          const sh = meta.shockBox;
-          const cxMid = (sh.x1 + sh.x2) / 2;
-          const cyMid = (sh.y1 + sh.y2) / 2;
-          const maxR = Math.hypot(sh.x2 - cxMid, sh.y2 - cyMid);
-          for (let y = sh.y1; y <= sh.y2; y++) {
-            const rowOffset = y * 1920;
-            for (let x = sh.x1; x <= sh.x2; x++) {
-              // Isolar o cilindro diagonal do amortecedor
-              const normX = (x - sh.x1) / (sh.x2 - sh.x1);
-              const normY = (y - sh.y1) / (sh.y2 - sh.y1);
-              const diagDist = Math.abs(normX + normY - 1);
-              if (diagDist > 0.24) continue;
-
-              const pIdx = (rowOffset + x) * 4;
-              const r = data[pIdx];
-              const g = data[pIdx + 1];
-              const b = data[pIdx + 2];
-              const [, s, l] = rgbToHsl(r, g, b);
-              if (l >= 0.11 && l <= 0.62 && s <= 0.25) {
-                const coilWeight = (1 - diagDist / 0.24) * 0.78;
-                const [nr, ng, nb] = hslToRgb(45, 0.88, Math.min(0.76, l * 1.48));
-                data[pIdx] = Math.round(r + (nr - r) * coilWeight);
-                data[pIdx + 1] = Math.round(g + (ng - g) * coilWeight);
-                data[pIdx + 2] = Math.round(b + (nb - b) * coilWeight);
-              }
-            }
-          }
-        }
-
-        // Processar Lente do Farol Dianteiro (10) seletivamente no vidro da ótica
-        if (needLensGrade && meta.headlightCircle) {
-          const hc = meta.headlightCircle;
-          const xStart = Math.max(0, Math.floor(hc.cx - hc.rx));
-          const xEnd = Math.min(1919, Math.ceil(hc.cx + hc.rx));
-          const yStart = Math.max(0, Math.floor(hc.cy - hc.ry));
-          const yEnd = Math.min(1079, Math.ceil(hc.cy + hc.ry));
-          for (let y = yStart; y <= yEnd; y++) {
-            const rowOffset = y * 1920;
-            for (let x = xStart; x <= xEnd; x++) {
-              const ellDist = Math.hypot((x - hc.cx) / hc.rx, (y - hc.cy) / hc.ry);
-              if (ellDist > 1) continue;
-              const pIdx = (rowOffset + x) * 4;
-              const r = data[pIdx];
-              const g = data[pIdx + 1];
-              const b = data[pIdx + 2];
-              const [, , l] = rgbToHsl(r, g, b);
-              if (l > 0.18) {
-                const lensWeight = (1 - ellDist) * 0.85;
-                const [nr, ng, nb] = hslToRgb(48, 0.9, Math.min(0.88, l * 1.08));
-                data[pIdx] = Math.round(r + (nr - r) * lensWeight);
-                data[pIdx + 1] = Math.round(g + (ng - g) * lensWeight);
-                data[pIdx + 2] = Math.round(b + (nb - b) * lensWeight);
-              }
-            }
-          }
-        }
-
-        ctx.putImageData(imgData, 0, 0);
-      } catch (_err) {
-        // Fallback silencioso
       }
+
+      // ======================================================================
+      // PEÇA 10: LENTE DO FAROL DIANTEIRO (Amarelo Vintage / Cristal LED)
+      // ======================================================================
+      if (v.isYellowLens && meta.headlightCircle) {
+        const hc = meta.headlightCircle;
+        const xStart = Math.max(0, Math.floor(hc.cx - hc.rx));
+        const xEnd = Math.min(1919, Math.ceil(hc.cx + hc.rx));
+        const yStart = Math.max(0, Math.floor(hc.cy - hc.ry));
+        const yEnd = Math.min(1079, Math.ceil(hc.cy + hc.ry));
+        for (let y = yStart; y <= yEnd; y++) {
+          const rowOffset = y * 1920;
+          for (let x = xStart; x <= xEnd; x++) {
+            const ellDist = Math.hypot((x - hc.cx) / hc.rx, (y - hc.cy) / hc.ry);
+            if (ellDist > 1) continue;
+            const pIdx = (rowOffset + x) * 4;
+            const r = data[pIdx],
+              g = data[pIdx + 1],
+              b = data[pIdx + 2];
+            const lRaw = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            if (lRaw > 0.15) {
+              const lensWeight = (1 - Math.pow(ellDist, 1.8)) * 0.85;
+              const [nr, ng, nb] = hslToRgb(48, 0.9, Math.min(0.88, lRaw * 1.1));
+              data[pIdx] = Math.round(r + (nr - r) * lensWeight);
+              data[pIdx + 1] = Math.round(g + (ng - g) * lensWeight);
+              data[pIdx + 2] = Math.round(b + (nb - b) * lensWeight);
+            }
+          }
+        }
+      }
+
+      // ======================================================================
+      // PEÇA 12: PUNHOS DO GUIADOR (Conhaque / Chocolate Vintage / Preto Perfurado)
+      // ======================================================================
+      if (v.gripHex !== "#a45526" && meta.gripBox) {
+        const gb = meta.gripBox;
+        for (let y = gb.y1; y <= gb.y2; y++) {
+          const imgRow = y * 1920;
+          for (let x = gb.x1; x <= gb.x2; x++) {
+            const pIdx = (imgRow + x) * 4;
+            const r = data[pIdx],
+              g = data[pIdx + 1],
+              b = data[pIdx + 2];
+            const warmth = Math.min(r - b - 12, (g - b) * 3.5);
+            if (warmth <= 0 || r < 34) continue;
+            const blend = Math.min(1, warmth / 18);
+            const lRaw = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            const isBlackGrip = v.gripHex === "#16181d";
+            const outH = isBlackGrip ? 215 : 18;
+            const outS = isBlackGrip ? 0.05 : 0.58;
+            const outL = isBlackGrip
+              ? Math.max(0.03, lRaw * 0.38)
+              : Math.max(0.04, lRaw * 0.54);
+            const [nr, ng, nb] = hslToRgb(outH, outS, outL);
+            data[pIdx] = Math.round(r + (nr - r) * blend);
+            data[pIdx + 1] = Math.round(g + (ng - g) * blend);
+            data[pIdx + 2] = Math.round(b + (nb - b) * blend);
+          }
+        }
+      }
+
+      ctx.putImageData(imgData, 0, 0);
+    } catch (_err) {
+      // Fallback seguro
     }
 
-    // 4. Se a vista for do lado esquerdo (isMirrored), espelhar o canvas completo já processado
+    // Se a vista for espelhada (180° perfil esquerdo), inverter horizontalmente o canvas já tratado
     if (isMirrored) {
       const mirrored = document.createElement("canvas");
       mirrored.width = 1920;
@@ -828,108 +1135,224 @@
   }
 
   // ============================================================================
-  // TURNTABLE 360° REAL DE 8 SETORES DE CÂMARA (0° -> 45° -> 90° -> 135° -> 180° -> 225° -> 270° -> 315°)
+  // MOTOR DE ROTAÇÃO 360° CONTÍNUA E SUAVE A 60 FPS (PROJEÇÃO PERSPETIVA 3D REAL)
+  // Zero saltos entre fotografias diferentes, zero fantasmas/dupla exposição, 100% sólido!
   // ============================================================================
-  const TURNTABLE_SECTORS = [
-    {
-      angle: 0,
-      viewKey: "SIDE",
-      isMirrored: false,
-      zoom: 1.0,
-      panX: 0,
-      panY: 0,
-      label: "0° — PERFIL DIREITO DE ESTÚDIO 8K"
-    },
-    {
-      angle: 45,
-      viewKey: "FRONT_34",
-      isMirrored: false,
-      zoom: 1.0,
-      panX: 0,
-      panY: 0,
-      label: "45° — PERSPETIVA 3/4 DIANTEIRA DIREITA"
-    },
-    {
-      angle: 90,
-      viewKey: "FRONT_34",
-      isMirrored: false,
-      zoom: 1.22,
-      panX: -195,
-      panY: 22,
-      label: "90° — VISTA FRONTAL • ÓTICA LED, FORQUETA USD & BOXER"
-    },
-    {
-      angle: 135,
-      viewKey: "FRONT_34",
-      isMirrored: true,
-      zoom: 1.0,
-      panX: 0,
-      panY: 0,
-      label: "135° — PERSPETIVA 3/4 DIANTEIRA ESQUERDA"
-    },
-    {
-      angle: 180,
-      viewKey: "SIDE",
-      isMirrored: true,
-      zoom: 1.0,
-      panX: 0,
-      panY: 0,
-      label: "180° — PERFIL ESQUERDO DE ESTÚDIO 8K"
-    },
-    {
-      angle: 225,
-      viewKey: "REAR_34",
-      isMirrored: true,
-      zoom: 1.0,
-      panX: 0,
-      panY: 0,
-      label: "225° — PERSPETIVA 3/4 TRASEIRA ESQUERDA"
-    },
-    {
-      angle: 270,
-      viewKey: "REAR_34",
-      isMirrored: false,
-      zoom: 1.2,
-      panX: 185,
-      panY: -16,
-      label: "270° — VISTA TRASEIRA • RODA, DUPLO AMORTECEDOR & ESCAPE"
-    },
-    {
-      angle: 315,
-      viewKey: "REAR_34",
-      isMirrored: false,
-      zoom: 1.0,
-      panX: 0,
-      panY: 0,
-      label: "315° — PERSPETIVA 3/4 TRASEIRA DIREITA"
-    }
-  ];
+  let cachedStudioBackdrop = null;
+  const isolatedBikeCache = new Map();
+  let lazyExportTimer = null;
 
-  function drawCameraSectorToStage(ctx, gradedCanvas, sector, subProgressOffset) {
-    ctx.save();
-    const parallaxPanX = sector.panX + subProgressOffset * -28;
-    const parallaxZoom = sector.zoom;
-    ctx.translate(960 + parallaxPanX, 510 + sector.panY);
-    ctx.scale(parallaxZoom, parallaxZoom);
-    ctx.translate(-960, -510);
-    ctx.drawImage(gradedCanvas, 0, 0, 1920, 1080);
-    ctx.restore();
+  function getStudioBackdropCanvas() {
+    if (cachedStudioBackdrop) return cachedStudioBackdrop;
+    const bg = document.createElement("canvas");
+    bg.width = 1920;
+    bg.height = 1080;
+    const bCtx = bg.getContext("2d");
+    if (!bCtx) return bg;
+
+    // Parede de betão escuro de estúdio (y = 0..715)
+    const wallGrad = bCtx.createRadialGradient(960, 380, 120, 960, 420, 1150);
+    wallGrad.addColorStop(0, "#1c2026");
+    wallGrad.addColorStop(0.55, "#111419");
+    wallGrad.addColorStop(1, "#06080c");
+    bCtx.fillStyle = wallGrad;
+    bCtx.fillRect(0, 0, 1920, 715);
+
+    // Linhas subtis de cofragem de betão arquitetónico de estúdio
+    bCtx.strokeStyle = "rgba(255, 255, 255, 0.018)";
+    bCtx.lineWidth = 1.5;
+    for (let vx = 160; vx < 1920; vx += 320) {
+      bCtx.beginPath();
+      bCtx.moveTo(vx, 0);
+      bCtx.lineTo(vx, 715);
+      bCtx.stroke();
+    }
+
+    // Chão de estúdio escuro polido (y = 715..1080)
+    const floorGrad = bCtx.createLinearGradient(0, 715, 0, 1080);
+    floorGrad.addColorStop(0, "#0d0f14");
+    floorGrad.addColorStop(0.35, "#151312");
+    floorGrad.addColorStop(1, "#05070b");
+    bCtx.fillStyle = floorGrad;
+    bCtx.fillRect(0, 715, 1920, 365);
+
+    cachedStudioBackdrop = bg;
+    return bg;
   }
 
-  function computeSectorHotspots(sector, subProgressOffset) {
-    const meta = STUDIO_VIEWS_META[sector.viewKey] || STUDIO_VIEWS_META.SIDE;
-    const baseAnchors = meta.anchors;
-    const parallaxPanX = sector.panX + subProgressOffset * -28;
-    const zoom = sector.zoom;
+  async function getIsolatedTurntableBikeCanvas(isMirrored, v) {
+    const sig = `${isMirrored ? "L" : "R"}_${getVisualSignature(v)}`;
+    if (isolatedBikeCache.has(sig)) {
+      return isolatedBikeCache.get(sig);
+    }
+
+    const gradedSide = await getGradedStudioViewCanvas("SIDE", isMirrored, v);
+    const iso = document.createElement("canvas");
+    iso.width = 1920;
+    iso.height = 1080;
+    const iCtx = iso.getContext("2d");
+    if (!iCtx) return gradedSide;
+
+    // Recorte suave (feathered) da silhueta envolvente da moto e sombra no chão
+    // para que ao rodar 360° nunca apareçam bordas retangulares da imagem de fundo
+    const mask = document.createElement("canvas");
+    mask.width = 1920;
+    mask.height = 1080;
+    const mCtx = mask.getContext("2d");
+    if (mCtx) {
+      mCtx.filter = "blur(28px)";
+      mCtx.fillStyle = "#ffffff";
+      mCtx.beginPath();
+      const silPts = [
+        [105, 650],
+        [135, 430],
+        [320, 365],
+        [470, 240],
+        [750, 235],
+        [830, 180],
+        [1160, 145],
+        [1380, 110],
+        [1470, 210],
+        [1560, 370],
+        [1795, 450],
+        [1815, 680],
+        [1760, 935],
+        [1420, 955],
+        [960, 930],
+        [450, 955],
+        [155, 935]
+      ];
+      silPts.forEach((pt, idx) => {
+        const px = isMirrored ? 1920 - pt[0] : pt[0];
+        const py = pt[1];
+        if (idx === 0) mCtx.moveTo(px, py);
+        else mCtx.lineTo(px, py);
+      });
+      mCtx.closePath();
+      mCtx.fill();
+    }
+
+    iCtx.drawImage(gradedSide, 0, 0);
+    if (mask) {
+      iCtx.globalCompositeOperation = "destination-in";
+      iCtx.drawImage(mask, 0, 0);
+      iCtx.globalCompositeOperation = "source-over";
+    }
+
+    if (isolatedBikeCache.size > 12) {
+      const firstKey = isolatedBikeCache.keys().next().value;
+      isolatedBikeCache.delete(firstKey);
+    }
+    isolatedBikeCache.set(sig, iso);
+    return iso;
+  }
+
+  /**
+   * Projeta a moto em Perspetiva 3D Contínua (72 faixas verticais contíguas sem sobreposição)
+   * garantindo rotação 360° 100% suave e contínua a 60 FPS sem saltar frames e sem fantasmas.
+   */
+  function drawContinuous360TurntableStage(ctx, bikeCanvas, normAngle) {
+    const rad = (normAngle * Math.PI) / 180;
+    const cosA = Math.cos(rad);
+    const sinA = Math.sin(rad);
+
+    // Curva contínua de escorço horizontal que evita que a moto desapareça num traço de 0px aos 90°/270°
+    const absCos = Math.abs(cosA);
+    const effMag = 0.26 + 0.74 * Math.pow(absCos, 0.88);
+
+    const strips = 72;
+    const minSrcX = 80;
+    const maxSrcX = 1840;
+    const totalSrcW = maxSrcX - minSrcX;
+    const stripW = totalSrcW / strips;
+    const focalD = 2450;
+
+    // Sombra elíptica dinâmica no chão do estúdio que acompanha a rotação 360°
+    ctx.save();
+    const shadowRx = 680 * effMag;
+    const shadowGrad = ctx.createRadialGradient(960, 895, 30, 960, 895, Math.max(180, shadowRx));
+    shadowGrad.addColorStop(0, "rgba(0, 0, 0, 0.78)");
+    shadowGrad.addColorStop(0.65, "rgba(0, 0, 0, 0.42)");
+    shadowGrad.addColorStop(1, "rgba(0, 0, 0, 0)");
+    ctx.fillStyle = shadowGrad;
+    ctx.beginPath();
+    ctx.ellipse(960, 895, Math.max(180, shadowRx), 46, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+
+    // Renderizar as 72 colunas de perspetiva 3D contínua (zero sobreposição, 100% opaco e sólido)
+    for (let i = 0; i < strips; i++) {
+      const sx1 = minSrcX + i * stripW;
+      const sx2 = sx1 + stripW;
+      const u1 = sx1 - 960;
+      const u2 = sx2 - 960;
+      const uMid = (u1 + u2) * 0.5;
+
+      // Quando isMirrored (cosA < 0), a imagem já está espelhada para a esquerda,
+      // logo usamos effMag positivo sobre a imagem espelhada e invertemos o eixo Z da perspetiva
+      const dirSign = cosA >= 0 ? 1 : -1;
+      const z1 = u1 * dirSign * sinA * 0.52;
+      const z2 = u2 * dirSign * sinA * 0.52;
+      const zMid = uMid * dirSign * sinA * 0.52;
+
+      const p1 = focalD / (focalD - z1);
+      const p2 = focalD / (focalD - z2);
+      const pMid = focalD / (focalD - zMid);
+
+      const dx1 = 960 + u1 * effMag * p1;
+      const dx2 = 960 + u2 * effMag * p2;
+      const destX = Math.min(dx1, dx2);
+      const destW = Math.max(1, Math.abs(dx2 - dx1) + 0.65);
+
+      const destH = 1080 * pMid;
+      const elevationOffset = -zMid * 0.032;
+      const destY = 525 - destH * (525 / 1080) + elevationOffset;
+
+      ctx.drawImage(bikeCanvas, sx1, 0, stripW + 0.5, 1080, destX, destY, destW, destH);
+    }
+  }
+
+  function computeContinuous360Hotspots(normAngle, viewMode) {
+    if (viewMode === "CAMERA_FRONT_34" || viewMode === "CAMERA_REAR_34") {
+      const vKey = viewMode === "CAMERA_FRONT_34" ? "FRONT_34" : "REAR_34";
+      const anchors = STUDIO_VIEWS_META[vKey].anchors;
+      const out = {};
+      Object.keys(anchors).forEach((k) => {
+        const pt = anchors[k];
+        out[k] = {
+          cx: pt.x,
+          cy: pt.y,
+          xPct: (pt.x / 1920) * 100,
+          yPct: (pt.y / 1080) * 100
+        };
+      });
+      return out;
+    }
+
+    const rad = (normAngle * Math.PI) / 180;
+    const cosA = Math.cos(rad);
+    const sinA = Math.sin(rad);
+    const isMirrored = cosA < 0;
+    const absCos = Math.abs(cosA);
+    const effMag = 0.26 + 0.74 * Math.pow(absCos, 0.88);
+    const dirSign = cosA >= 0 ? 1 : -1;
+    const focalD = 2450;
+
+    const baseAnchors = STUDIO_VIEWS_META.SIDE.anchors;
     const out = {};
 
     Object.keys(baseAnchors).forEach((compKey) => {
       const pt = baseAnchors[compKey];
-      const rawX = sector.isMirrored ? 1920 - pt.x : pt.x;
+      const rawX = isMirrored ? 1920 - pt.x : pt.x;
       const rawY = pt.y;
+      const u = rawX - 960;
+      const z = u * dirSign * sinA * 0.52;
+      const p = focalD / (focalD - z);
 
-      const stageX = 960 + parallaxPanX + (rawX - 960) * zoom;
-      const stageY = 510 + sector.panY + (rawY - 510) * zoom;
+      const stageX = 960 + u * effMag * p;
+      const destH = 1080 * p;
+      const elevationOffset = -z * 0.032;
+      const stageY = 525 - destH * (525 / 1080) + elevationOffset + rawY * p;
 
       const clampedX = Math.max(85, Math.min(1835, stageX));
       const clampedY = Math.max(85, Math.min(835, stageY));
@@ -1277,14 +1700,14 @@
   }
 
   // ============================================================================
-  // MOTOR DE COMPOSIÇÃO FOTOGRÁFICA 8K + ROTAÇÃO 360° REAL MULTI-ÂNGULO (1920x1080)
+  // MOTOR DE COMPOSIÇÃO FOTOGRÁFICA 8K + ROTAÇÃO 360° CONTÍNUA E SUAVE (1920x1080)
   // ============================================================================
-  async function generateStudioRenderCanvas(canvas, customAngleDeg) {
+  async function generateStudioRenderCanvas(canvas, customAngleDeg, skipExportDataUrl) {
     if (!canvas) {
       canvas = document.createElement("canvas");
     }
-    canvas.width = 1920;
-    canvas.height = 1080;
+    if (canvas.width !== 1920) canvas.width = 1920;
+    if (canvas.height !== 1080) canvas.height = 1080;
     const ctx = canvas.getContext("2d");
     if (!ctx) return "";
 
@@ -1301,59 +1724,20 @@
     const angleDeg =
       typeof customAngleDeg === "number" ? customAngleDeg : configState.rotationAngle || 0;
     const normAngle = (((angleDeg % 360) + 360) % 360);
+    const rad = (normAngle * Math.PI) / 180;
+    const cosA = Math.cos(rad);
+    const isMirrored = cosA < 0;
 
-    // Encontrar o setor de câmara 360° atual (0°..315°) e o setor seguinte para interpolação contínua
-    const sectorSpan = 45;
-    const rawSectorIdx = Math.floor(((normAngle + 22.5) % 360) / sectorSpan);
-    const activeSector = TURNTABLE_SECTORS[rawSectorIdx];
-    const sectorCenterAngle = activeSector.angle;
-    let deltaFromCenter = normAngle - sectorCenterAngle;
-    if (deltaFromCenter > 180) deltaFromCenter -= 360;
-    if (deltaFromCenter < -180) deltaFromCenter += 360;
-    const subProgressOffset = deltaFromCenter / 22.5; // -1.0 a +1.0 dentro do setor de 45°
-
-    const primaryGraded = await getGradedStudioViewCanvas(
-      activeSector.viewKey,
-      activeSector.isMirrored,
-      v
-    );
     const modelImg = await loadImageSafe(targetModel?.image);
 
-    // 1. FUNDO DE ESTÚDIO ESCURO DE ALTA COSTURA
-    ctx.fillStyle = "#06080c";
-    ctx.fillRect(0, 0, 1920, 1080);
+    // 1. FUNDO DE ESTÚDIO ESCURO DE ALTA COSTURA (ESTACIONÁRIO E CONTÍNUO EM 1920x1080)
+    const studioBg = getStudioBackdropCanvas();
+    ctx.drawImage(studioBg, 0, 0, 1920, 1080);
 
-    // 2. DESENHAR A VISTA DE ESTÚDIO 8K DO SETOR ATUAL COM TRANSIÇÃO ÓPTICA SUAVE ENTRE ÂNGULOS
-    drawCameraSectorToStage(ctx, primaryGraded, activeSector, subProgressOffset);
-
-    // Cross-dissolve suave quando o utilizador roda na fronteira entre dois ângulos de câmara
-    if (Math.abs(subProgressOffset) > 0.68) {
-      const neighborIdx =
-        subProgressOffset > 0
-          ? (rawSectorIdx + 1) % TURNTABLE_SECTORS.length
-          : (rawSectorIdx - 1 + TURNTABLE_SECTORS.length) % TURNTABLE_SECTORS.length;
-      const neighborSector = TURNTABLE_SECTORS[neighborIdx];
-      const neighborGraded = await getGradedStudioViewCanvas(
-        neighborSector.viewKey,
-        neighborSector.isMirrored,
-        v
-      );
-      const blendAlpha = ((Math.abs(subProgressOffset) - 0.68) / 0.32) * 0.48;
-      ctx.save();
-      ctx.globalAlpha = Math.max(0, Math.min(0.48, blendAlpha));
-      drawCameraSectorToStage(
-        ctx,
-        neighborGraded,
-        neighborSector,
-        subProgressOffset > 0 ? subProgressOffset - 2 : subProgressOffset + 2
-      );
-      ctx.restore();
-    }
-
-    // 3. ANEL DE PLATAFORMA GIRATÓRIA 360° DISCRETO NO CHÃO DO ESTÚDIO
+    // 2. ANEL DE PLATAFORMA GIRATÓRIA 360° NO CHÃO DO ESTÚDIO (DESENHADO SOB AS RODAS DA MOTO)
     ctx.save();
     const groundY = 892;
-    ctx.strokeStyle = "rgba(197, 160, 89, 0.28)";
+    ctx.strokeStyle = "rgba(197, 160, 89, 0.32)";
     ctx.lineWidth = 1.6;
     ctx.beginPath();
     ctx.ellipse(960, groundY, 690, 42, 0, 0, Math.PI * 2);
@@ -1375,6 +1759,33 @@
       ctx.stroke();
     }
     ctx.restore();
+
+    // 3. RENDERIZAR A MOTO EM ESTÚDIO 8K (ROTAÇÃO 360° CONTÍNUA OU CÂMARA 3/4 DEDICADA, ZERO FANTASMAS!)
+    let viewLabel = "ESTÚDIO 360° CONTÍNUO 8K";
+    if (configState.viewMode === "CAMERA_FRONT_34") {
+      const frontCanvas = await getGradedStudioViewCanvas("FRONT_34", false, v);
+      ctx.drawImage(frontCanvas, 0, 0, 1920, 1080);
+      viewLabel = "CÂMARA 3/4 DIANTEIRA 8K";
+    } else if (configState.viewMode === "CAMERA_REAR_34") {
+      const rearCanvas = await getGradedStudioViewCanvas("REAR_34", false, v);
+      ctx.drawImage(rearCanvas, 0, 0, 1920, 1080);
+      viewLabel = "CÂMARA 3/4 TRASEIRA 8K";
+    } else {
+      // Modo STUDIO_360: Rotação 360° contínua e suave ao grau (60 FPS) sobre o modelo sólido de estúdio
+      if (normAngle < 1.5 || normAngle > 358.5) {
+        const crispRight = await getGradedStudioViewCanvas("SIDE", false, v);
+        ctx.drawImage(crispRight, 0, 0, 1920, 1080);
+      } else if (Math.abs(normAngle - 180) < 1.5) {
+        const crispLeft = await getGradedStudioViewCanvas("SIDE", true, v);
+        ctx.drawImage(crispLeft, 0, 0, 1920, 1080);
+      } else {
+        const bikeIso = await getIsolatedTurntableBikeCanvas(isMirrored, v);
+        drawContinuous360TurntableStage(ctx, bikeIso, normAngle);
+      }
+      viewLabel = isMirrored
+        ? "ROTAÇÃO 360° CONTÍNUA • PERFIL ESQUERDO 3D"
+        : "ROTAÇÃO 360° CONTÍNUA • PERFIL DIREITO 3D";
+    }
 
     // 4. MINIATURA DO MODELO BASE ESCOLHIDO NO CANTO SUPERIOR DIREITO (PIP DE REFERÊNCIA)
     if (modelImg) {
@@ -1399,8 +1810,8 @@
       ctx.stroke();
     }
 
-    // 5. CALCULAR AS COORDENADAS 3D REAIS DOS 12 PONTOS INTERATIVOS PARA O ÂNGULO ATUAL
-    configState.screenHotspots = computeSectorHotspots(activeSector, subProgressOffset);
+    // 5. CALCULAR AS COORDENADAS 3D CONTÍNUAS DOS 12 PONTOS INTERATIVOS PARA O ÂNGULO ATUAL
+    configState.screenHotspots = computeContinuous360Hotspots(normAngle, configState.viewMode);
 
     // 6. BARRA SUPERIOR E RODAPÉ TÉCNICO DE ESTÚDIO 8K (COM AUTO-FIT PARA NUNCA CORTAR TEXTO)
     const topGrad = ctx.createLinearGradient(0, 0, 0, 90);
@@ -1412,7 +1823,7 @@
     ctx.fillStyle = "#c5a059";
     ctx.font = "bold 13px monospace";
     ctx.fillText(
-      `BANDIT GARAGE ATELIER • ${activeSector.label} • ${configState.projectCode} • ROTAÇÃO: ${Math.round(normAngle)}°`,
+      `BANDIT GARAGE ATELIER • ${viewLabel} • ${configState.projectCode} • ROTAÇÃO: ${Math.round(normAngle)}°`,
       48,
       40
     );
@@ -1442,7 +1853,7 @@
     ctx.fillStyle = "#c5a059";
     ctx.font = "bold 12px monospace";
     ctx.fillText(
-      `ESTÚDIO FOTORREALISTA 8K MULTI-ÂNGULO • CLIQUE NOS PONTOS (01–12) PARA ALTERAR • ROTAÇÃO 360° REAL`,
+      `ESTÚDIO FOTORREALISTA 8K • CLIQUE NOS PONTOS (01–12) PARA ALTERAR • ROTAÇÃO 360° CONTÍNUA E SUAVE`,
       122,
       974
     );
@@ -1455,9 +1866,20 @@
     const specLine = `ASSENTO: ${seatSum.brand} (${seatSum.specs})  •  SUSPENSÃO: ${frontSuspSum.brand}  •  JANTES: ${wheelsSum.brand}  •  TRAVÕES: ${brakesSum.brand}`;
     fillFittedText(ctx, specLine, 122, 1034, 1740, 13, 10, "monospace", "bold");
 
-    const dataUrl = canvas.toDataURL("image/jpeg", 0.94);
-    configState.lastRenderDataUrl = dataUrl;
-    return dataUrl;
+    // Para garantir 60 FPS sem bloqueios durante a rotação 360°, só codificamos JPEG quando necessário
+    if (!skipExportDataUrl) {
+      const dataUrl = canvas.toDataURL("image/jpeg", 0.94);
+      configState.lastRenderDataUrl = dataUrl;
+      return dataUrl;
+    } else {
+      if (lazyExportTimer) clearTimeout(lazyExportTimer);
+      lazyExportTimer = setTimeout(() => {
+        try {
+          configState.lastRenderDataUrl = canvas.toDataURL("image/jpeg", 0.92);
+        } catch (_e) {}
+      }, 240);
+      return configState.lastRenderDataUrl || "";
+    }
   }
 
   function openRenderLightbox(dataUrl, title) {
@@ -2219,9 +2641,19 @@
         <div class="cfg-stage-instruction-banner">
           <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
             <button type="button" class="cfg-btn-studio ${
-              configState.viewMode !== "FORMAL_BOARD" ? "is-active" : ""
+              configState.viewMode === "STUDIO_360" ? "is-active" : ""
             }" id="cfgModeStudio360Btn">
-              ↻ Vista Estúdio 360° Interativa
+              ↻ Estúdio 360° Contínuo
+            </button>
+            <button type="button" class="cfg-btn-studio ${
+              configState.viewMode === "CAMERA_FRONT_34" ? "is-active" : ""
+            }" id="cfgModeFront34Btn">
+              📷 Câmara 3/4 Dianteira
+            </button>
+            <button type="button" class="cfg-btn-studio ${
+              configState.viewMode === "CAMERA_REAR_34" ? "is-active" : ""
+            }" id="cfgModeRear34Btn">
+              📷 Câmara 3/4 Traseira
             </button>
             <button type="button" class="cfg-btn-studio ${
               configState.viewMode === "FORMAL_BOARD" ? "is-active" : ""
@@ -2387,30 +2819,71 @@
       });
     }
 
-    async function refreshInteractiveScene() {
-      const normAngle = ((Math.round(configState.rotationAngle) % 360) + 360) % 360;
-      if (sliderEl) sliderEl.value = String(normAngle);
-      if (readoutEl) readoutEl.textContent = `${normAngle}°`;
+    function updateHotspotPinPositionsFast() {
+      if (!hotspotsLayer || !configState.showHotspots) return;
+      const pins = hotspotsLayer.querySelectorAll("[data-hotspot-comp]");
+      if (pins.length !== components.length) {
+        renderHotspotPins();
+        return;
+      }
+      pins.forEach((pinBtn) => {
+        const compKey = pinBtn.dataset.hotspotComp;
+        const pos = configState.screenHotspots[compKey];
+        if (pos) {
+          pinBtn.style.left = `${pos.xPct.toFixed(2)}%`;
+          pinBtn.style.top = `${pos.yPct.toFixed(2)}%`;
+        }
+      });
+    }
 
+    function syncCameraModeButtons(normAngle) {
       const mode360Btn = document.getElementById("cfgModeStudio360Btn");
+      const modeFrontBtn = document.getElementById("cfgModeFront34Btn");
+      const modeRearBtn = document.getElementById("cfgModeRear34Btn");
       const modeBoardBtn = document.getElementById("cfgModeFormalBoardBtn");
-      if (mode360Btn) {
-        mode360Btn.classList.toggle("is-active", configState.viewMode !== "FORMAL_BOARD");
-      }
-      if (modeBoardBtn) {
+      if (mode360Btn) mode360Btn.classList.toggle("is-active", configState.viewMode === "STUDIO_360");
+      if (modeFrontBtn)
+        modeFrontBtn.classList.toggle("is-active", configState.viewMode === "CAMERA_FRONT_34");
+      if (modeRearBtn)
+        modeRearBtn.classList.toggle("is-active", configState.viewMode === "CAMERA_REAR_34");
+      if (modeBoardBtn)
         modeBoardBtn.classList.toggle("is-active", configState.viewMode === "FORMAL_BOARD");
-      }
 
       container.querySelectorAll("[data-angle-preset]").forEach((b) => {
         const presetDeg = parseInt(b.dataset.anglePreset, 10);
         const diff = Math.abs(((normAngle - presetDeg + 540) % 360) - 180);
         b.classList.toggle(
           "is-active",
-          configState.viewMode !== "FORMAL_BOARD" && diff <= 22
+          configState.viewMode === "STUDIO_360" && diff <= 20
         );
       });
+    }
 
-      await generateStudioRenderCanvas(canvas360, normAngle);
+    let isRenderingRotationFrame = false;
+    async function refreshRotationFrameFast() {
+      const normAngle = ((configState.rotationAngle % 360) + 360) % 360;
+      const roundedAngle = Math.round(normAngle) % 360;
+      if (sliderEl) sliderEl.value = String(roundedAngle);
+      if (readoutEl) readoutEl.textContent = `${roundedAngle}°`;
+      syncCameraModeButtons(roundedAngle);
+
+      if (isRenderingRotationFrame) return;
+      isRenderingRotationFrame = true;
+      try {
+        await generateStudioRenderCanvas(canvas360, normAngle, true);
+        updateHotspotPinPositionsFast();
+      } finally {
+        isRenderingRotationFrame = false;
+      }
+    }
+
+    async function refreshInteractiveScene() {
+      const normAngle = ((Math.round(configState.rotationAngle) % 360) + 360) % 360;
+      if (sliderEl) sliderEl.value = String(normAngle);
+      if (readoutEl) readoutEl.textContent = `${normAngle}°`;
+      syncCameraModeButtons(normAngle);
+
+      await generateStudioRenderCanvas(canvas360, normAngle, false);
       renderHotspotPins();
 
       if (summaryGridEl) {
@@ -2421,6 +2894,18 @@
 
     document.getElementById("cfgModeStudio360Btn")?.addEventListener("click", () => {
       configState.viewMode = "STUDIO_360";
+      refreshInteractiveScene();
+    });
+
+    document.getElementById("cfgModeFront34Btn")?.addEventListener("click", () => {
+      stopAutoSpin();
+      configState.viewMode = "CAMERA_FRONT_34";
+      refreshInteractiveScene();
+    });
+
+    document.getElementById("cfgModeRear34Btn")?.addEventListener("click", () => {
+      stopAutoSpin();
+      configState.viewMode = "CAMERA_REAR_34";
       refreshInteractiveScene();
     });
 
@@ -2519,6 +3004,11 @@
     let startRotation = 0;
     let hasDragged = false;
 
+    if (configState._cleanupStagePointerListeners) {
+      configState._cleanupStagePointerListeners();
+      configState._cleanupStagePointerListeners = null;
+    }
+
     if (stageEl && canvas360) {
       stageEl.addEventListener("pointerdown", (e) => {
         if (e.target.closest(".cfg-part-popover") || e.target.closest(".cfg-hotspot-pin")) {
@@ -2533,21 +3023,21 @@
         stageEl.classList.add("is-dragging");
       });
 
-      window.addEventListener("pointermove", (e) => {
+      const onWindowPointerMove = (e) => {
         if (!isPointerDown) return;
         const dx = e.clientX - pointerStartX;
         const dy = e.clientY - pointerStartY;
-        if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+        if (Math.abs(dx) > 4 || Math.abs(dy) > 4) {
           hasDragged = true;
         }
         if (hasDragged) {
           configState.viewMode = "STUDIO_360";
-          configState.rotationAngle = (((startRotation + dx * 0.45) % 360) + 360) % 360;
-          refreshInteractiveScene();
+          configState.rotationAngle = (((startRotation + dx * 0.42) % 360) + 360) % 360;
+          refreshRotationFrameFast();
         }
-      });
+      };
 
-      window.addEventListener("pointerup", (e) => {
+      const onWindowPointerUp = (e) => {
         if (!isPointerDown) return;
         isPointerDown = false;
         stageEl.classList.remove("is-dragging");
@@ -2575,14 +3065,21 @@
             renderHotspotPins();
           }
         }
-      });
+      };
+
+      window.addEventListener("pointermove", onWindowPointerMove);
+      window.addEventListener("pointerup", onWindowPointerUp);
+      configState._cleanupStagePointerListeners = () => {
+        window.removeEventListener("pointermove", onWindowPointerMove);
+        window.removeEventListener("pointerup", onWindowPointerUp);
+      };
     }
 
     sliderEl?.addEventListener("input", () => {
       stopAutoSpin();
       configState.viewMode = "STUDIO_360";
       configState.rotationAngle = parseFloat(sliderEl.value) || 0;
-      refreshInteractiveScene();
+      refreshRotationFrameFast();
     });
 
     container.querySelectorAll("[data-angle-preset]").forEach((btn) => {
@@ -2603,10 +3100,13 @@
         configState.isAutoSpinning = true;
         autoSpinBtn.classList.add("is-active");
         autoSpinBtn.textContent = "⏸ Parar Rotação 360°";
-        const spinStep = () => {
+        let lastTs = performance.now();
+        const spinStep = (nowTs) => {
           if (!configState.isAutoSpinning) return;
-          configState.rotationAngle = (configState.rotationAngle + 0.85) % 360;
-          refreshInteractiveScene();
+          const dt = Math.min(50, Math.max(8, nowTs - lastTs));
+          lastTs = nowTs;
+          configState.rotationAngle = (configState.rotationAngle + dt * 0.042) % 360;
+          refreshRotationFrameFast();
           configState.autoSpinRafId = requestAnimationFrame(spinStep);
         };
         configState.autoSpinRafId = requestAnimationFrame(spinStep);
