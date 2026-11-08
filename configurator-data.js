@@ -274,8 +274,8 @@ window.CONFIGURATOR_COMPONENTS = [
     ],
     spec2Label: { pt: "Tipo de Faixa / Filete:", en: "Stripes / Pinstriping:", es: "Tipo de Franja / Fileteado:", fr: "Type de Bande / Filet :" },
     spec2Options: [
-      { key: "double_pinstripe", name: { pt: "Filete Duplo Clássico Pintado à Mão", en: "Classic Hand-Painted Twin Pinstripe", es: "Filete Doble Clásico a Mano", fr: "Double Filet Classique Peint à la Main" } },
       { key: "clean_pure", name: { pt: "Sem Faixas (Liso Puro)", en: "No Stripes (Pure Clean)", es: "Sin Franjas (Puro)", fr: "Sans Bandes (Pur)" } },
+      { key: "double_pinstripe", name: { pt: "Filete Duplo Clássico Pintado à Mão", en: "Classic Hand-Painted Twin Pinstripe", es: "Filete Doble Clásico a Mano", fr: "Double Filet Classique Peint à la Main" } },
       { key: "motorsport_stripe", name: { pt: "Faixa Central Desportiva Bandit Motorsport", en: "Bandit Motorsport Center Racing Stripe", es: "Franja Central Bandit Motorsport", fr: "Bande Centrale Bandit Motorsport" } }
     ]
   },

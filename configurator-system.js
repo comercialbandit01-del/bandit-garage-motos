@@ -459,11 +459,19 @@
       seatBox: { x1: 490, y1: 285, x2: 772, y2: 386 },
       forkBox: { x1: 1255, y1: 195, x2: 1465, y2: 565 },
       shockPolys: [
+        // Amortecedor Traseiro Direito (Twin Shock - ponto superior no subquadro e inferior no cubo/veio da roda)
         [
-          [604, 488],
-          [636, 514],
-          [532, 622],
-          [500, 596]
+          [624, 478],
+          [656, 498],
+          [558, 626],
+          [526, 606]
+        ],
+        // Amortecedor Traseiro Esquerdo visível na perspetiva mecânica clássica BMW
+        [
+          [584, 460],
+          [612, 478],
+          [516, 592],
+          [488, 574]
         ]
       ],
       gripBox: { x1: 1195, y1: 175, x2: 1280, y2: 248 },
@@ -1133,51 +1141,30 @@
               if (rNorm >= 0.68 && rNorm <= 1.01 && v.tireOpt !== "continental_tkc80") {
                 const warmth = r - b;
                 if (v.tireOpt === "avon_roadrider_mk2" || v.tireOpt === "pirelli_mt60_rs") {
-                  // Pneu desportivo de estrada / street tracker: remover reflexo castanho-terra dos tacos e dar borracha preta acetinada limpa
+                  // Pneu de estrada / tracker: borracha preta acetinada natural sem qualquer linha amarela ou contorno artificial
                   if (warmth > 6 || rNorm > 0.88) {
-                    const rubberL = Math.max(0.03, Math.min(0.28, lRaw * 0.62));
-                    const [nr, ng, nb] = hslToRgb(215, 0.04, rubberL);
+                    const rubberL = Math.max(0.03, Math.min(0.24, lRaw * 0.58));
+                    const [nr, ng, nb] = hslToRgb(215, 0.03, rubberL);
                     const w = Math.min(1, Math.max(0.45, warmth / 24));
                     data[pIdx] = Math.round(r + (nr - r) * w);
                     data[pIdx + 1] = Math.round(g + (ng - g) * w);
                     data[pIdx + 2] = Math.round(b + (nb - b) * w);
                   }
-                  // Linha fina desportiva na parede lateral para distinguir Pirelli / Avon
-                  if (Math.abs(rNorm - 0.75) < 0.014 && lRaw > 0.03) {
-                    const stripeAlpha = (1 - Math.abs(rNorm - 0.75) / 0.014) * 0.55;
-                    const [sr, sg, sb2] =
-                      v.tireOpt === "pirelli_mt60_rs"
-                        ? [215, 165, 45]
-                        : [200, 208, 220];
-                    data[pIdx] = Math.round(data[pIdx] + (sr - data[pIdx]) * stripeAlpha);
-                    data[pIdx + 1] = Math.round(data[pIdx + 1] + (sg - data[pIdx + 1]) * stripeAlpha);
-                    data[pIdx + 2] = Math.round(data[pIdx + 2] + (sb2 - data[pIdx + 2]) * stripeAlpha);
-                  }
                 } else if (v.tireOpt === "firestone_deluxe") {
-                  // Firestone Deluxe Champion: parede lateral clássica vintage c/ anel creme/marfim subtil e borracha escura
-                  if (warmth > 6) {
-                    const [nr, ng, nb] = hslToRgb(215, 0.03, lRaw * 0.65);
+                  // Firestone Deluxe Champion: piso e parede lateral pretos de borracha vulcanizada pura (sem anéis ou faixas coloridas)
+                  if (warmth > 6 || rNorm > 0.86) {
+                    const [nr, ng, nb] = hslToRgb(215, 0.02, Math.max(0.03, lRaw * 0.52));
+                    data[pIdx] = Math.round(r + (nr - r) * 0.85);
+                    data[pIdx + 1] = Math.round(g + (ng - g) * 0.85);
+                    data[pIdx + 2] = Math.round(b + (nb - b) * 0.85);
+                  }
+                } else if (v.tireOpt === "heidenau_k60_ranger") {
+                  // Heidenau K60 Ranger: taco de aventura em borracha grafite reforçada escura
+                  if (warmth > 8) {
+                    const [nr, ng, nb] = hslToRgb(215, 0.03, Math.min(0.35, lRaw * 0.72));
                     data[pIdx] = Math.round(r + (nr - r) * 0.8);
                     data[pIdx + 1] = Math.round(g + (ng - g) * 0.8);
                     data[pIdx + 2] = Math.round(b + (nb - b) * 0.8);
-                  }
-                  if (rNorm >= 0.71 && rNorm <= 0.785 && lRaw > 0.025 && lRaw < 0.45) {
-                    const bandW =
-                      (1 - Math.abs(rNorm - 0.747) / 0.038) * 0.68;
-                    if (bandW > 0) {
-                      const [vr, vg, vb] = hslToRgb(40, 0.28, Math.min(0.78, 0.42 + lRaw * 0.65));
-                      data[pIdx] = Math.round(data[pIdx] + (vr - data[pIdx]) * bandW);
-                      data[pIdx + 1] = Math.round(data[pIdx + 1] + (vg - data[pIdx + 1]) * bandW);
-                      data[pIdx + 2] = Math.round(data[pIdx + 2] + (vb - data[pIdx + 2]) * bandW);
-                    }
-                  }
-                } else if (v.tireOpt === "heidenau_k60_ranger") {
-                  // Heidenau K60 Ranger: taco de aventura em borracha grafite reforçada
-                  if (warmth > 8) {
-                    const [nr, ng, nb] = hslToRgb(42, 0.18, Math.min(0.42, lRaw * 0.82));
-                    data[pIdx] = Math.round(r + (nr - r) * 0.75);
-                    data[pIdx + 1] = Math.round(g + (ng - g) * 0.75);
-                    data[pIdx + 2] = Math.round(b + (nb - b) * 0.75);
                   }
                 }
               }
@@ -2976,47 +2963,86 @@
           </div>
         </div>
 
-        <!-- PALCO INTERATIVO DA MOTO CRIADA (SEM NUMERAÇÃO SOBREPOSTA — SELEÇÃO DIRETA AO CLICAR NA PEÇA) -->
-        <div class="cfg-interactive-stage-container is-draggable" id="cfgInteractiveStage">
-          <canvas id="cfgInteractiveCanvas360" width="1920" height="1080" style="cursor: pointer;" title="Clique diretamente em qualquer peça da moto para alterar ou arraste para rodar 360°"></canvas>
-        </div>
-
-        <!-- MENU DE OPÇÕES DA PEÇA ESCOLHIDA (FORA DA IMAGEM DA MOTO — NUNCA TAPA A MOTO!) -->
-        <div class="cfg-part-popover cfg-part-popover-external" id="cfgPartPopover" style="display: none;"></div>
-
-        <!-- BARRA DE CONTROLO DE ROTAÇÃO 360 GRAUS REAL (8 CÂMARAS DE ESTÚDIO) -->
-        <div class="cfg-360-toolbar">
-          <div class="cfg-360-top-row">
-            <div class="cfg-360-slider-wrap">
-              <strong style="font-size: 0.8rem; color: #f8fafc; white-space: nowrap;">↻ Rotação 360° Multi-Ângulo:</strong>
-              <input type="range" min="0" max="360" step="1" value="${Math.round(
-                configState.rotationAngle
-              )}" class="cfg-360-slider" id="cfgRotationSlider" />
-              <span class="cfg-360-deg-readout" id="cfgRotationReadout">${Math.round(
-                configState.rotationAngle
-              )}°</span>
+        <!-- LAYOUT HORIZONTAL PROFISSIONAL DO CONFIGURADOR (68% MOTO À ESQUERDA | 32% MENU À DIREITA) -->
+        <div class="cfg-studio-workspace-row">
+          <!-- LADO ESQUERDO: PALCO INTERATIVO DA MOTO (68% DA LARGURA) -->
+          <div class="cfg-studio-main-column">
+            <div class="cfg-interactive-stage-container is-draggable" id="cfgInteractiveStage">
+              <canvas id="cfgInteractiveCanvas360" width="1920" height="1080" style="cursor: pointer;" title="Clique diretamente em qualquer peça da moto para alterar ou arraste para rodar 360°"></canvas>
             </div>
-            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-              <button type="button" class="cfg-btn-studio" id="cfgAutoSpin360Btn">
-                ↻ Rodar 360° Automático
-              </button>
+
+            <!-- BARRA DE CONTROLO DE ROTAÇÃO 360 GRAUS REAL -->
+            <div class="cfg-360-toolbar" style="margin-top: 12px;">
+              <div class="cfg-360-top-row">
+                <div class="cfg-360-slider-wrap">
+                  <strong style="font-size: 0.8rem; color: #f8fafc; white-space: nowrap;">↻ Rotação 360° Contínua:</strong>
+                  <input type="range" min="0" max="360" step="1" value="${Math.round(
+                    configState.rotationAngle
+                  )}" class="cfg-360-slider" id="cfgRotationSlider" />
+                  <span class="cfg-360-deg-readout" id="cfgRotationReadout">${Math.round(
+                    configState.rotationAngle
+                  )}°</span>
+                </div>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <button type="button" class="cfg-btn-studio" id="cfgAutoSpin360Btn">
+                    ↻ Rodar 360° Automático
+                  </button>
+                  <button type="button" class="cfg-btn-studio" id="cfgResetAngleBtn" title="Regressar à posição inicial">
+                    ↺ Posição Inicial (0°)
+                  </button>
+                </div>
+              </div>
+              <div class="cfg-360-angles-row">
+                ${anglePresets
+                  .map(
+                    (ang) => `
+                  <button type="button" class="cfg-angle-btn ${
+                    configState.viewMode !== "FORMAL_BOARD" &&
+                    Math.abs(((Math.round(configState.rotationAngle) - ang.deg + 540) % 360) - 180) <= 22
+                      ? "is-active"
+                      : ""
+                  }" data-angle-preset="${ang.deg}">
+                    ${ang.label}
+                  </button>
+                `
+                  )
+                  .join("")}
+              </div>
             </div>
           </div>
-          <div class="cfg-360-angles-row">
-            ${anglePresets
-              .map(
-                (ang) => `
-              <button type="button" class="cfg-angle-btn ${
-                configState.viewMode !== "FORMAL_BOARD" &&
-                Math.abs(((Math.round(configState.rotationAngle) - ang.deg + 540) % 360) - 180) <= 22
-                  ? "is-active"
-                  : ""
-              }" data-angle-preset="${ang.deg}">
-                ${ang.label}
-              </button>
-            `
-              )
-              .join("")}
+
+          <!-- LADO DIREITO: MENU DE PERSONALIZAÇÃO (32% DA LARGURA - ATUALIZAÇÃO EM TEMPO REAL) -->
+          <div class="cfg-studio-sidebar-column">
+            <div class="cfg-sidebar-header">
+              <h3>Personalização Bandit</h3>
+              <p>Selecione um tópico para alterar e veja a mota atualizar imediatamente em tempo real.</p>
+            </div>
+            
+            <!-- Painel ativo do componente selecionado -->
+            <div class="cfg-part-popover cfg-part-popover-docked" id="cfgPartPopover">
+              <!-- Renderizado dinamicamente -->
+            </div>
+
+            <!-- Lista de navegação rápida dos 12 tópicos -->
+            <div class="cfg-sidebar-topics-nav" id="cfgSidebarTopicsNav">
+              ${components
+                .map((comp) => {
+                  const isActive = (configState.activePopoverCompKey || "tank") === comp.key;
+                  const sum = getTopicSummaryText(comp.key);
+                  return `
+                    <button type="button" class="cfg-sidebar-topic-pill ${
+                      isActive ? "is-active" : ""
+                    }" data-sidebar-comp="${comp.key}">
+                      <div class="cfg-stp-num">${String(comp.order).padStart(2, "0")}</div>
+                      <div class="cfg-stp-body">
+                        <strong>${getLocalizedText(comp.title)}</strong>
+                        <small>${sum.accessory}</small>
+                      </div>
+                    </button>
+                  `;
+                })
+                .join("")}
+            </div>
           </div>
         </div>
 
@@ -3218,6 +3244,9 @@
       refreshInteractiveScene();
     });
 
+    // Abrir por defeito o tópico inicial (Depósito) na barra lateral direita
+    openPartPopover("tank", false);
+
     function openPartPopover(compKey, shouldScroll = true) {
       stopAutoSpin();
       configState.activePopoverCompKey = compKey;
@@ -3244,6 +3273,7 @@
           e.stopPropagation();
           configState.components[compKey].selectedOption = btn.dataset.popOpt;
           openPartPopover(compKey, false);
+          updateSidebarTopicPill(compKey);
           refreshInteractiveScene();
         });
       });
@@ -3253,6 +3283,7 @@
           e.stopPropagation();
           configState.components[compKey].selectedColor = btn.dataset.popColor;
           openPartPopover(compKey, false);
+          updateSidebarTopicPill(compKey);
           refreshInteractiveScene();
         });
       });
@@ -3262,6 +3293,7 @@
           e.stopPropagation();
           configState.components[compKey].selectedMaterial = btn.dataset.popMat;
           openPartPopover(compKey, false);
+          updateSidebarTopicPill(compKey);
           refreshInteractiveScene();
         });
       });
@@ -3271,6 +3303,7 @@
           e.stopPropagation();
           configState.components[compKey].selectedStitch = btn.dataset.popStitch;
           openPartPopover(compKey, false);
+          updateSidebarTopicPill(compKey);
           refreshInteractiveScene();
         });
       });
@@ -3280,6 +3313,7 @@
           e.stopPropagation();
           configState.components[compKey].selectedSpec1 = btn.dataset.popSpec1;
           openPartPopover(compKey, false);
+          updateSidebarTopicPill(compKey);
           refreshInteractiveScene();
         });
       });
@@ -3289,10 +3323,36 @@
           e.stopPropagation();
           configState.components[compKey].selectedSpec2 = btn.dataset.popSpec2;
           openPartPopover(compKey, false);
+          updateSidebarTopicPill(compKey);
           refreshInteractiveScene();
         });
       });
     }
+
+    function updateSidebarTopicPill(compKey) {
+      const pill = container.querySelector(`[data-sidebar-comp="${compKey}"]`);
+      if (pill) {
+        const sum = getTopicSummaryText(compKey);
+        const smallEl = pill.querySelector("small");
+        if (smallEl) smallEl.textContent = sum.accessory;
+      }
+    }
+
+    container.querySelectorAll("[data-sidebar-comp]").forEach((pill) => {
+      pill.addEventListener("click", () => {
+        container.querySelectorAll("[data-sidebar-comp]").forEach((p) => p.classList.remove("is-active"));
+        pill.classList.add("is-active");
+        openPartPopover(pill.dataset.sidebarComp, false);
+      });
+    });
+
+    document.getElementById("cfgResetAngleBtn")?.addEventListener("click", () => {
+      stopAutoSpin();
+      configState.viewMode = "STUDIO_360";
+      configState.rotationAngle = 0;
+      if (sliderEl) sliderEl.value = "0";
+      refreshRotationFrameFast();
+    });
 
     function bindSummaryRowClicks() {
       summaryGridEl?.querySelectorAll("[data-summary-comp]").forEach((row) => {
