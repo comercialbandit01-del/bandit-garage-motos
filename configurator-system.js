@@ -41,7 +41,7 @@
     isAutoSpinning: false,
     autoSpinRafId: null,
     activePopoverCompKey: null,
-    showHotspots: true,
+    showHotspots: false,
     screenHotspots: {}
   };
 
@@ -1583,7 +1583,7 @@
         sy: 500,
         sw: 360,
         sh: 360,
-        label: `09. TRAVÕES ${brakesSum.brand.toUpperCase()}`
+        label: `TRAVÕES ${brakesSum.brand.toUpperCase()}`
       },
       {
         src: rear34Graded,
@@ -1591,7 +1591,7 @@
         sy: 330,
         sw: 320,
         sh: 320,
-        label: `04. SUSPENSÃO ${rearSuspSum.brand.toUpperCase()}`
+        label: `SUSPENSÃO ${rearSuspSum.brand.toUpperCase()}`
       },
       {
         src: front34Graded,
@@ -1599,7 +1599,7 @@
         sy: 230,
         sw: 330,
         sh: 330,
-        label: `03. FORQUETA ${frontSuspSum.brand.toUpperCase()}`
+        label: `FORQUETA ${frontSuspSum.brand.toUpperCase()}`
       },
       {
         src: front34Graded,
@@ -1607,7 +1607,7 @@
         sy: 105,
         sw: 270,
         sh: 270,
-        label: `10. FAROL LED ${headlightSum.brand.toUpperCase()}`
+        label: `FAROL LED ${headlightSum.brand.toUpperCase()}`
       },
       {
         src: sideGraded,
@@ -1615,7 +1615,7 @@
         sy: 170,
         sw: 380,
         sh: 380,
-        label: "01. PINTURA & TAMPÃO MONZA"
+        label: "PINTURA & TAMPÃO MONZA"
       },
       {
         src: rear34Graded,
@@ -1623,7 +1623,7 @@
         sy: 360,
         sw: 460,
         sh: 460,
-        label: `05/06. JANTES & PNEUS ${tiresSum.brand.toUpperCase()}`
+        label: `JANTES & PNEUS ${tiresSum.brand.toUpperCase()}`
       }
     ];
 
@@ -1853,7 +1853,7 @@
     ctx.fillStyle = "#c5a059";
     ctx.font = "bold 12px monospace";
     ctx.fillText(
-      `ESTÚDIO FOTORREALISTA 8K • CLIQUE NOS PONTOS (01–12) PARA ALTERAR • ROTAÇÃO 360° CONTÍNUA E SUAVE`,
+      `ESTÚDIO FOTORREALISTA 8K • CLIQUE DIRETAMENTE EM QUALQUER PEÇA DA MOTO PARA ALTERAR • ROTAÇÃO 360° CONTÍNUA E SUAVE`,
       122,
       974
     );
@@ -2576,7 +2576,7 @@
     return `
       <div class="cfg-popover-header">
         <div>
-          <span class="cfg-popover-kicker">Tópico ${String(comp.order).padStart(2, "0")} de 12 • Alteração Direta na Imagem</span>
+          <span class="cfg-popover-kicker">Alteração Direta na Peça • Atualiza Automaticamente na Imagem</span>
           <h4 class="cfg-popover-title">${compTitle}</h4>
         </div>
         <button type="button" class="cfg-popover-close" id="cfgClosePopoverBtn" title="Fechar">×</button>
@@ -2601,7 +2601,7 @@
         const sum = getTopicSummaryText(c.key);
         return `
         <div class="cfg-summary-row" data-summary-comp="${c.key}" style="cursor: pointer;" title="Clique para alterar este componente na imagem">
-          <strong>${String(c.order).padStart(2, "0")}. ${cTitle}:</strong>
+          <strong>${cTitle}:</strong>
           <div>
             <span>${sum.accessory}</span>
             ${sum.specs ? `<small class="cfg-summary-extra">${sum.specs}</small>` : ""}
@@ -2634,7 +2634,7 @@
           <span class="cfg-step-badge">Passo 3 de 3 — Estúdio 8K Multi-Ângulo 360° & Prancha Formal do Projeto</span>
           <h2>A sua ${getLocalizedText(targetModel?.name)} Personalizada</h2>
           <p class="cfg-step-lead">
-            Fotografia de estúdio 8K gerada com as suas escolhas nos 12 tópicos. <strong>Clique em qualquer um dos números (01 a 12) ou diretamente na peça da moto</strong> para abrir as alternativas e atualizar a imagem em tempo real. Arraste a imagem ou use a barra abaixo para <strong>rodar 360 graus pelos vários ângulos reais da moto</strong>, ou alterne para a <strong>Prancha Formal de Apresentação do Projeto</strong>.
+            Fotografia de estúdio 8K gerada com as suas escolhas nos 12 tópicos. <strong>Clique diretamente em qualquer peça da moto na imagem</strong> (depósito, assento, suspensão, travões, farol, guiador, punhos, jantes ou pneus) para abrir as alternativas e atualizar a imagem em tempo real. Arraste a imagem ou use a barra abaixo para <strong>rodar 360 graus de forma contínua e suave</strong>, ou alterne para a <strong>Prancha Formal de Apresentação do Projeto</strong>.
           </p>
         </div>
 
@@ -2662,9 +2662,6 @@
             </button>
           </div>
           <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <button type="button" class="cfg-btn-studio" id="cfgToggleHotspotsBtn">
-              ${configState.showHotspots ? "👁 Ocultar Pontos (12)" : "👁 Mostrar Pontos (12)"}
-            </button>
             <button type="button" class="cfg-btn-studio" id="cfgReviewZoomBtn">
               🔍 Ecrã Inteiro
             </button>
@@ -2674,10 +2671,9 @@
           </div>
         </div>
 
-        <!-- PALCO INTERATIVO DA MOTO CRIADA COM HOTSPOTS COMPACTOS E POPOVER DE ALTERNATIVAS -->
+        <!-- PALCO INTERATIVO DA MOTO CRIADA (SEM NUMERAÇÃO SOBREPOSTA — SELEÇÃO DIRETA AO CLICAR NA PEÇA) -->
         <div class="cfg-interactive-stage-container is-draggable" id="cfgInteractiveStage">
-          <canvas id="cfgInteractiveCanvas360" width="1920" height="1080"></canvas>
-          <div class="cfg-hotspots-layer" id="cfgHotspotsLayer"></div>
+          <canvas id="cfgInteractiveCanvas360" width="1920" height="1080" style="cursor: pointer;" title="Clique diretamente em qualquer peça da moto para alterar ou arraste para rodar 360°"></canvas>
           <div class="cfg-part-popover" id="cfgPartPopover" style="display: none;"></div>
         </div>
 
@@ -2722,7 +2718,7 @@
           <div class="cfg-summary-details">
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
               <h4 style="margin: 0;">Especificação Atual dos 12 Tópicos de Produto</h4>
-              <small style="color: var(--sand);">Clique também em qualquer linha abaixo ou nos pontos 01–12 na imagem acima para alterar instantaneamente</small>
+              <small style="color: var(--sand);">Clique diretamente na peça na imagem acima ou em qualquer linha abaixo para alterar instantaneamente</small>
             </div>
             <div class="cfg-summary-grid" id="cfgSummaryGridDynamic">
               ${buildSummaryGridHtml()}
@@ -3049,15 +3045,104 @@
 
           let closestKey = null;
           let minDist = Infinity;
-          Object.entries(configState.screenHotspots).forEach(([key, pt]) => {
-            const d = Math.hypot(clickX - pt.cx, clickY - pt.cy);
-            if (d < minDist) {
-              minDist = d;
-              closestKey = key;
-            }
-          });
 
-          if (closestKey && minDist < 240) {
+          // Deteção direta e inteligente de clique na peça física (sem necessidade de numeração na imagem!)
+          if (configState.viewMode !== "FORMAL_BOARD") {
+            const normAngle = (((configState.rotationAngle % 360) + 360) % 360);
+            const rad = (normAngle * Math.PI) / 180;
+            const cosA = Math.cos(rad);
+            const isMirrored = cosA < 0;
+
+            let vKey = "SIDE";
+            if (configState.viewMode === "CAMERA_FRONT_34") vKey = "FRONT_34";
+            else if (configState.viewMode === "CAMERA_REAR_34") vKey = "REAR_34";
+            const meta = STUDIO_VIEWS_META[vKey] || STUDIO_VIEWS_META.SIDE;
+
+            // Converter o clique no palco para a coordenada horizontal da vista base
+            let localX = clickX;
+            let localY = clickY;
+            if (configState.viewMode === "STUDIO_360") {
+              const absCos = Math.abs(cosA);
+              const effMag = Math.max(0.28, 0.26 + 0.74 * Math.pow(absCos, 0.88));
+              const rawU = (clickX - 960) / effMag;
+              const unmirroredX = 960 + rawU;
+              localX = isMirrored ? 1920 - unmirroredX : unmirroredX;
+            }
+
+            if (
+              meta.seatBox &&
+              localX >= meta.seatBox.x1 - 20 &&
+              localX <= meta.seatBox.x2 + 20 &&
+              localY >= meta.seatBox.y1 - 20 &&
+              localY <= meta.seatBox.y2 + 20
+            ) {
+              closestKey = "seat";
+              minDist = 0;
+            } else if (
+              meta.gripBox &&
+              localX >= meta.gripBox.x1 - 18 &&
+              localX <= meta.gripBox.x2 + 18 &&
+              localY >= meta.gripBox.y1 - 18 &&
+              localY <= meta.gripBox.y2 + 18
+            ) {
+              closestKey = "grips";
+              minDist = 0;
+            } else if (
+              meta.headlightCircle &&
+              Math.hypot(
+                (localX - meta.headlightCircle.cx) / (meta.headlightCircle.rx + 28),
+                (localY - meta.headlightCircle.cy) / (meta.headlightCircle.ry + 28)
+              ) <= 1.15
+            ) {
+              closestKey = "headlight";
+              minDist = 0;
+            } else if (
+              localX >= 745 &&
+              localX <= 1255 &&
+              localY >= 140 &&
+              localY <= 438
+            ) {
+              closestKey = "tank";
+              minDist = 0;
+            } else if (
+              localX >= 455 &&
+              localX <= 730 &&
+              localY >= 360 &&
+              localY <= 640
+            ) {
+              closestKey = "rearSuspension";
+              minDist = 0;
+            } else if (
+              localX >= 1235 &&
+              localX <= 1460 &&
+              localY >= 565 &&
+              localY <= 720
+            ) {
+              closestKey = "brakes";
+              minDist = 0;
+            } else if (
+              meta.forkBox &&
+              localX >= meta.forkBox.x1 - 20 &&
+              localX <= meta.forkBox.x2 + 20 &&
+              localY >= meta.forkBox.y1 &&
+              localY <= meta.forkBox.y2
+            ) {
+              closestKey = "frontSuspension";
+              minDist = 0;
+            }
+          }
+
+          if (!closestKey) {
+            Object.entries(configState.screenHotspots).forEach(([key, pt]) => {
+              const d = Math.hypot(clickX - pt.cx, clickY - pt.cy);
+              if (d < minDist) {
+                minDist = d;
+                closestKey = key;
+              }
+            });
+          }
+
+          if (closestKey && minDist < 260) {
             openPartPopover(closestKey);
           } else if (popoverEl) {
             configState.activePopoverCompKey = null;
