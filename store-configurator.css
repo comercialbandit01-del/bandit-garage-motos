@@ -1771,44 +1771,64 @@
   pointer-events: auto;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 5px 10px 5px 6px;
+  justify-content: center;
+  gap: 0;
+  padding: 4px;
   border-radius: 999px;
-  background: rgba(8, 12, 20, 0.88);
-  border: 1.5px solid rgba(197, 160, 89, 0.75);
+  background: rgba(8, 12, 20, 0.92);
+  border: 2px solid #c5a059;
   color: #f8fafc;
   font-size: 0.72rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.75);
-  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
-  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.85), 0 0 0 4px rgba(197, 160, 89, 0.18);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
   white-space: nowrap;
+  z-index: 12;
+}
+
+.cfg-hotspot-label-text {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-width 0.22s ease, opacity 0.18s ease, padding 0.18s ease;
+  padding: 0;
 }
 
 .cfg-hotspot-pin:hover,
 .cfg-hotspot-pin.is-active {
-  transform: translate(-50%, -50%) scale(1.1);
+  transform: translate(-50%, -50%) scale(1.08);
   background: var(--sand);
   color: #05070b;
   border-color: #ffffff;
-  box-shadow: 0 0 22px rgba(197, 160, 89, 0.85);
-  z-index: 25;
+  padding: 5px 12px 5px 6px;
+  gap: 7px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.9), 0 0 24px rgba(197, 160, 89, 0.9);
+  z-index: 30;
+}
+
+.cfg-hotspot-pin:hover .cfg-hotspot-label-text,
+.cfg-hotspot-pin.is-active .cfg-hotspot-label-text {
+  max-width: 240px;
+  opacity: 1;
+  padding-right: 2px;
 }
 
 .cfg-hotspot-num {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background: rgba(197, 160, 89, 0.25);
-  border: 1px solid rgba(197, 160, 89, 0.6);
+  background: rgba(197, 160, 89, 0.22);
+  border: 1px solid rgba(197, 160, 89, 0.65);
   color: var(--sand);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.66rem;
+  font-size: 0.7rem;
   font-weight: 900;
   font-family: monospace;
+  flex-shrink: 0;
 }
 
 .cfg-hotspot-pin:hover .cfg-hotspot-num,
