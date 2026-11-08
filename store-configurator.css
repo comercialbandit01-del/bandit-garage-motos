@@ -1726,3 +1726,323 @@
   flex-wrap: wrap;
   gap: 10px;
 }
+
+/* ==========================================================================
+   PALCO INTERATIVO DA MOTO CRIADA: HOTSPOTS CLICÁVEIS + POPOVER + ROTAÇÃO 360°
+   ========================================================================== */
+.cfg-interactive-stage-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 55%, #161f30 0%, #070a10 75%, #030508 100%);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), inset 0 0 60px rgba(0, 0, 0, 0.85);
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.cfg-interactive-stage-container.is-draggable {
+  cursor: grab;
+}
+
+.cfg-interactive-stage-container.is-dragging {
+  cursor: grabbing;
+}
+
+.cfg-interactive-stage-container canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Camada de Hotspots Clicáveis sobre a Imagem da Moto */
+.cfg-hotspots-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.cfg-hotspot-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px 5px 6px;
+  border-radius: 999px;
+  background: rgba(8, 12, 20, 0.88);
+  border: 1.5px solid rgba(197, 160, 89, 0.75);
+  color: #f8fafc;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.75);
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  backdrop-filter: blur(6px);
+  white-space: nowrap;
+}
+
+.cfg-hotspot-pin:hover,
+.cfg-hotspot-pin.is-active {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: var(--sand);
+  color: #05070b;
+  border-color: #ffffff;
+  box-shadow: 0 0 22px rgba(197, 160, 89, 0.85);
+  z-index: 25;
+}
+
+.cfg-hotspot-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(197, 160, 89, 0.25);
+  border: 1px solid rgba(197, 160, 89, 0.6);
+  color: var(--sand);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.66rem;
+  font-weight: 900;
+  font-family: monospace;
+}
+
+.cfg-hotspot-pin:hover .cfg-hotspot-num,
+.cfg-hotspot-pin.is-active .cfg-hotspot-num {
+  background: #05070b;
+  color: var(--sand);
+  border-color: #05070b;
+}
+
+/* Popover Flutuante de Alternativas quando o Cliente Clica na Imagem */
+.cfg-part-popover {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: min(410px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  overflow-y: auto;
+  background: rgba(9, 13, 22, 0.96);
+  border: 1.5px solid var(--sand);
+  border-radius: 14px;
+  padding: 18px;
+  z-index: 40;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.92), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  animation: cfgPopoverIn 0.2s ease-out;
+}
+
+@keyframes cfgPopoverIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cfg-popover-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cfg-popover-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 2px 0 0;
+}
+
+.cfg-popover-kicker {
+  font-size: 0.68rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sand);
+  font-weight: 700;
+}
+
+.cfg-popover-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cfg-popover-close:hover {
+  background: var(--sand);
+  color: #05070b;
+}
+
+.cfg-popover-section {
+  margin-bottom: 14px;
+}
+
+.cfg-popover-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.cfg-popover-option-btn {
+  width: 100%;
+  text-align: left;
+  padding: 9px 12px;
+  margin-bottom: 6px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cfg-popover-option-btn:hover {
+  border-color: rgba(197, 160, 89, 0.5);
+  background: rgba(197, 160, 89, 0.08);
+}
+
+.cfg-popover-option-btn.is-selected {
+  background: rgba(197, 160, 89, 0.18);
+  border-color: var(--sand);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(197, 160, 89, 0.25);
+}
+
+.cfg-popover-option-btn small {
+  color: var(--sand);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Barra de Controlo 360 Graus */
+.cfg-360-toolbar {
+  margin-top: 14px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(10, 14, 22, 0.95);
+  border: 1px solid rgba(197, 160, 89, 0.28);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cfg-360-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cfg-360-slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 240px;
+}
+
+.cfg-360-slider {
+  flex: 1;
+  accent-color: var(--sand);
+  cursor: pointer;
+  height: 6px;
+}
+
+.cfg-360-deg-readout {
+  font-family: monospace;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--sand);
+  background: rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  padding: 4px 10px;
+  border-radius: 6px;
+  min-width: 64px;
+  text-align: center;
+}
+
+.cfg-360-angles-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cfg-angle-btn {
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  font-size: 0.72rem;
+  font-family: monospace;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cfg-angle-btn:hover,
+.cfg-angle-btn.is-active {
+  background: var(--sand);
+  color: #05070b;
+  border-color: var(--sand);
+  font-weight: 700;
+}
+
+.cfg-stage-instruction-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(197, 160, 89, 0.16) 0%, rgba(14, 165, 233, 0.12) 100%);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  font-size: 0.82rem;
+  color: #f8fafc;
+}
+
+@media (max-width: 768px) {
+  .cfg-hotspot-label-text {
+    display: none;
+  }
+  .cfg-hotspot-pin {
+    padding: 4px;
+  }
+  .cfg-part-popover {
+    position: static;
+    width: 100%;
+    max-height: none;
+    margin-top: 12px;
+  }
+}
