@@ -75,16 +75,40 @@
 
   function initDefaultComponents() {
     if (!window.CONFIGURATOR_COMPONENTS) return;
+    
+    // Restaurar configuração guardada previamente (Persistência) se existir
+    let savedCfg = null;
+    try {
+      savedCfg = JSON.parse(localStorage.getItem("bandit_active_user_config"));
+    } catch (_e) {}
+
     window.CONFIGURATOR_COMPONENTS.forEach((comp) => {
+      const saved = savedCfg?.components?.[comp.key];
       configState.components[comp.key] = {
-        selectedOption: comp.options?.[0]?.key || "",
-        selectedColor: comp.colors ? comp.colors[0]?.key : null,
-        selectedMaterial: comp.materials ? comp.materials[0]?.key : null,
-        selectedStitch: comp.stitches ? comp.stitches[0]?.key : null,
-        selectedSpec1: comp.spec1Options ? comp.spec1Options[0]?.key : null,
-        selectedSpec2: comp.spec2Options ? comp.spec2Options[0]?.key : null
+        selectedOption: saved?.selectedOption || comp.options?.[0]?.key || "",
+        selectedColor: saved?.selectedColor !== undefined ? saved.selectedColor : (comp.colors ? comp.colors[0]?.key : null),
+        selectedMaterial: saved?.selectedMaterial !== undefined ? saved.selectedMaterial : (comp.materials ? comp.materials[0]?.key : null),
+        selectedStitch: saved?.selectedStitch !== undefined ? saved.selectedStitch : (comp.stitches ? comp.stitches[0]?.key : null),
+        selectedSpec1: saved?.selectedSpec1 !== undefined ? saved.selectedSpec1 : (comp.spec1Options ? comp.spec1Options[0]?.key : null),
+        selectedSpec2: saved?.selectedSpec2 !== undefined ? saved.selectedSpec2 : (comp.spec2Options ? comp.spec2Options[0]?.key : null)
       };
     });
+
+    if (savedCfg?.targetModelId) {
+      configState.targetModelId = savedCfg.targetModelId;
+    }
+  }
+
+  function persistCurrentConfiguration() {
+    try {
+      localStorage.setItem("bandit_active_user_config", JSON.stringify({
+        targetModelId: configState.targetModelId,
+        components: configState.components,
+        rotationAngle: configState.rotationAngle,
+        viewMode: configState.viewMode,
+        timestamp: Date.now()
+      }));
+    } catch (_e) {}
   }
 
   function applyModelDefaults(modelId) {
@@ -279,6 +303,7 @@
     const rearType = c.rearSuspension?.selectedSpec1 || "twin_shock";
     const rearSpringKey = c.rearSuspension?.selectedSpec2 || "black_alu";
 
+    const wheelOpt = c.wheels?.selectedOption || "excel_takasago_spoked";
     const wheelRimFinish = c.wheels?.selectedSpec2 || "black_stainless";
     const tireOpt = c.tires?.selectedOption || "continental_tkc80";
 
@@ -322,6 +347,7 @@
       rearSuspOpt,
       rearType,
       rearSpringKey,
+      wheelOpt,
       wheelRimFinish,
       tireOpt,
       handlebarOpt,
@@ -663,11 +689,12 @@
       seatBox: { x1: 582, y1: 205, x2: 912, y2: 348 },
       forkBox: { x1: 1295, y1: 145, x2: 1495, y2: 565 },
       shockPolys: [
+        // Mola helicoidal traseira calibrada com fidelidade estrita às espiras do amortecedor em REAR_34
         [
-          [755, 455],
-          [796, 478],
-          [695, 635],
-          [654, 612]
+          [764, 435],
+          [798, 458],
+          [728, 620],
+          [694, 598]
         ]
       ],
       gripBox: { x1: 1372, y1: 72, x2: 1485, y2: 158 },
@@ -728,6 +755,7 @@
       v.forkHex,
       v.rearSpringKey,
       v.rearSuspOpt,
+      v.wheelOpt,
       v.wheelRimFinish,
       v.tireOpt,
       v.brakeOpt,
@@ -901,9 +929,10 @@
             let outL = lRaw;
 
             if (v.tankColorKey === "alpine_white") {
-              outH = 42;
-              outS = 0.06;
-              outL = Math.max(0.54, Math.min(0.98, 0.56 + Math.pow(lRaw, 0.56) * 0.44));
+              outH = 40;
+              outS = 0.05;
+              // Mantém o gradiente volumétrico natural de curvatura do depósito metálico
+              outL = Math.max(0.48, Math.min(0.97, 0.44 + Math.pow(lRaw, 0.82) * 0.53));
             } else if (v.tankColorKey === "british_green") {
               outH = 144;
               outS = 0.64 * (1 - Math.pow(Math.abs(2 * lRaw - 1), 2.2) * 0.32);
@@ -923,7 +952,7 @@
             } else if (v.tankColorKey === "classic_silver") {
               outH = 210;
               outS = 0.03;
-              outL = Math.max(0.42, Math.min(0.96, 0.44 + Math.pow(lRaw, 0.62) * 0.54));
+              outL = Math.max(0.38, Math.min(0.94, 0.36 + Math.pow(lRaw, 0.74) * 0.58));
             } else {
               // bandit_black (Preto Bandit Mate / Profundo)
               outH = 215;
@@ -1012,8 +1041,15 @@
             const g = data[pIdx + 1];
             const b = data[pIdx + 2];
             // Detetar estritamente o alumínio anodizado dourado/bronze dos tubos USD
-            const warmth = Math.min(r - b - 12, (g - b) * 3.5);
-            if (warmth <= 0 || r < 34) continue;
+            // Rejeita completamente a borracha escura ou o piso/flanco do pneu dianteiro
+            const warmth = Math.min(r - b - 14, (g - b) * 3.5);
+            if (warmth <= 2 || r < 58) continue;
+            // Excluir a zona circular do pneu dianteiro se overlap
+            if (meta.frontWheel) {
+              const fdx = (x - meta.frontWheel.cx) / meta.frontWheel.rx;
+              const fdy = (y - meta.frontWheel.cy) / meta.frontWheel.ry;
+              if (Math.hypot(fdx, fdy) >= 0.70 && Math.hypot(fdx, fdy) <= 1.05) continue;
+            }
             const blend = Math.min(1, warmth / 18);
             const lRaw = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
 
@@ -1060,14 +1096,15 @@
               const lRaw = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
 
               if (isYellowSpring) {
-                // Colorir apenas as espiras metálicas iluminadas da mola (preserva o intervalo escuro entre espiras)
-                if (lRaw >= 0.085 && lRaw <= 0.75) {
+                // Colorir com realismo estrito apenas as espiras metálicas cilíndricas iluminadas da mola
+                // Rejeita píxeis da parede de fundo ou sombras profundas entre espiras
+                if (lRaw >= 0.14 && lRaw <= 0.72) {
                   const coilStrength =
-                    (mAlpha / 255) * Math.min(1, (lRaw - 0.08) * 6.5) * 0.92;
+                    (mAlpha / 255) * Math.min(1, (lRaw - 0.12) * 5.5) * 0.94;
                   const [nr, ng, nb] = hslToRgb(
-                    46,
-                    0.92,
-                    Math.min(0.8, 0.14 + Math.pow(lRaw, 0.75) * 0.85)
+                    45,
+                    0.94,
+                    Math.min(0.78, 0.18 + Math.pow(lRaw, 0.72) * 0.82)
                   );
                   data[pIdx] = Math.round(r + (nr - r) * coilStrength);
                   data[pIdx + 1] = Math.round(g + (ng - g) * coilStrength);
@@ -1086,9 +1123,10 @@
       }
 
       // ======================================================================
-      // PEÇA 05 & 06: JANTES E PNEUS (Tacos TKC80 / Vintage Canelado Firestone / Estrada Avon + Aros)
+      // PEÇA 05 & 06: JANTES E PNEUS (Desenho e Geometria Idêntica em Ambas as Rodas!)
       // ======================================================================
       if (
+        (v.wheelOpt && v.wheelOpt !== "excel_takasago_spoked") ||
         (v.tireOpt && v.tireOpt !== "continental_tkc80") ||
         (v.wheelRimFinish && v.wheelRimFinish !== "black_stainless")
       ) {
@@ -1113,13 +1151,44 @@
                 b = data[pIdx + 2];
               const lRaw = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
 
-              // Zona dos Aros e Raios (0.26 a 0.67)
-              if (rNorm >= 0.26 && rNorm <= 0.67 && v.wheelRimFinish !== "black_stainless") {
+              // Zona dos Aros e Raios (0.26 a 0.67) - Mantém coerência arquitetural rigorosa entre frente e trás
+              if (rNorm >= 0.26 && rNorm <= 0.67) {
+                // Modelo de Jante: Original BMW Snowflake vs Kineo Billet vs Borrani Clássica Polida
+                if (v.wheelOpt === "bmw_snowflake_alloy") {
+                  // Padrão de raios fundidos grossos (Snowflake) em liga leve
+                  const angle = Math.atan2(dy, dx);
+                  const spokeMod = Math.abs(Math.sin(angle * 3.5));
+                  if (spokeMod > 0.68 && rNorm > 0.32 && rNorm < 0.62) {
+                    const alloyL = Math.max(0.12, Math.min(0.72, 0.18 + lRaw * 0.7));
+                    const [nr, ng, nb] = hslToRgb(210, 0.04, alloyL);
+                    data[pIdx] = Math.round(r + (nr - r) * 0.78);
+                    data[pIdx + 1] = Math.round(g + (ng - g) * 0.78);
+                    data[pIdx + 2] = Math.round(b + (nb - b) * 0.78);
+                  }
+                } else if (v.wheelOpt === "borrani_classic_record") {
+                  // Aros clássicos de alumínio polido espelhado de alta reflexão
+                  if (rNorm >= 0.52 && rNorm <= 0.66 && lRaw > 0.04) {
+                    const [nr, ng, nb] = hslToRgb(215, 0.03, Math.min(0.92, 0.42 + lRaw * 0.95));
+                    data[pIdx] = Math.round(r + (nr - r) * 0.82);
+                    data[pIdx + 1] = Math.round(g + (ng - g) * 0.82);
+                    data[pIdx + 2] = Math.round(b + (nb - b) * 0.82);
+                  }
+                } else if (v.wheelOpt === "kineo_tubeless_billet") {
+                  // Cubo e niples anodizados CNC maquinados
+                  if (rNorm >= 0.30 && rNorm <= 0.48 && lRaw > 0.08) {
+                    const [nr, ng, nb] = hslToRgb(215, 0.02, Math.max(0.04, lRaw * 0.46));
+                    data[pIdx] = Math.round(r + (nr - r) * 0.8);
+                    data[pIdx + 1] = Math.round(g + (ng - g) * 0.8);
+                    data[pIdx + 2] = Math.round(b + (nb - b) * 0.8);
+                  }
+                }
+
+                // Acabamentos dos Aros
                 if (v.wheelRimFinish === "polished_classic" && rNorm >= 0.54 && rNorm <= 0.66) {
                   // Aro em Alumínio Polido Clássico
                   if (lRaw > 0.03 && lRaw < 0.55) {
                     const rimWeight =
-                      (1 - Math.abs(rNorm - 0.6) / 0.065) * 0.72;
+                      (1 - Math.abs(rNorm - 0.6) / 0.065) * 0.78;
                     if (rimWeight > 0) {
                       const [nr, ng, nb] = hslToRgb(210, 0.04, Math.min(0.88, 0.35 + lRaw * 0.95));
                       data[pIdx] = Math.round(r + (nr - r) * rimWeight);
@@ -3274,6 +3343,7 @@
           configState.components[compKey].selectedOption = btn.dataset.popOpt;
           openPartPopover(compKey, false);
           updateSidebarTopicPill(compKey);
+          persistCurrentConfiguration();
           refreshInteractiveScene();
         });
       });
@@ -3284,6 +3354,7 @@
           configState.components[compKey].selectedColor = btn.dataset.popColor;
           openPartPopover(compKey, false);
           updateSidebarTopicPill(compKey);
+          persistCurrentConfiguration();
           refreshInteractiveScene();
         });
       });
@@ -3294,6 +3365,7 @@
           configState.components[compKey].selectedMaterial = btn.dataset.popMat;
           openPartPopover(compKey, false);
           updateSidebarTopicPill(compKey);
+          persistCurrentConfiguration();
           refreshInteractiveScene();
         });
       });
@@ -3304,6 +3376,7 @@
           configState.components[compKey].selectedStitch = btn.dataset.popStitch;
           openPartPopover(compKey, false);
           updateSidebarTopicPill(compKey);
+          persistCurrentConfiguration();
           refreshInteractiveScene();
         });
       });
@@ -3314,6 +3387,7 @@
           configState.components[compKey].selectedSpec1 = btn.dataset.popSpec1;
           openPartPopover(compKey, false);
           updateSidebarTopicPill(compKey);
+          persistCurrentConfiguration();
           refreshInteractiveScene();
         });
       });
@@ -3324,6 +3398,7 @@
           configState.components[compKey].selectedSpec2 = btn.dataset.popSpec2;
           openPartPopover(compKey, false);
           updateSidebarTopicPill(compKey);
+          persistCurrentConfiguration();
           refreshInteractiveScene();
         });
       });
