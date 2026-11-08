@@ -469,11 +469,31 @@
       gripBox: { x1: 1195, y1: 175, x2: 1280, y2: 248 },
       caliperPolys: [
         [
-          [1315, 588],
-          [1358, 588],
-          [1365, 672],
-          [1318, 672]
+          [1318, 594],
+          [1362, 590],
+          [1368, 668],
+          [1324, 672]
         ]
+      ],
+      frontWheel: { cx: 1529, cy: 684, rx: 245, ry: 245 },
+      rearWheel: { cx: 395, cy: 662, rx: 245, ry: 245 },
+      stripeCurves: [
+        [812, 326],
+        [882, 268],
+        [980, 244],
+        [1095, 248],
+        [1188, 280]
+      ],
+      centerStripePoly: [
+        [802, 286],
+        [890, 234],
+        [1020, 218],
+        [1162, 226],
+        [1196, 240],
+        [1175, 260],
+        [1025, 246],
+        [895, 258],
+        [806, 308]
       ],
       headlightCircle: { cx: 1408, cy: 252, rx: 16, ry: 56 },
       anchors: {
@@ -558,11 +578,30 @@
       gripBox: { x1: 870, y1: 138, x2: 1060, y2: 232 },
       caliperPolys: [
         [
-          [1248, 615],
-          [1295, 615],
-          [1302, 702],
-          [1252, 702]
+          [1248, 636],
+          [1288, 632],
+          [1296, 696],
+          [1254, 700]
         ]
+      ],
+      frontWheel: { cx: 1381, cy: 682, rx: 225, ry: 255 },
+      rearWheel: { cx: 452, cy: 535, rx: 205, ry: 235 },
+      stripeCurves: [
+        [776, 265],
+        [845, 192],
+        [935, 165],
+        [1045, 178],
+        [1112, 238]
+      ],
+      centerStripePoly: [
+        [775, 218],
+        [865, 155],
+        [982, 140],
+        [1088, 168],
+        [1072, 192],
+        [975, 166],
+        [868, 180],
+        [782, 240]
       ],
       headlightCircle: { cx: 1326, cy: 222, rx: 52, ry: 76 },
       anchors: {
@@ -626,11 +665,30 @@
       gripBox: { x1: 1372, y1: 72, x2: 1485, y2: 158 },
       caliperPolys: [
         [
-          [1405, 558],
-          [1448, 558],
-          [1455, 642],
-          [1410, 642]
+          [1416, 568],
+          [1448, 565],
+          [1454, 622],
+          [1422, 625]
         ]
+      ],
+      frontWheel: { cx: 1514, cy: 586, rx: 185, ry: 215 },
+      rearWheel: { cx: 455, cy: 652, rx: 245, ry: 265 },
+      stripeCurves: [
+        [942, 248],
+        [1025, 194],
+        [1135, 184],
+        [1238, 206],
+        [1288, 255]
+      ],
+      centerStripePoly: [
+        [915, 224],
+        [1018, 165],
+        [1145, 162],
+        [1255, 192],
+        [1240, 214],
+        [1140, 186],
+        [1022, 190],
+        [928, 244]
       ],
       headlightCircle: { cx: 1412, cy: 212, rx: 28, ry: 52 },
       anchors: {
@@ -655,12 +713,16 @@
       v.tankColorKey,
       v.tankHex,
       v.tankFinish,
+      v.tankStripe,
       v.seatMat,
       v.seatHex,
       v.frontColorKey,
       v.forkHex,
       v.rearSpringKey,
       v.rearSuspOpt,
+      v.wheelRimFinish,
+      v.tireOpt,
+      v.brakeOpt,
       v.caliperSpec,
       v.isYellowLens,
       v.gripHex
@@ -830,7 +892,11 @@
             let outS = 0.05;
             let outL = lRaw;
 
-            if (v.tankColorKey === "british_green") {
+            if (v.tankColorKey === "alpine_white") {
+              outH = 42;
+              outS = 0.06;
+              outL = Math.max(0.54, Math.min(0.98, 0.56 + Math.pow(lRaw, 0.56) * 0.44));
+            } else if (v.tankColorKey === "british_green") {
               outH = 144;
               outS = 0.64 * (1 - Math.pow(Math.abs(2 * lRaw - 1), 2.2) * 0.32);
               outL = Math.max(0.04, Math.min(0.78, 0.03 + Math.pow(lRaw, 0.85) * 0.84));
@@ -841,15 +907,15 @@
             } else if (v.tankColorKey === "nardo_grey") {
               outH = 208;
               outS = 0.08;
-              outL = Math.max(0.12, Math.min(0.82, 0.15 + Math.pow(lRaw, 0.78) * 0.68));
+              outL = Math.max(0.18, Math.min(0.84, 0.2 + Math.pow(lRaw, 0.75) * 0.65));
             } else if (v.tankColorKey === "desert_sand") {
               outH = 35;
               outS = 0.48 * (1 - Math.max(0, lRaw - 0.58) * 0.45);
-              outL = Math.max(0.1, Math.min(0.86, 0.12 + Math.pow(lRaw, 0.76) * 0.76));
+              outL = Math.max(0.16, Math.min(0.88, 0.18 + Math.pow(lRaw, 0.72) * 0.72));
             } else if (v.tankColorKey === "classic_silver") {
               outH = 210;
-              outS = 0.04;
-              outL = Math.max(0.16, Math.min(0.92, 0.18 + Math.pow(lRaw, 0.72) * 0.78));
+              outS = 0.03;
+              outL = Math.max(0.42, Math.min(0.96, 0.44 + Math.pow(lRaw, 0.62) * 0.54));
             } else {
               // bandit_black (Preto Bandit Mate / Profundo)
               outH = 215;
@@ -1012,31 +1078,158 @@
       }
 
       // ======================================================================
-      // PEÇA 09: PINÇA DE TRAVÃO BREMBO (Dourado Anodizado / Níquel CNC / Preto)
+      // PEÇA 05 & 06: JANTES E PNEUS (Tacos TKC80 / Vintage Canelado Firestone / Estrada Avon + Aros)
       // ======================================================================
-      if (v.caliperSpec && v.caliperSpec !== "black_red_logo" && meta.caliperPolys) {
-        const calMask = buildSurgicalPolygonMaskData(mCtx, meta.caliperPolys, null, 1.0);
-        if (calMask) {
-          for (let y = calMask.minY; y <= calMask.maxY; y++) {
-            const maskRow = (y - calMask.minY) * calMask.bw;
-            const imgRow = y * 1920;
-            for (let x = calMask.minX; x <= calMask.maxX; x++) {
-              const mAlpha = calMask.alphaData[(maskRow + (x - calMask.minX)) * 4 + 3];
-              if (mAlpha < 6) continue;
-              const pIdx = (imgRow + x) * 4;
+      if (
+        (v.tireOpt && v.tireOpt !== "continental_tkc80") ||
+        (v.wheelRimFinish && v.wheelRimFinish !== "black_stainless")
+      ) {
+        const wheelsList = [meta.frontWheel, meta.rearWheel].filter(Boolean);
+        wheelsList.forEach((wh) => {
+          const xStart = Math.max(0, Math.floor(wh.cx - wh.rx * 1.05));
+          const xEnd = Math.min(1919, Math.ceil(wh.cx + wh.rx * 1.05));
+          const yStart = Math.max(0, Math.floor(wh.cy - wh.ry * 1.05));
+          const yEnd = Math.min(1079, Math.ceil(wh.cy + wh.ry * 1.05));
+
+          for (let y = yStart; y <= yEnd; y++) {
+            const rowOff = y * 1920;
+            for (let x = xStart; x <= xEnd; x++) {
+              const dx = (x - wh.cx) / wh.rx;
+              const dy = (y - wh.cy) / wh.ry;
+              const rNorm = Math.hypot(dx, dy);
+              if (rNorm < 0.25 || rNorm > 1.02) continue;
+
+              const pIdx = (rowOff + x) * 4;
               const r = data[pIdx],
                 g = data[pIdx + 1],
                 b = data[pIdx + 2];
               const lRaw = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-              if (lRaw < 0.06) continue;
-              const outH = v.caliperSpec === "gold_anodized" ? 38 : 210;
-              const outS = v.caliperSpec === "gold_anodized" ? 0.74 : 0.05;
-              const outL = Math.min(0.82, 0.1 + Math.pow(lRaw, 0.8) * 0.78);
-              const blend = (mAlpha / 255) * 0.85;
-              const [nr, ng, nb] = hslToRgb(outH, outS, outL);
-              data[pIdx] = Math.round(r + (nr - r) * blend);
-              data[pIdx + 1] = Math.round(g + (ng - g) * blend);
-              data[pIdx + 2] = Math.round(b + (nb - b) * blend);
+
+              // Zona dos Aros e Raios (0.26 a 0.67)
+              if (rNorm >= 0.26 && rNorm <= 0.67 && v.wheelRimFinish !== "black_stainless") {
+                if (v.wheelRimFinish === "polished_classic" && rNorm >= 0.54 && rNorm <= 0.66) {
+                  // Aro em Alumínio Polido Clássico
+                  if (lRaw > 0.03 && lRaw < 0.55) {
+                    const rimWeight =
+                      (1 - Math.abs(rNorm - 0.6) / 0.065) * 0.72;
+                    if (rimWeight > 0) {
+                      const [nr, ng, nb] = hslToRgb(210, 0.04, Math.min(0.88, 0.35 + lRaw * 0.95));
+                      data[pIdx] = Math.round(r + (nr - r) * rimWeight);
+                      data[pIdx + 1] = Math.round(g + (ng - g) * rimWeight);
+                      data[pIdx + 2] = Math.round(b + (nb - b) * rimWeight);
+                    }
+                  }
+                } else if (v.wheelRimFinish === "total_black_satin") {
+                  // Total Black Satin: escurecer raios inox
+                  if (lRaw > 0.18) {
+                    data[pIdx] = Math.round(r * 0.45);
+                    data[pIdx + 1] = Math.round(g * 0.45);
+                    data[pIdx + 2] = Math.round(b * 0.48);
+                  }
+                }
+              }
+
+              // Zona do Pneu (0.68 a 1.01)
+              if (rNorm >= 0.68 && rNorm <= 1.01 && v.tireOpt !== "continental_tkc80") {
+                const warmth = r - b;
+                if (v.tireOpt === "avon_roadrider_mk2" || v.tireOpt === "pirelli_mt60_rs") {
+                  // Pneu desportivo de estrada / street tracker: remover reflexo castanho-terra dos tacos e dar borracha preta acetinada limpa
+                  if (warmth > 6 || rNorm > 0.88) {
+                    const rubberL = Math.max(0.03, Math.min(0.28, lRaw * 0.62));
+                    const [nr, ng, nb] = hslToRgb(215, 0.04, rubberL);
+                    const w = Math.min(1, Math.max(0.45, warmth / 24));
+                    data[pIdx] = Math.round(r + (nr - r) * w);
+                    data[pIdx + 1] = Math.round(g + (ng - g) * w);
+                    data[pIdx + 2] = Math.round(b + (nb - b) * w);
+                  }
+                  // Linha fina desportiva na parede lateral para distinguir Pirelli / Avon
+                  if (Math.abs(rNorm - 0.75) < 0.014 && lRaw > 0.03) {
+                    const stripeAlpha = (1 - Math.abs(rNorm - 0.75) / 0.014) * 0.55;
+                    const [sr, sg, sb2] =
+                      v.tireOpt === "pirelli_mt60_rs"
+                        ? [215, 165, 45]
+                        : [200, 208, 220];
+                    data[pIdx] = Math.round(data[pIdx] + (sr - data[pIdx]) * stripeAlpha);
+                    data[pIdx + 1] = Math.round(data[pIdx + 1] + (sg - data[pIdx + 1]) * stripeAlpha);
+                    data[pIdx + 2] = Math.round(data[pIdx + 2] + (sb2 - data[pIdx + 2]) * stripeAlpha);
+                  }
+                } else if (v.tireOpt === "firestone_deluxe") {
+                  // Firestone Deluxe Champion: parede lateral clássica vintage c/ anel creme/marfim subtil e borracha escura
+                  if (warmth > 6) {
+                    const [nr, ng, nb] = hslToRgb(215, 0.03, lRaw * 0.65);
+                    data[pIdx] = Math.round(r + (nr - r) * 0.8);
+                    data[pIdx + 1] = Math.round(g + (ng - g) * 0.8);
+                    data[pIdx + 2] = Math.round(b + (nb - b) * 0.8);
+                  }
+                  if (rNorm >= 0.71 && rNorm <= 0.785 && lRaw > 0.025 && lRaw < 0.45) {
+                    const bandW =
+                      (1 - Math.abs(rNorm - 0.747) / 0.038) * 0.68;
+                    if (bandW > 0) {
+                      const [vr, vg, vb] = hslToRgb(40, 0.28, Math.min(0.78, 0.42 + lRaw * 0.65));
+                      data[pIdx] = Math.round(data[pIdx] + (vr - data[pIdx]) * bandW);
+                      data[pIdx + 1] = Math.round(data[pIdx + 1] + (vg - data[pIdx + 1]) * bandW);
+                      data[pIdx + 2] = Math.round(data[pIdx + 2] + (vb - data[pIdx + 2]) * bandW);
+                    }
+                  }
+                } else if (v.tireOpt === "heidenau_k60_ranger") {
+                  // Heidenau K60 Ranger: taco de aventura em borracha grafite reforçada
+                  if (warmth > 8) {
+                    const [nr, ng, nb] = hslToRgb(42, 0.18, Math.min(0.42, lRaw * 0.82));
+                    data[pIdx] = Math.round(r + (nr - r) * 0.75);
+                    data[pIdx + 1] = Math.round(g + (ng - g) * 0.75);
+                    data[pIdx + 2] = Math.round(b + (nb - b) * 0.75);
+                  }
+                }
+              }
+            }
+          }
+        });
+      }
+
+      // ======================================================================
+      // PEÇA 09: PINÇA DE TRAVÃO (Brembo M4 / Série Oro / Beringer CNC Vermelho / Hel + 3 Cores)
+      // ======================================================================
+      if (meta.caliperPolys) {
+        let calMode = v.caliperSpec || "black_red_logo";
+        if (calMode === "black_red_logo") {
+          if (v.brakeOpt === "brembo_oro_rcs19") calMode = "gold_anodized";
+          else if (v.brakeOpt === "beringer_aerotec_cnc") calMode = "beringer_red";
+          else if (v.brakeOpt === "hel_braided_oem") calMode = "titanium_raw";
+        }
+        if (calMode !== "black_red_logo") {
+          const calMask = buildSurgicalPolygonMaskData(mCtx, meta.caliperPolys, null, 1.0);
+          if (calMask) {
+            for (let y = calMask.minY; y <= calMask.maxY; y++) {
+              const maskRow = (y - calMask.minY) * calMask.bw;
+              const imgRow = y * 1920;
+              for (let x = calMask.minX; x <= calMask.maxX; x++) {
+                const mAlpha = calMask.alphaData[(maskRow + (x - calMask.minX)) * 4 + 3];
+                if (mAlpha < 6) continue;
+                const pIdx = (imgRow + x) * 4;
+                const r = data[pIdx],
+                  g = data[pIdx + 1],
+                  b = data[pIdx + 2];
+                const lRaw = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+                if (lRaw < 0.065 || lRaw > 0.58) continue;
+
+                let outH = 38,
+                  outS = 0.86,
+                  outL = Math.min(0.8, 0.18 + Math.pow(lRaw, 0.72) * 0.72);
+                if (calMode === "beringer_red") {
+                  outH = 356;
+                  outS = 0.84;
+                  outL = Math.min(0.74, 0.16 + Math.pow(lRaw, 0.74) * 0.68);
+                } else if (calMode === "titanium_raw") {
+                  outH = 210;
+                  outS = 0.06;
+                  outL = Math.min(0.84, 0.24 + Math.pow(lRaw, 0.7) * 0.68);
+                }
+                const blend = (mAlpha / 255) * 0.88;
+                const [nr, ng, nb] = hslToRgb(outH, outS, outL);
+                data[pIdx] = Math.round(r + (nr - r) * blend);
+                data[pIdx + 1] = Math.round(g + (ng - g) * blend);
+                data[pIdx + 2] = Math.round(b + (nb - b) * blend);
+              }
             }
           }
         }
@@ -1103,6 +1296,82 @@
       }
 
       ctx.putImageData(imgData, 0, 0);
+
+      // ======================================================================
+      // LISTADOS / FAIXAS DE DEPÓSITO (double_pinstripe | motorsport_stripe | clean_pure)
+      // Recortado estritamente à máscara cirúrgica tankMask (respeitando tampão Monza e espelho)
+      // ======================================================================
+      if (v.tankStripe && v.tankStripe !== "clean_pure" && tankMask) {
+        const stripeCanvas = document.createElement("canvas");
+        stripeCanvas.width = 1920;
+        stripeCanvas.height = 1080;
+        const sCtx = stripeCanvas.getContext("2d");
+
+        const isLightTank =
+          v.tankColorKey === "alpine_white" ||
+          v.tankColorKey === "classic_silver" ||
+          v.tankColorKey === "desert_sand" ||
+          v.tankFinish === "raw_brushed";
+
+        if (v.tankStripe === "double_pinstripe" && meta.stripeCurves) {
+          const pts = meta.stripeCurves;
+          const drawSmoothCurve = (offsetY, lineW, strokeCol) => {
+            sCtx.beginPath();
+            sCtx.moveTo(pts[0][0], pts[0][1] + offsetY);
+            for (let i = 1; i < pts.length - 1; i++) {
+              const xc = (pts[i][0] + pts[i + 1][0]) / 2;
+              const yc = (pts[i][1] + pts[i + 1][1]) / 2 + offsetY;
+              sCtx.quadraticCurveTo(pts[i][0], pts[i][1] + offsetY, xc, yc);
+            }
+            const last = pts[pts.length - 1];
+            sCtx.lineTo(last[0], last[1] + offsetY);
+            sCtx.lineWidth = lineW;
+            sCtx.strokeStyle = strokeCol;
+            sCtx.lineCap = "round";
+            sCtx.stroke();
+          };
+          const primaryPinCol = isLightTank
+            ? "rgba(18, 22, 30, 0.92)"
+            : "rgba(232, 200, 132, 0.94)";
+          const secondaryPinCol = isLightTank
+            ? "rgba(180, 140, 62, 0.88)"
+            : "rgba(248, 250, 252, 0.85)";
+          drawSmoothCurve(0, 4.0, primaryPinCol);
+          drawSmoothCurve(7.5, 2.0, secondaryPinCol);
+        } else if (v.tankStripe === "motorsport_stripe" && meta.centerStripePoly) {
+          sCtx.fillStyle = isLightTank
+            ? "rgba(18, 22, 30, 0.88)"
+            : "rgba(241, 245, 249, 0.82)";
+          sCtx.beginPath();
+          meta.centerStripePoly.forEach((pt, idx) => {
+            if (idx === 0) sCtx.moveTo(pt[0], pt[1]);
+            else sCtx.lineTo(pt[0], pt[1]);
+          });
+          sCtx.closePath();
+          sCtx.fill();
+          sCtx.strokeStyle = "rgba(212, 175, 55, 0.95)";
+          sCtx.lineWidth = 2.8;
+          sCtx.stroke();
+        }
+
+        // Aplicar estritamente dentro de tankMask (garantindo que nunca pinta sobre o espelho ou tampão)
+        const sData = sCtx.getImageData(
+          tankMask.minX,
+          tankMask.minY,
+          tankMask.bw,
+          tankMask.bh
+        );
+        const sArr = sData.data;
+        const mArr = tankMask.alphaData;
+        const boxPixels = tankMask.bw * tankMask.bh;
+        for (let i = 0; i < boxPixels; i++) {
+          const p4 = i * 4 + 3;
+          sArr[p4] = Math.round((sArr[p4] * mArr[p4]) / 255);
+        }
+        sCtx.clearRect(0, 0, 1920, 1080);
+        sCtx.putImageData(sData, tankMask.minX, tankMask.minY);
+        ctx.drawImage(stripeCanvas, 0, 0);
+      }
     } catch (_err) {
       // Fallback seguro
     }
@@ -1180,21 +1449,70 @@
     return bg;
   }
 
-  async function getIsolatedTurntableBikeCanvas(isMirrored, v) {
-    const sig = `${isMirrored ? "L" : "R"}_${getVisualSignature(v)}`;
+  function getTurntableCameraSpec(normAngle) {
+    const a = (((normAngle % 360) + 360) % 360);
+    if (a < 28 || a >= 332) {
+      const d = a >= 332 ? a - 360 : a; // -28..+28
+      return {
+        viewKey: "SIDE",
+        isMirrored: false,
+        relDeg: d,
+        label: "0° PERFIL LATERAL DIREITO 8K"
+      };
+    } else if (a >= 28 && a < 90) {
+      return {
+        viewKey: "FRONT_34",
+        isMirrored: false,
+        relDeg: a - 58,
+        label: "45° PERSPETIVA 3/4 DIANTEIRA DIREITA 8K"
+      };
+    } else if (a >= 90 && a < 152) {
+      return {
+        viewKey: "FRONT_34",
+        isMirrored: true,
+        relDeg: a - 122,
+        label: "135° PERSPETIVA 3/4 DIANTEIRA ESQUERDA 8K"
+      };
+    } else if (a >= 152 && a < 208) {
+      return {
+        viewKey: "SIDE",
+        isMirrored: true,
+        relDeg: a - 180,
+        label: "180° PERFIL LATERAL ESQUERDO 8K"
+      };
+    } else if (a >= 208 && a < 270) {
+      return {
+        viewKey: "REAR_34",
+        isMirrored: true,
+        relDeg: a - 238,
+        label: "225° PERSPETIVA 3/4 TRASEIRA ESQUERDA 8K"
+      };
+    } else {
+      return {
+        viewKey: "REAR_34",
+        isMirrored: false,
+        relDeg: a - 302,
+        label: "315° PERSPETIVA 3/4 TRASEIRA DIREITA 8K"
+      };
+    }
+  }
+
+  async function getIsolatedTurntableBikeCanvas(viewKey, isMirrored, v) {
+    const vKey = viewKey || "SIDE";
+    const sig = `${vKey}_${isMirrored ? "L" : "R"}_${getVisualSignature(v)}`;
     if (isolatedBikeCache.has(sig)) {
       return isolatedBikeCache.get(sig);
     }
 
-    const gradedSide = await getGradedStudioViewCanvas("SIDE", isMirrored, v);
+    const gradedView = await getGradedStudioViewCanvas(vKey, isMirrored, v);
     const iso = document.createElement("canvas");
     iso.width = 1920;
     iso.height = 1080;
     const iCtx = iso.getContext("2d");
-    if (!iCtx) return gradedSide;
+    if (!iCtx) return gradedView;
 
     // Recorte suave (feathered) da silhueta envolvente da moto e sombra no chão
-    // para que ao rodar 360° nunca apareçam bordas retangulares da imagem de fundo
+    // para que ao rodar 360° por todos os ângulos (Perfil, 3/4 Frente, Frente, 3/4 Traseira) nunca apareçam bordas
     const mask = document.createElement("canvas");
     mask.width = 1920;
     mask.height = 1080;
@@ -1204,23 +1522,22 @@
       mCtx.fillStyle = "#ffffff";
       mCtx.beginPath();
       const silPts = [
-        [105, 650],
-        [135, 430],
-        [320, 365],
-        [470, 240],
-        [750, 235],
-        [830, 180],
-        [1160, 145],
-        [1380, 110],
-        [1470, 210],
-        [1560, 370],
-        [1795, 450],
-        [1815, 680],
-        [1760, 935],
-        [1420, 955],
-        [960, 930],
-        [450, 955],
-        [155, 935]
+        [95, 650],
+        [125, 390],
+        [310, 320],
+        [470, 145],
+        [750, 120],
+        [1050, 85],
+        [1390, 75],
+        [1520, 185],
+        [1640, 370],
+        [1810, 460],
+        [1830, 690],
+        [1775, 945],
+        [1420, 965],
+        [960, 945],
+        [450, 965],
+        [145, 945]
       ];
       silPts.forEach((pt, idx) => {
         const px = isMirrored ? 1920 - pt[0] : pt[0];
@@ -1232,14 +1549,14 @@
       mCtx.fill();
     }
 
-    iCtx.drawImage(gradedSide, 0, 0);
+    iCtx.drawImage(gradedView, 0, 0);
     if (mask) {
       iCtx.globalCompositeOperation = "destination-in";
       iCtx.drawImage(mask, 0, 0);
       iCtx.globalCompositeOperation = "source-over";
     }
 
-    if (isolatedBikeCache.size > 12) {
+    if (isolatedBikeCache.size > 18) {
       const firstKey = isolatedBikeCache.keys().next().value;
       isolatedBikeCache.delete(firstKey);
     }
@@ -1248,39 +1565,36 @@
   }
 
   /**
-   * Projeta a moto em Perspetiva 3D Contínua (72 faixas verticais contíguas sem sobreposição)
-   * garantindo rotação 360° 100% suave e contínua a 60 FPS sem saltar frames e sem fantasmas.
+   * Projeta a câmara 360° atual (Perfil Direito, 3/4 Dianteira Direita, Frente, 3/4 Dianteira Esquerda,
+   * Perfil Esquerdo, 3/4 Traseira Esquerda, Traseira, 3/4 Traseira Direita) em Perspetiva 3D Contínua
+   * (72 faixas verticais sem sobreposição e sem fantasmas) para mostrar todos os ângulos reais da moto!
    */
-  function drawContinuous360TurntableStage(ctx, bikeCanvas, normAngle) {
-    const rad = (normAngle * Math.PI) / 180;
-    const cosA = Math.cos(rad);
-    const sinA = Math.sin(rad);
+  function drawContinuous360TurntableStage(ctx, bikeCanvas, relDeg) {
+    const rad = ((relDeg || 0) * Math.PI) / 180;
+    const cosR = Math.cos(rad);
+    const sinR = Math.sin(rad);
 
-    // Curva contínua de escorço horizontal que evita que a moto desapareça num traço de 0px aos 90°/270°
-    const absCos = Math.abs(cosA);
-    const effMag = 0.26 + 0.74 * Math.pow(absCos, 0.88);
-
+    const effMag = 0.84 + 0.16 * cosR;
     const strips = 72;
-    const minSrcX = 80;
-    const maxSrcX = 1840;
+    const minSrcX = 70;
+    const maxSrcX = 1850;
     const totalSrcW = maxSrcX - minSrcX;
     const stripW = totalSrcW / strips;
-    const focalD = 2450;
+    const focalD = 2650;
 
-    // Sombra elíptica dinâmica no chão do estúdio que acompanha a rotação 360°
+    // Sombra elíptica dinâmica no chão do estúdio
     ctx.save();
     const shadowRx = 680 * effMag;
-    const shadowGrad = ctx.createRadialGradient(960, 895, 30, 960, 895, Math.max(180, shadowRx));
+    const shadowGrad = ctx.createRadialGradient(960, 895, 30, 960, 895, Math.max(220, shadowRx));
     shadowGrad.addColorStop(0, "rgba(0, 0, 0, 0.78)");
     shadowGrad.addColorStop(0.65, "rgba(0, 0, 0, 0.42)");
     shadowGrad.addColorStop(1, "rgba(0, 0, 0, 0)");
     ctx.fillStyle = shadowGrad;
     ctx.beginPath();
-    ctx.ellipse(960, 895, Math.max(180, shadowRx), 46, 0, 0, Math.PI * 2);
+    ctx.ellipse(960, 895, Math.max(220, shadowRx), 46, 0, 0, Math.PI * 2);
     ctx.fill();
     ctx.restore();
 
-    // Renderizar as 72 colunas de perspetiva 3D contínua (zero sobreposição, 100% opaco e sólido)
     for (let i = 0; i < strips; i++) {
       const sx1 = minSrcX + i * stripW;
       const sx2 = sx1 + stripW;
@@ -1288,12 +1602,9 @@
       const u2 = sx2 - 960;
       const uMid = (u1 + u2) * 0.5;
 
-      // Quando isMirrored (cosA < 0), a imagem já está espelhada para a esquerda,
-      // logo usamos effMag positivo sobre a imagem espelhada e invertemos o eixo Z da perspetiva
-      const dirSign = cosA >= 0 ? 1 : -1;
-      const z1 = u1 * dirSign * sinA * 0.52;
-      const z2 = u2 * dirSign * sinA * 0.52;
-      const zMid = uMid * dirSign * sinA * 0.52;
+      const z1 = u1 * sinR * 0.42;
+      const z2 = u2 * sinR * 0.42;
+      const zMid = uMid * sinR * 0.42;
 
       const p1 = focalD / (focalD - z1);
       const p2 = focalD / (focalD - z2);
@@ -1305,7 +1616,7 @@
       const destW = Math.max(1, Math.abs(dx2 - dx1) + 0.65);
 
       const destH = 1080 * pMid;
-      const elevationOffset = -zMid * 0.032;
+      const elevationOffset = -zMid * 0.028;
       const destY = 525 - destH * (525 / 1080) + elevationOffset;
 
       ctx.drawImage(bikeCanvas, sx1, 0, stripW + 0.5, 1080, destX, destY, destW, destH);
@@ -1329,29 +1640,27 @@
       return out;
     }
 
-    const rad = (normAngle * Math.PI) / 180;
-    const cosA = Math.cos(rad);
-    const sinA = Math.sin(rad);
-    const isMirrored = cosA < 0;
-    const absCos = Math.abs(cosA);
-    const effMag = 0.26 + 0.74 * Math.pow(absCos, 0.88);
-    const dirSign = cosA >= 0 ? 1 : -1;
-    const focalD = 2450;
+    const cam = getTurntableCameraSpec(normAngle);
+    const rad = (cam.relDeg * Math.PI) / 180;
+    const cosR = Math.cos(rad);
+    const sinR = Math.sin(rad);
+    const effMag = 0.84 + 0.16 * cosR;
+    const focalD = 2650;
 
-    const baseAnchors = STUDIO_VIEWS_META.SIDE.anchors;
+    const baseAnchors = (STUDIO_VIEWS_META[cam.viewKey] || STUDIO_VIEWS_META.SIDE).anchors;
     const out = {};
 
     Object.keys(baseAnchors).forEach((compKey) => {
       const pt = baseAnchors[compKey];
-      const rawX = isMirrored ? 1920 - pt.x : pt.x;
+      const rawX = cam.isMirrored ? 1920 - pt.x : pt.x;
       const rawY = pt.y;
       const u = rawX - 960;
-      const z = u * dirSign * sinA * 0.52;
+      const z = u * sinR * 0.42;
       const p = focalD / (focalD - z);
 
       const stageX = 960 + u * effMag * p;
       const destH = 1080 * p;
-      const elevationOffset = -z * 0.032;
+      const elevationOffset = -z * 0.028;
       const stageY = 525 - destH * (525 / 1080) + elevationOffset + rawY * p;
 
       const clampedX = Math.max(85, Math.min(1835, stageX));
@@ -1760,8 +2069,8 @@
     }
     ctx.restore();
 
-    // 3. RENDERIZAR A MOTO EM ESTÚDIO 8K (ROTAÇÃO 360° CONTÍNUA OU CÂMARA 3/4 DEDICADA, ZERO FANTASMAS!)
-    let viewLabel = "ESTÚDIO 360° CONTÍNUO 8K";
+    // 3. RENDERIZAR A MOTO EM ESTÚDIO 8K (TODOS OS ÂNGULOS 360° REAIS: PERFIL, 3/4 FRENTE, FRENTE, 3/4 TRÁS, TRASEIRA!)
+    let viewLabel = "ESTÚDIO 360° MULTI-ÂNGULO 8K";
     if (configState.viewMode === "CAMERA_FRONT_34") {
       const frontCanvas = await getGradedStudioViewCanvas("FRONT_34", false, v);
       ctx.drawImage(frontCanvas, 0, 0, 1920, 1080);
@@ -1771,20 +2080,16 @@
       ctx.drawImage(rearCanvas, 0, 0, 1920, 1080);
       viewLabel = "CÂMARA 3/4 TRASEIRA 8K";
     } else {
-      // Modo STUDIO_360: Rotação 360° contínua e suave ao grau (60 FPS) sobre o modelo sólido de estúdio
-      if (normAngle < 1.5 || normAngle > 358.5) {
-        const crispRight = await getGradedStudioViewCanvas("SIDE", false, v);
-        ctx.drawImage(crispRight, 0, 0, 1920, 1080);
-      } else if (Math.abs(normAngle - 180) < 1.5) {
-        const crispLeft = await getGradedStudioViewCanvas("SIDE", true, v);
-        ctx.drawImage(crispLeft, 0, 0, 1920, 1080);
+      // Modo STUDIO_360: Percorre todos os ângulos reais (Perfil Direito, 3/4 Frente Dir, 3/4 Frente Esq, Perfil Esquerdo, 3/4 Trás Esq, 3/4 Trás Dir)
+      const cam = getTurntableCameraSpec(normAngle);
+      if (Math.abs(cam.relDeg) < 1.2) {
+        const crispView = await getGradedStudioViewCanvas(cam.viewKey, cam.isMirrored, v);
+        ctx.drawImage(crispView, 0, 0, 1920, 1080);
       } else {
-        const bikeIso = await getIsolatedTurntableBikeCanvas(isMirrored, v);
-        drawContinuous360TurntableStage(ctx, bikeIso, normAngle);
+        const bikeIso = await getIsolatedTurntableBikeCanvas(cam.viewKey, cam.isMirrored, v);
+        drawContinuous360TurntableStage(ctx, bikeIso, cam.relDeg);
       }
-      viewLabel = isMirrored
-        ? "ROTAÇÃO 360° CONTÍNUA • PERFIL ESQUERDO 3D"
-        : "ROTAÇÃO 360° CONTÍNUA • PERFIL DIREITO 3D";
+      viewLabel = cam.label;
     }
 
     // 4. MINIATURA DO MODELO BASE ESCOLHIDO NO CANTO SUPERIOR DIREITO (PIP DE REFERÊNCIA)
@@ -2674,8 +2979,10 @@
         <!-- PALCO INTERATIVO DA MOTO CRIADA (SEM NUMERAÇÃO SOBREPOSTA — SELEÇÃO DIRETA AO CLICAR NA PEÇA) -->
         <div class="cfg-interactive-stage-container is-draggable" id="cfgInteractiveStage">
           <canvas id="cfgInteractiveCanvas360" width="1920" height="1080" style="cursor: pointer;" title="Clique diretamente em qualquer peça da moto para alterar ou arraste para rodar 360°"></canvas>
-          <div class="cfg-part-popover" id="cfgPartPopover" style="display: none;"></div>
         </div>
+
+        <!-- MENU DE OPÇÕES DA PEÇA ESCOLHIDA (FORA DA IMAGEM DA MOTO — NUNCA TAPA A MOTO!) -->
+        <div class="cfg-part-popover cfg-part-popover-external" id="cfgPartPopover" style="display: none;"></div>
 
         <!-- BARRA DE CONTROLO DE ROTAÇÃO 360 GRAUS REAL (8 CÂMARAS DE ESTÚDIO) -->
         <div class="cfg-360-toolbar">
@@ -2911,13 +3218,19 @@
       refreshInteractiveScene();
     });
 
-    function openPartPopover(compKey) {
+    function openPartPopover(compKey, shouldScroll = true) {
       stopAutoSpin();
       configState.activePopoverCompKey = compKey;
       if (!popoverEl) return;
       popoverEl.style.display = "block";
       popoverEl.innerHTML = buildPopoverInnerHtml(compKey);
       renderHotspotPins();
+
+      if (shouldScroll) {
+        setTimeout(() => {
+          popoverEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }, 40);
+      }
 
       document.getElementById("cfgClosePopoverBtn")?.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -2930,7 +3243,7 @@
         btn.addEventListener("click", (e) => {
           e.stopPropagation();
           configState.components[compKey].selectedOption = btn.dataset.popOpt;
-          openPartPopover(compKey);
+          openPartPopover(compKey, false);
           refreshInteractiveScene();
         });
       });
@@ -2939,7 +3252,7 @@
         btn.addEventListener("click", (e) => {
           e.stopPropagation();
           configState.components[compKey].selectedColor = btn.dataset.popColor;
-          openPartPopover(compKey);
+          openPartPopover(compKey, false);
           refreshInteractiveScene();
         });
       });
@@ -2948,7 +3261,7 @@
         btn.addEventListener("click", (e) => {
           e.stopPropagation();
           configState.components[compKey].selectedMaterial = btn.dataset.popMat;
-          openPartPopover(compKey);
+          openPartPopover(compKey, false);
           refreshInteractiveScene();
         });
       });
@@ -2957,7 +3270,7 @@
         btn.addEventListener("click", (e) => {
           e.stopPropagation();
           configState.components[compKey].selectedStitch = btn.dataset.popStitch;
-          openPartPopover(compKey);
+          openPartPopover(compKey, false);
           refreshInteractiveScene();
         });
       });
@@ -2966,7 +3279,7 @@
         btn.addEventListener("click", (e) => {
           e.stopPropagation();
           configState.components[compKey].selectedSpec1 = btn.dataset.popSpec1;
-          openPartPopover(compKey);
+          openPartPopover(compKey, false);
           refreshInteractiveScene();
         });
       });
@@ -2975,7 +3288,7 @@
         btn.addEventListener("click", (e) => {
           e.stopPropagation();
           configState.components[compKey].selectedSpec2 = btn.dataset.popSpec2;
-          openPartPopover(compKey);
+          openPartPopover(compKey, false);
           refreshInteractiveScene();
         });
       });
@@ -3046,24 +3359,28 @@
           let closestKey = null;
           let minDist = Infinity;
 
-          // Deteção direta e inteligente de clique na peça física (sem necessidade de numeração na imagem!)
+          // Deteção direta e inteligente de clique na peça física em qualquer ângulo 360° (sem necessidade de numeração na imagem!)
           if (configState.viewMode !== "FORMAL_BOARD") {
             const normAngle = (((configState.rotationAngle % 360) + 360) % 360);
-            const rad = (normAngle * Math.PI) / 180;
-            const cosA = Math.cos(rad);
-            const isMirrored = cosA < 0;
+            const cam = getTurntableCameraSpec(normAngle);
 
-            let vKey = "SIDE";
-            if (configState.viewMode === "CAMERA_FRONT_34") vKey = "FRONT_34";
-            else if (configState.viewMode === "CAMERA_REAR_34") vKey = "REAR_34";
+            let vKey = cam.viewKey;
+            let isMirrored = cam.isMirrored;
+            if (configState.viewMode === "CAMERA_FRONT_34") {
+              vKey = "FRONT_34";
+              isMirrored = false;
+            } else if (configState.viewMode === "CAMERA_REAR_34") {
+              vKey = "REAR_34";
+              isMirrored = false;
+            }
             const meta = STUDIO_VIEWS_META[vKey] || STUDIO_VIEWS_META.SIDE;
 
-            // Converter o clique no palco para a coordenada horizontal da vista base
+            // Converter o clique no palco para a coordenada da vista base (desfazendo a projeção 3D e o espelhamento)
             let localX = clickX;
             let localY = clickY;
             if (configState.viewMode === "STUDIO_360") {
-              const absCos = Math.abs(cosA);
-              const effMag = Math.max(0.28, 0.26 + 0.74 * Math.pow(absCos, 0.88));
+              const rad = (cam.relDeg * Math.PI) / 180;
+              const effMag = 0.84 + 0.16 * Math.cos(rad);
               const rawU = (clickX - 960) / effMag;
               const unmirroredX = 960 + rawU;
               localX = isMirrored ? 1920 - unmirroredX : unmirroredX;
@@ -3097,26 +3414,26 @@
               closestKey = "headlight";
               minDist = 0;
             } else if (
-              localX >= 745 &&
+              localX >= 700 &&
               localX <= 1255 &&
               localY >= 140 &&
-              localY <= 438
+              localY <= 445
             ) {
               closestKey = "tank";
               minDist = 0;
             } else if (
               localX >= 455 &&
               localX <= 730 &&
-              localY >= 360 &&
+              localY >= 340 &&
               localY <= 640
             ) {
               closestKey = "rearSuspension";
               minDist = 0;
             } else if (
-              localX >= 1235 &&
-              localX <= 1460 &&
+              localX >= 1080 &&
+              localX <= 1490 &&
               localY >= 565 &&
-              localY <= 720
+              localY <= 780
             ) {
               closestKey = "brakes";
               minDist = 0;
@@ -3128,6 +3445,32 @@
               localY <= meta.forkBox.y2
             ) {
               closestKey = "frontSuspension";
+              minDist = 0;
+            } else if (
+              meta.frontWheel &&
+              Math.hypot(
+                (localX - meta.frontWheel.cx) / meta.frontWheel.rx,
+                (localY - meta.frontWheel.cy) / meta.frontWheel.ry
+              ) <= 1.08
+            ) {
+              const rNorm = Math.hypot(
+                (localX - meta.frontWheel.cx) / meta.frontWheel.rx,
+                (localY - meta.frontWheel.cy) / meta.frontWheel.ry
+              );
+              closestKey = rNorm >= 0.68 ? "tires" : "wheels";
+              minDist = 0;
+            } else if (
+              meta.rearWheel &&
+              Math.hypot(
+                (localX - meta.rearWheel.cx) / meta.rearWheel.rx,
+                (localY - meta.rearWheel.cy) / meta.rearWheel.ry
+              ) <= 1.08
+            ) {
+              const rNorm = Math.hypot(
+                (localX - meta.rearWheel.cx) / meta.rearWheel.rx,
+                (localY - meta.rearWheel.cy) / meta.rearWheel.ry
+              );
+              closestKey = rNorm >= 0.68 ? "tires" : "wheels";
               minDist = 0;
             }
           }

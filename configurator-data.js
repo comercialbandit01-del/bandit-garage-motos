@@ -259,11 +259,12 @@ window.CONFIGURATOR_COMPONENTS = [
     ],
     colors: [
       { key: "bandit_black", name: { pt: "Preto Ébano Bandit Profundo", en: "Bandit Deep Ebony Black", es: "Negro Ébano Bandit", fr: "Noir Ébène Bandit Profond" }, hex: "#111111" },
+      { key: "alpine_white", name: { pt: "Branco Alpino / Pérola Clássico", en: "Alpine Pearl White", es: "Blanco Alpino / Perla Clásico", fr: "Blanc Alpin / Nacre Classique" }, hex: "#f8fafc" },
       { key: "british_green", name: { pt: "Verde British Racing / Oliva Mate", en: "British Racing / Olive Matte Green", es: "Verde British Racing / Oliva Mate", fr: "Vert British Racing / Olive Mat" }, hex: "#1b3b28" },
       { key: "midnight_blue", name: { pt: "Azul Meia-Noite Bandit", en: "Bandit Midnight Blue", es: "Azul Medianoche Bandit", fr: "Bleu Nuit Bandit" }, hex: "#172554" },
       { key: "nardo_grey", name: { pt: "Cinzento Nardo Acetinado", en: "Satin Nardo Grey", es: "Gris Nardo Satinado", fr: "Gris Nardo Satiné" }, hex: "#63696f" },
       { key: "desert_sand", name: { pt: "Areia Saara Dakar Mate", en: "Dakar Sahara Sand Matte", es: "Arena Sahara Dakar Mate", fr: "Sable Sahara Dakar Mat" }, hex: "#c4a376" },
-      { key: "classic_silver", name: { pt: "Alumínio Escovado / Prata Motorsport", en: "Brushed Alloy / Motorsport Silver", es: "Aluminio Cepillado / Plata Motorsport", fr: "Aluminium Brossé / Argent Motorsport" }, hex: "#b5b7b9" }
+      { key: "classic_silver", name: { pt: "Alumínio Escovado / Prata Motorsport", en: "Brushed Alloy / Motorsport Silver", es: "Aluminio Cepillado / Plata Motorsport", fr: "Aluminium Brossé / Argent Motorsport" }, hex: "#e2e8f0" }
     ],
     spec1Label: { pt: "Acabamento do Depósito:", en: "Tank Finish:", es: "Acabado del Depósito:", fr: "Finition du Réservoir :" },
     spec1Options: [
